@@ -1,0 +1,68 @@
+> Want better results in your job search? **Go and learn another language after class.**
+
+    - Learn server-side JS (Node.js); the framework Express is built on JS
+    - Learn PHP; the framework Symfony is built on PHP; Wordpress is also built on PHP
+    - Learn Python; the framework Django is built on Python
+    - Learn Ruby; the framework Rails is built on Ruby
+    - Learn C# (pronounced "C-sharp"); the framework ASP.NET MVC 4.5 is built on C#
+
+    For whatever reason, don't market yourself as a designer if your stuff doesn't look good. :-) You are JS **engineers**. NOT learning a little serverside and being afraid to try will limit your job search. SO start learning some serveriside and apply for jobs that ask for fullstack devs!
+
+- http://codepen.io/jobs
+- http://codingforinterviews.com/internships (internship experience at BIG companies)
+- http://www.founderweekly.com/ (great email list of udates on startup lessons)
+- http://codingforinterviews.com/ (great email list of updates, interview questions, developer culture)
+- https://twitter.com/workingnomads
+- http://workingnomads.co/
+- https://underdog.io/
+- https://www.ziprecruiter.com/jobs
+- https://remotecoder.io/
+- http://frontenddeveloperjob.com/
+- http://monster.com
+- https://www.linkedin.com/job/home?trk=hb_tab_jobs_top
+- http://authenticjobs.com
+- http://perks.io
+- http://jobety.com/
+- http://careers.stackoverflow.com/jobs
+- https://jobs.github.com/
+- http://jobs.smashingmagazine.com/
+- http://www.krop.com/
+- http://slashdot.org/job_board.pl?job-board.php
+- http://dribbble.com/jobs/
+- http://www.crunchboard.com/crunchboard.php
+- https://weworkremotely.com/
+- http://arstechnica.com/jobs/
+- https://www.interviewstreet.com/recruit2/
+- http://jobs.readwriteweb.com/
+- http://jobs.ajaxian.com/
+- http://jobs.metafilter.com/
+- http://www.freshwebjobs.com/
+- http://www.coroflot.com/jobs
+- http://jobs.mashable.com/jobs/search/results
+- http://www.creativehotlist.com/
+- http://www.thefwa.com/jobs
+- http://www.sensationaljobs.com/
+- https://toprubyjobs.com
+- http://www.indeed.com/
+- https://www.facebook.com/groups/dctechjobs/
+- https://www.facebook.com/groups/dctechjobs/permalink/869588979725410/
+- https://www.facebook.com/groups/houstondigitaljobs/
+- https://www.facebook.com/groups/437880809643302/
+- https://www.facebook.com/groups/houstonprogrammers/
+- https://news.ycombinator.com/jobs
+- http://www.therotationship.com/
+- https://hired.com/home
+- https://angel.co/jobs
+- http://onsite.io/
+- https://uxmag.com/uxjobs
+- https://gun.io/
+- http://www.dice.com/
+- https://coderwall.com/jobs
+- http://www.internships.com/
+- http://jsfu.org/
+- http://jobs.nodejs.org/a/jobs/find-jobs
+- http://jobs.jsninja.com/a/jbb/find-jobs
+- http://www.awwwards.com/jobs/
+- http://www.producthunt.com/jobs
+- https://www.behance.net/joblist
+- http://unity3d.com/jobs
