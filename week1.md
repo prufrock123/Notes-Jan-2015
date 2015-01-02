@@ -2,7 +2,7 @@
 
 # Objectives
 
-- Policies, learning styles, notes, communications, scheduling, automating, focus
+- Policies, learning styles, notes, communications, scheduling, automating, focus (http://blog.pickcrew.com/5-alternative-ways-to-manage-time/)
 - Chrome Dev Tools
 - [Mac OS X Terminal Basics](#mac-os-x-terminal-basics)
 - HTML
@@ -126,7 +126,7 @@ $> bower install <package name>
 $> bower install normalize.css
 ```
 
-** Go-to resources for front end projects **
+**Go-to resources for front end projects**
 
 ```sh
 $> bower install normalize.css
@@ -170,13 +170,13 @@ $ pwd
 
 To use the basics of git, you can think of it as a briefase with folders in it. It takes a copy of papers (a printout of your project at a certain point in time), but it will only snapshot the things you have placed in the "staging area" (the folders, in this analogy).
 
-** Configuring git editor **
+**Configuring git editor**
 
 ```sh
 git config --global core.editor "sublime --wait"
 ```
 
-** Cloning a repository to your computer **
+**Cloning a repository to your computer**
 
 This creates a git repository in the current directory.
 
@@ -184,7 +184,7 @@ This creates a git repository in the current directory.
 git clone <ssh URL from your github repo>
 ```
 
-** Adding files to the staging area **
+**Adding files to the staging area**
 
 To see the current status of your directory and repository:
 
@@ -198,13 +198,13 @@ To track *all* files. You can do this by adding the current directory.
 $ git add .
 ```
 
-** Checking the status **
+**Checking the status**
 
 ```sh
 $ git status
 ```
 
-** Committing files **
+**Committing files**
 
 Now that you have files in the staging area, you can save a snapshot of the staging area using a commit.
 
@@ -222,7 +222,7 @@ $ git commit
 1 file changed, 12 insertions(+), 2 deletions(-)
 ```
 
-** Pushing to GitHub **
+**Pushing to GitHub**
 
 First you'll need to make a repository on GitHub (replace `<projectname>` with the name of your project) and clone it:
 
@@ -238,7 +238,7 @@ $ git push origin master
 
 If you use the wrong command, it might give you an error, but it won't hurt anything, so don't worry too much about remembering whether you've already pushed.
 
-** Github pages **
+**Github pages**
 
 Github allows you to create a branch called `gh-pages`. These files (like an index.html file) will then be accessible at <github-username>.github.io/<projectname>/index.html.
 
@@ -299,7 +299,7 @@ One of the most prominent topics today in the CSS arena is how to approach makin
 
 For these sites to work "well", sometimes we must implement "collapsing columns", which means as the screen size grows, columns or layout can change. We will cover one primary approach to create "collapsing columns" with **media queries**.
 
-** Rule #1 ** for using media queries is to start "mobile first". That is:
+**Rule #1** for using media queries is to start "mobile first". That is:
 
 1. Make all of your CSS statements that are **NOT** inside a media query declare styles for a mobile screen.
 2. Find the "breakpoints" - the widths or heights of your browser that a style should change, and write them down
@@ -364,7 +364,7 @@ Here's a fix:
 
 And a visual description of how this changes things (for the better):
 
-![](./examples/border-box.jpg)
+![](./extras/border-box.jpg)
 
 ---
 
