@@ -2,6 +2,7 @@
 
 # Objectives
 
+- Policies, learning styles, notes, communications, scheduling, automating, focus
 - Chrome Dev Tools
 - [Mac OS X Terminal Basics](#mac-os-x-terminal-basics)
 - HTML
@@ -16,10 +17,12 @@
 - Blogging and branding
 - Expectations, Policies, Schedules, Fun Stuff
 - Sublime boilerplate code and tab completion
-- The ipsums (http://meettheipsums.com/),
+- The ipsums (http://meettheipsums.com/)
 - Layout: `display` and `position`
 - The Box Model
-- Responsive Web Design
+- [Responsive Web Design](#responsive-web-design)
+- [Box Sizing](#box-sizing)
+- [The Inline Block Grid](#the-inline-block-grid)
 - Fonts and Google Fonts
 - Shell-scripting (bash) and automating repetitive work
 
@@ -27,7 +30,7 @@
 
 # Resources
 
-** HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN **
+**HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN**
 
 - http://meettheipsums.com/
 - Mozilla Developer Network: https://developer.mozilla.org/en-US/
@@ -36,7 +39,7 @@
 - All the CSS properties! https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
 - You need GIFs, so get 'em here: http://giphy.com/
 
-** Typography, Fonts, A-to-Z-css **
+**Typography, Fonts, A-to-Z-css**
 
 - http://necolas.github.io/normalize.css/
 - http://typeplate.com/
@@ -44,7 +47,7 @@
 - http://hellohappy.org/beautiful-web-type/
 - http://www.atozcss.com/media-queries/ and the entire AtoZcss podcast lineup: http://www.atozcss.com/
 
-** CSS almanac, pseudo-classes/selectors, codepen patterns, currentColor **
+**CSS almanac, pseudo-classes/selectors, codepen patterns, currentColor**
 
 - http://css-tricks.com/almanac/
 - CSS pseudo-classes and selectors
@@ -61,7 +64,7 @@
 
 - Common HTML tags vs display type, shorthand CSS values, ems, `box-sizing:border-box`
 
-** Homework **
+**Homework**
 
 1. Read http://learnlayout.com/
 - Do this assignment: .. link to html-intro-1
@@ -70,16 +73,41 @@
 
 ---
 
+# HTML
+
+**Syntax**
+
+**Attributes**
+
+**Nesting**
+
+**Tags**
+
+**Semantic Tags (and other HTML5 additions)**
+
+---
+
 # CSS
 
-** Syntax **
-** Specificity **
-** Layout techniques **
-** Pseudo-selectors **
-** Pseudo-objects **
-** Transitions **
-** Transforms **
-** Keyframes **
+**Syntax**
+
+**Specificity**
+
+**Point system**
+
+**Layout techniques**
+
+**Pseudo-selectors**
+
+**Pseudo-objects**
+
+**Transitions**
+
+**Transforms**
+
+**Keyframes**
+
+**attr()**
 
 ---
 
@@ -227,5 +255,200 @@ $ git push origin gh-pages
 # 4. checkout 'master' again; you should do this so that any edits you make to your code starts in the 'master' branch
 ```
 $ git checkout master
+
+---
+
+# Responsive Web Design
+
+Several different layout properties have been assessed, and the primary approach to create type-setting "grids" (for example, a newspaper layout), is to create a parent element with a bunch of child elements that `float:left`.
+
+This works well, and is easily implemented with the following:
+
+```css
+.parent-element {
+    position: relative;
+    overflow-y: auto; /* force the height of the parent-element to be as tall as that of the floated elements inside it */
+}
+.parent-element > * {
+    float:left;
+    width: 50%;
+}
+```
+
+The technique above creates "rows of two". For "rows of three", change the width of `.parent-element`'s children (the grid elements) to 33%.
+
+Also, in this approach, the grid elements have no seperation. This isn't ideal, so let's reduce the width of each grid element by 2% and add 1% margins for whitespace:
+
+```css
+.parent-element {
+    position: relative;
+    overflow-y: auto;
+}
+.parent-element > * {
+    float:left;
+    width: 48%;
+    margin: 0 1% 1.5em 1%; /* top right bottom left */
+}
+```
+
+This will put some space in-between each grid element.
+
+**Adapting the number of columns to the screen size**
+
+One of the most prominent topics today in the CSS arena is how to approach making "one-size-fits-all" websites. These "responsive" sites work well with large desktop screens, small phone screens, and everything in-between.
+
+For these sites to work "well", sometimes we must implement "collapsing columns", which means as the screen size grows, columns or layout can change. We will cover one primary approach to create "collapsing columns" with **media queries**.
+
+** Rule #1 ** for using media queries is to start "mobile first". That is:
+
+1. Make all of your CSS statements that are **NOT** inside a media query declare styles for a mobile screen.
+2. Find the "breakpoints" - the widths or heights of your browser that a style should change, and write them down
+3. Write mediaqueries for each "breakpoint".
+
+Thus, if the CSS from earlier should be changed to mobile first, we would start with a "single column" layout.
+
+
+```css
+.parent-element {
+    position: relative;
+    overflow-y: auto;
+}
+.parent-element > * {
+    float:left;
+    width: 98%;
+    margin: 0 1% 1.5em 1%; /* top right bottom left */
+}
+```
+
+Next, we want to have two columns when the screen is at a tablet size (about 765px), and three columns when the screen is at a reasonable desktop size (about 1024px):
+
+```css
+.parent-element {
+    position: relative;
+    overflow-y: auto;
+}
+.parent-element > * {
+    float:left;
+    width: 98%;
+    margin: 0 1% 1.5em 1%; /* top right bottom left */
+}
+@media (min-width: 765px) {
+    /* change to two columns */
+    .parent-element > * {
+        width: 48%;
+    }
+}
+@media (min-width: 1024px) {
+    /* change to three columns */
+    .parent-element > * {
+        width: 31%;
+    }
+}
+```
+
+---
+
+# Box Sizing
+
+One of my least favorite parts about layout with CSS is the relationship of width and padding. You’re busy defining widths to match your grid or general column proportions, then down the line you start to add in text, which necessitates defining padding for those boxes. And ‘lo and behold, you now are subtracting pixels from your original width so the box doesn’t expand.
+
+If I say the width is 200px, gosh darn it, it’s gonna be a 200px wide box even if I have 20px of padding!!
+
+Here's a fix:
+
+```css
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+```
+
+And a visual description of how this changes things (for the better):
+
+![](./examples/border-box.jpg)
+
+---
+
+# Inline Block Grid
+
+The "inline-block grid" is a slighly different approach from the "float grid". Both approaches can use media queries to make responsive columns. However, the "inline-block grid" takes a different layout approach, and can be customized more.
+
+Let's address the pieces for the grid, one at a time:
+
+1. Box-sizing - keep the padding growing inwards
+
+    ```css
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    ```
+
+2. The `.grid` class
+
+    ```css
+    .grid {
+        font-size: 0px;
+        text-align: justify;
+        position: relative;
+    }
+    ```
+
+    - The font-size is set to 0 on the container element because inline elements have "text spaces" between them. We are forcing those "text spaces" to have no width.
+    - Justifying the text spreads the items out along the entire horizontal line. This gives the appearance of margins and whitespace b/w the columns if the combined width of the elements doesn't span the width of the container.
+
+3. The `.grid::after` pseudo-element
+
+    The last inline element of any container will never be "justified". Because we want all all of our grid elements to be "justified", we are adding a hidden inline-block at the end of the container to let our grid elements justify.
+
+    ```css
+    .grid::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+    ```
+
+4. The "mobile-first" case
+
+    ```css
+    .grid > * {
+        display: inline-block;
+        width: 100%;
+        text-align: left; /* reset the text-alignment */
+        font-size: medium; /* reset the font size */
+        vertical-align: top;
+        transition: all .25s ease; /* optional, but cool */
+    }
+    ```
+
+5. The customizations
+
+    ```css
+    @media (min-width: 765px){
+        .grid-2-765 > * { width: 48%; }
+    }
+
+    @media (min-width: 1024px){
+        .grid-3-1024 > * { width: 31.33%; }
+    }
+    ```
+
+    Any combination of customizations can be created and added to an element for granular control of layout.
+
+6. The HTML
+
+```html
+<div class="grid grid-2-765 grid-3-1024">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <a href="#"></a>
+    <div></div>
+    <div></div>
+    <li></li>
+</div>
+```
+
+Now, because the CSS forces every grid element inside the `.grid` container to be an inline block, we can use nearly any element as a child (i.e. `span`, `a`, `div`, `li`, ...).
 
 ---
