@@ -2,31 +2,65 @@
 
 # Objectives
 
-- Policies, learning styles, notes, communications, scheduling, automating, focus (http://blog.pickcrew.com/5-alternative-ways-to-manage-time/)
-- Chrome Dev Tools
+- [Blogging and Branding](#blogging-and-branding)
+- [Expectations, Policies, Schedules, Fun Stuff](../README.md)
+- [This Journey](#this-journey)
+
+- [Mac keyboard shortcuts]()
+- [DND mode]()
 - [Mac OS X Terminal Basics](#mac-os-x-terminal-basics)
-- HTML
+- [Sublime Text shortcuts]()
+
+- [Resources](#resources)
+
+- [How a browser reads HTML](#how-a-browser-reads-html)
+- [HTML](#html)
+- [Chrome Dev Tools](#chrome-dev-tools)
 - [CSS](#css)
-- [Git](#git)
-- Sublime Text shortcuts
-- Mac keyboard shortcuts
-- [Bower](#bower)
-- DND mode
-- "How a browser reads a web-page"
-- General resources
-- Blogging and branding
-- Expectations, Policies, Schedules, Fun Stuff
-- Sublime boilerplate code and tab completion
-- The ipsums (http://meettheipsums.com/)
-- Layout: `display` and `position`
-- The Box Model
+
+- [The Box Model](#the-box-model)
 - [Responsive Web Design](#responsive-web-design)
 - [Box Sizing](#box-sizing)
 - [The Inline Block Grid](#the-inline-block-grid)
-- Fonts and Google Fonts
-- Shell-scripting (bash) and automating repetitive work
+- [Fonts, Google Fonts, Typography](#fonts)
+
+- [Git](#git)
+- [Bower](#bower)
+- [Shell-scripting (bash) and automating repetitive work]()
 
 ---
+
+# This Journey
+
+http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
+
+- 30SS and taking notes,
+
+    Immediately after every lecture, meeting, or any significant experience, take 30 seconds — no more, no less — to write down the most important points. All notes in detail will be given to you. If they aren't written by me, then they are available online. What is hardest is learning, using, becoming fluent with, and reflecting on this content.
+
+- communication,
+
+    If you are sick, running late, have to take care of a car, etc... ping me directly on hipchat. Failing to do so will only hurt your progress in this class.
+
+    Also, **you need to ask questions.** If you aren't, you either aren't involved/paying attention or you aren't understanding enough to ask a question. :-) Asking questions is a muscle, and you need to exercise that muscle!
+
+- automating, scheduling, and decision fatigue,
+
+    We are hardwired to need breaks every 90-120 minutes. Schedule your energy, not your time. Block out parts of your day for exercise, for reading (fiction), for cooking, for family.
+
+    Group similar activities; if you need to do emails, do them in batches. If you need to do an assignment, do it without looking around at websites, checking Facebook/Twitter, or reading emails.
+
+    **There is no excuse to not work on high-priority items first.**
+
+    To overcome decision fatigue and be more productive in general, Tim Ferriss recommends putting systems and processes in place that automate as much thinking as possible. The goal is to turn open-ended questions (What am I going to eat for breakfast?) into if/then statements (If it’s a weekday, I’m going to have a protein shake for breakfast).
+
+    I’ve adopted Tim’s approach during the first three hours of my morning. As soon as I have a cup of coffee in hand, I’m working on some kind of code lesson for the day. Then, I write for an hour. Finally, I get in some sort of physical activity. This removes any and all wasted time from my morning.
+
+- focus
+
+    Devote all of your energy to one task at a time. Multi-tasking has a cost, especially when programming. TURN ON DND MODE.
+
+    Don't check email until lunch. Rather than checking your email dozens of times throughout the day, dedicate two blocks of time (one at the beginning and one at the end of the day).
 
 # Resources
 
@@ -39,13 +73,17 @@
 - All the CSS properties! https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
 - You need GIFs, so get 'em here: http://giphy.com/
 
-**Typography, Fonts, A-to-Z-css**
+**Typography, Fonts, Icons, A-to-Z-css podcast**
 
 - http://necolas.github.io/normalize.css/
 - http://typeplate.com/
 - http://kennethormandy.com/journal/normalize-opentype-css
 - http://hellohappy.org/beautiful-web-type/
 - http://www.atozcss.com/media-queries/ and the entire AtoZcss podcast lineup: http://www.atozcss.com/
+- http://fortawesome.github.io/Font-Awesome/get-started/
+- http://thenounproject.com/
+- https://icomoon.io/
+- http://iconmelon.com/
 
 **CSS almanac, pseudo-classes/selectors, codepen patterns, currentColor**
 
@@ -55,6 +93,7 @@
 - http://codepen.io/patterns/
 - `currentColor`
 - `::before` / `::after`
+- http://onepagelove.com/
 
 ---
 
@@ -62,7 +101,7 @@
 
 ### (1.) Monday
 
-- Common HTML tags vs display type, shorthand CSS values, ems, `box-sizing:border-box`
+-  TBD
 
 **Homework**
 
@@ -71,33 +110,306 @@
 - Watch "The Long Game pt 1 and 2": http://delve.tv/essays/
 - Blog about "The Long Game" and your first assignment ~~> start a blog on http://medium.com
 
+### (2.) Tuesday
+
+-  TBD
+
+**Homework**
+
+- TBD
+
+### (2.) Wednesday
+
+-  TBD
+
+**Homework**
+
+- TBD
+
+### (2.) Thursday
+
+-  TBD
+
+**Homework**
+
+- TBD
+
+---
+
+# Blogging and Branding
+
+Sign up for an account on http://medium.com. You will be asked to regularly blog, reflecting on your voyage and trials here at The Iron Yard. You will also be asked to, on occasion, reflect on a reading, on an assignment, or on a video as a homework assignment itself.
+
+Writing about code, about being a developer, about a tool, and so forth gives you leverage. You learn to put into words how you emotionally feel, you understand and reflect, you meditate. Those thoughts, ideas, and takeaways are in essence "pre-meditated" and prepared so that when you rub shoulders with and interview with employers, clients, and customers, you have something eloquent enough to deliver, and memorable enough to recall.
+
+---
+
+# How a browser reads HTML
+
+**Browser Rendering Process**
+
+1. loads HTML
+2. finds tags from top to bottom, and tries to render them
+3. CSS found! - loads it in parallel and continues
+4. JS found! - loads and executes it while blocking everything else :-(
+
 ---
 
 # HTML
 
 **Syntax**
 
-**Attributes**
+1. This is an HTML tag: `<div>`
+2. Most tags exist in two's – they have an opening and closing tag: `<div></div>`
+3. Tags can be nested.
 
-**Nesting**
+    Bad:
+
+    ```html
+    <div><span></div></span>
+    ```
+
+    Good:
+
+    ```html
+    <div> <span></span> </div>
+    ```
 
 **Tags**
 
-**Semantic Tags (and other HTML5 additions)**
+Common HTML tags:
+
+- html
+- head
+- body
+- div
+- span
+- p
+- a
+- pre
+- blockquote
+- hr
+- h1, h2, h3, h4, h5, h6
+- img
+- ol, ul, li
+- strong, em
+
+Table HTML tags:
+
+- table
+- tr
+- td
+
+Form HTML tags:
+
+- form
+- input
+- textarea
+- button
+- label
+- fieldset
+- select, option
+
+HTML5 tags:
+
+- aside
+- article
+- audio
+- address
+- header
+- footer
+- main
+- nav
+- section
+
+**Attributes**
+
+Tags can have attributes: `<tagname attributeName="..">`. Some attributes have defined _values_ while others do not.
+
+Common attributes include:
+
+- class, id (can be any value you provide)
+
+    ```html
+    <div class="header" id="top-of-page"></div>
+    ```
+
+- `<input>` type (can be: text, number, telephone, email, password, url, search, date, time, datetime, month, week, color, range)
+
+    ```html
+    <input type="text">
+    ```
+
+- `<input>` name, required, pattern
+
+    ```html
+    <input name="email" type="email" required>
+    <input name="alphabeticalOnly" type="text" pattern="[a-zA-Z]+" required>
+    ```
+
+- `<input>` placeholder (can be any placeholder text on an input)
+
+    ```html
+    <input type="email" placeholder="Enter your email">
+    ```
+
+- `<img>` src (a URL to pull an image from)
+
+    ```html
+    <img src="...">
+    ```
+
+- `<form>` action (a URL to send the data -- default is to the same webpage address), method (can be: POST or GET -- default is GET)
+
+    ```html
+    <form id="login" method="POST">
+        <input name="email" type="email" required>
+        <input name="pass" type="password" required>
+    </form>
+    ```
+
+- '<a>' href (can be any URL), target (can be )
+
+    ```html
+    <a href="...">
+    ```
+
+- other `<form>` and `<input>` attributes: autocomplete, autosave, autofocus
 
 ---
 
 # CSS
 
+The **first** and **most important** rule of CSS is that all elements have default styles, provided by a default stylesheet (comes from the browser). Any element can be customized with nearly any custom CSS.
+
+As developers and designers, we have the opportunity to customize the default stylesheet provided by the browser, by providing our own CSS for the browser to load in addition.
+
+The **second** rule of CSS in this class is that with HTML and CSS, for _any_ layout, less is more. Consider all the permutations of layouts and the CSS declarations, and this will help you to build mind map and a "practiced" routine for particular layout and design techniques.
+
 **Syntax**
+
+CSS is comprised of a series of CSS _statements_, each of which have 0 or more CSS _property/value_ pairs.
+
+Here is a single CSS _statement_ with two _property/value_ pairs:
+
+```css
+<selector> {
+    display: inline-block;
+    border: 3px solid red;
+    border-radius: 50%;
+}
+```
+
+A CSS _statement_ applies the block of _properties_ to any element that matches any and all elements in the webpage that match the _statement target_ (like `img` above).
+
+The _selector_ can be any combination of:
+
+_identifiers_
+
+1. a `tagname`
+- a `.class`
+- an `#id`
+- a star `*` (which matches any `tagname`)
+- `[name="value"]` - matches elements where name is exactly "value"
+-  `[name~="value"]` - matches elements where name contains "value"
+- `[name$="value"]` - matches elements where name starts with "value"
+- `[name^="value"]` - matches elements where name ends with "value"
+
+_pseudo-classes_
+
+1. `:active`
+- `:checked`
+- `:default`
+- `:empty`
+- `:enabled`
+- `:first`
+- `:first-child`
+- `:first-of-type`
+- `:focus`
+- `:fullscreen`
+- `:hover`
+- `:invalid`
+- `:last-child`
+- `:last-of-type`
+- `:link`
+- `:not()`
+- `:nth-child()`
+- `:nth-last-child()`
+- `:nth-last-of-type()`
+- `:nth-of-type()`
+- `:only-child`
+- `:only-of-type`
+- `:optional`
+- `:required`
+- `:target`
+- `:valid`
+- `:visited`
+
+_pseudo-objects_
+
+1. `::after`
+- `::before`
+- `::first-letter`
+- `::first-line`
+- `::selection`
+
+_combinators_
+
+1. `A B` - descendant selector
+- `A > B` - direct child
+- `A ~ B` - general sibling
+- `A + B` - adjacent sibling
+- `A, B` - group selector
+
+Putting it all together, here are some valid CSS statements:
+
+```css
+div {}
+div.class {}
+.class {}
+div#id.class {}
+#id.class {}
+
+.grid > * {}
+.grid > *:nth-child(2n+1) {}
+
+table tr:nth-child(2n+1) {}
+
+article p:first-of-type::first-letter {
+    float: left;
+    font-size: 2.5em;
+}
+
+article a:hover {}
+
+.first + .second {}
+```
 
 **Specificity**
 
-**Point system**
+Every CSS _statement_ we declare in our own stylesheet overrides the default stylesheet because it is included in the webpage after the default, essentially overwriting any conflicting properties with the latest one.
+
+But what happens if we have two _statements_ adding styles to `p` tags:
+
+```css
+html body p { color: green; }
+body p { color: red; font-size: 3em; }
+```
+
+The paragraph font size will be `3em`, however text color will be green, because the color property has a more **specific** selector applying a value: `html body p`.
+
+Numerically, there is a hidden point system in CSS that determines how this works. Here's the "points" awarded to a selector:
+
+- 1 point per tagname
+- 5 points per class
+- 25 points per id
+- `A B` (descendant) adds the points of A and B together
+- `A > B` (direct child) adds A, B, and an extra amount of points
+- and so forth...
+
+Thus, generally you should be careful about how specific your _selectors_ are until you need them. We will cover this in greater detail throughout the course.
 
 **Layout techniques**
-
-**Pseudo-selectors**
 
 **Pseudo-objects**
 
@@ -108,6 +420,36 @@
 **Keyframes**
 
 **attr()**
+
+- counters
+
+---
+
+# Sublime Text Shortcuts
+
+**Install Package Control**
+
+1. Open Sublime Terminal with `CTRL + ~`.
+2. Copy and paste the Sublime Text 3 code from https://sublime.wbond.net/installation to the Sublime Terminal.
+3. Hit Enter.
+4. Close Sublime Terminal with `ESC`.
+5. Open Package Control `CMD + SHIFT + P`.
+6. Type `install`, notice all the options you can do and how Sublime suggests items based on what you are searching for.
+7. Select the item named `Package Control: Install Package`.
+8. Search for `DocBlockr` and `Sublime-HTMLPrettify` and install!
+
+Install:
+
+- DocBlockr
+- Prettify
+
+**DocBlockr**
+
+In your CSS, on a new line, type `/**` then `ENTER`.
+
+**Prettify**
+
+In any code, type `CMD + SHIFT + H`. Boom! Formatting.
 
 ---
 
@@ -368,7 +710,7 @@ And a visual description of how this changes things (for the better):
 
 ---
 
-# Inline Block Grid
+# The Inline Block Grid
 
 The "inline-block grid" is a slighly different approach from the "float grid". Both approaches can use media queries to make responsive columns. However, the "inline-block grid" takes a different layout approach, and can be customized more.
 
@@ -452,3 +794,80 @@ Let's address the pieces for the grid, one at a time:
 Now, because the CSS forces every grid element inside the `.grid` container to be an inline block, we can use nearly any element as a child (i.e. `span`, `a`, `div`, `li`, ...).
 
 ---
+
+# Forcing Aspect-Ratio
+
+Forcing the aspect ratio can be done with an `::after` pseudo-element. In this case, `padding-top: 100%;` means give the `::after` element a top padding that is 100% of the container's width.
+
+```css
+.squarify > *::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+```
+
+---
+
+# Absolute Centering
+
+http://tiy-houston-front-end-sept-2014.github.io/TShirts/centering.html
+
+```css
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.square {
+    margin: auto;
+    width: 200px;
+    background-color: chartreuse;
+}
+.square::after {
+    content:"";
+    display: block;
+    padding-top: 100%;
+}
+.centerify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+
+---
+
+# Gulp
+
+Gulp is a nice build tool that can do stuff like autoprefix our CSS for us. Which is exactly what we'll do here. For more info on Gulp, see http://gulpjs.com/.
+
+1. First, install Gulp with `npm install gulp gulp-autoprefixer --savedev`.
+- Now, create a file called `gulpfile.js` in your project directory and put these contents in it:
+
+    ```js
+        var gulp = require('gulp');
+        var autoprefixer = require('gulp-autoprefixer');
+
+        gulp.task('prefix', function () {
+            return gulp.src('./*.css')
+                .pipe(autoprefixer({}))
+                .pipe(gulp.dest('dist'));
+        });
+
+        gulp.task('watch', function () {
+            gulp.watch("./*.css", ['prefix']);
+        });
+    ```
+
+- In your terminal, run
+
+    ```sh
+    echo "node_modules" >> .gitignore
+    ```
+
+- In your terminal, run `gulp watch`.
+- Point your `<link href="...">` in your HTML to the `./dist/style.css` file instead of `./style.css` to use the auto-prefixed version.
+
+Now, whenever you edit a CSS file in your project directory, Gulp will put a prefixed version of that CSS in a folder called `dist`.
+
+![](./examples/extras/gulp-dist.png)
