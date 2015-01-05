@@ -11,21 +11,25 @@ fi
 brew update
 
 # Install GNU core utilities (those that come with OS X are outdated)
-# brew install coreutils
+brew install coreutils
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-# brew install findutils
+brew install findutils
 
 # Install Bash 4
-# brew install bash
+brew install bash
 
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
-# brew install homebrew/dupes/grep
+brew install homebrew/dupes/grep
 
 $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
 binaries=(
+  graphicsmagick
+  webkit2png
+  ffmpeg
+  python
   node
   git
 )
@@ -41,21 +45,15 @@ brew tap caskroom/versions
 
 # Apps
 apps=(
-  # dropbox
-  # google-chrome
-  # screenflick
-  # appcleaner
-  # firefox
+  google-chrome
   sublime-text3
-  # atom
   flux
-  # vlc
+  vlc
 )
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
 echo "installing apps..."
-say "installing applications now."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 # Some things taken from here
@@ -99,7 +97,6 @@ cecho "#            ~ Happy Hacking ~" $white
 cecho "#############################################" $white
 echo ""
 
-say "This script will make your Mac awesome. Watch for the prompts, answer them, and let the script do the work."
 
 ###############################################################################
 # General UI/UX
@@ -107,7 +104,6 @@ say "This script will make your Mac awesome. Watch for the prompts, answer them,
 
 echo ""
 echo "Setting your computer name (as done via System Preferences Ã¢â€ â€™ Sharing)"
-say "Attention: please answer a question in the terminal!"
 echo "What would you like it to be?"
 read COMPUTER_NAME
 sudo scutil --set ComputerName $COMPUTER_NAME
@@ -480,17 +476,4 @@ echo ""
 # SSH
 ###############################################################################
 
-say "Attention: please answer a question in the terminal!"
-cecho "###############################################################################" $green
-cecho "Now to setup your SSH keys with Github" $green
-# ssh-keygen
-cecho "###############################################################################" $green
-
-
-say "Installation of class resources has been successful!"
-find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \
-  "Terminal" "Transmission"; do
-  killall "${app}" > /dev/null 2>&1
-done
+ssh-keygen
