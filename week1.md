@@ -97,14 +97,14 @@ http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
 
 **Homework**
 
-1. Read http://learnlayout.com/
-- Do this assignment: [html-intro-1](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-1/README.md)
+1. Read http://learnlayout.com/, blog at least 15 things you learned, start exploring/coding these lessons in the "intro-html-1" file we started today. Zip that up and email it to matt@theironyard.com.
 - Watch "The Long Game pt 1 and 2": http://delve.tv/essays/
 - Blog about "The Long Game" and your first assignment ~~> start a blog on http://medium.com
 
 ### (2.) Tuesday
 
 -  TBD
+- Do this assignment: [html-intro-1](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-1/README.md)
 
 **Homework**
 
