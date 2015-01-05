@@ -1,0 +1,52 @@
+{
+    "name": "example-name-must-be-hyphenated",
+    "version": "0.1.0",
+    "description": "A short example description.",
+    "main": "server.js",
+    "scripts": {
+        "build:js": "npm run lint",
+        "watch:js": "watch 'npm run build:js' ./js/",
+        "build:css": "node-sass ./scss/ > ./dist/css/",
+        "watch:css": "watch 'npm run build:css' ./scss/",
+        "build": "npm run build:js && npm run build:css",
+        "watch": "parallelshell 'npm run watch:js' 'npm run watch:css'",
+
+        "clean": "rm -r dist/*",
+        "test": "mocha ./js/tests/",
+        "lint": "jshint **.js",
+        "env": "env",
+        "start": "node heroku-server.js",
+
+        "open:prod": "open http://example.com",
+        "open:stage": "open http://staging.example.internal",
+        "open:dev": "open http://localhost:3000",
+
+        "deploy:prod": "git push heroku master",
+        "deploy:stage": "git push origin --all"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git URL here"
+    },
+    "keywords": [
+        "css",
+        "html",
+        "js"
+    ],
+    "devDependencies": {
+        "jshint": "latest",
+        "browserify": "latest",
+        "mocha": "latest",
+        "chai": "latest",
+        "cssmin": "latest",
+        "autoprefixer": "latest",
+        "node-sass": "latest",
+        "parallelshell": "latest"
+    },
+    "dependencies": {
+        "lodash": "latest",
+        "request": "latest"
+    },
+    "author": "The Iron Yard Front End studentz",
+    "license": "MIT"
+}

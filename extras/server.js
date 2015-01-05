@@ -7,7 +7,6 @@ function startServer() {
         http = require('http'),
         path = require('path'),
         app = express(),
-        methodOverride = require('method-override'),
         request = require('request'),
         _ = require('lodash');
 
@@ -38,7 +37,6 @@ function startServer() {
 
     // all environments
     app.set('port', process.argv[3] || process.env.PORT || 3000);
-    app.use(methodOverride());
     app.use(express.static(path.join(__dirname, '')));
 
     http.createServer(app).listen(app.get('port'), function() {

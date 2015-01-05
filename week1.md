@@ -2,31 +2,25 @@
 
 # Objectives
 
-- [Blogging and Branding](#blogging-and-branding)
+1. [Blogging and Branding](#blogging-and-branding)
 - [Expectations, Policies, Schedules, Fun Stuff](../README.md)
 - [This Journey](#this-journey)
-
 - [Mac keyboard shortcuts]()
 - [DND mode]()
 - [Mac OS X Terminal Basics](#mac-os-x-terminal-basics)
 - [Sublime Text shortcuts]()
-
 - [Resources](#resources)
-
 - [How a browser reads HTML](#how-a-browser-reads-html)
 - [HTML](#html)
 - [Chrome Dev Tools](#chrome-dev-tools)
 - [CSS](#css)
-
 - [The Box Model](#the-box-model)
 - [Responsive Web Design](#responsive-web-design)
 - [Box Sizing](#box-sizing)
 - [The Inline Block Grid](#the-inline-block-grid)
 - [Fonts, Google Fonts, Typography](#fonts)
-
 - [Git](#git)
 - [Bower](#bower)
-- [Shell-scripting (bash) and automating repetitive work]()
 
 ---
 
@@ -101,12 +95,10 @@ http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
 
 ### (1.) Monday
 
--  TBD
-
 **Homework**
 
 1. Read http://learnlayout.com/
-- Do this assignment: .. link to html-intro-1
+- Do this assignment: [html-intro-1](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-1/README.md)
 - Watch "The Long Game pt 1 and 2": http://delve.tv/essays/
 - Blog about "The Long Game" and your first assignment ~~> start a blog on http://medium.com
 
@@ -835,39 +827,3 @@ http://tiy-houston-front-end-sept-2014.github.io/TShirts/centering.html
 }
 ```
 
----
-
-# Gulp
-
-Gulp is a nice build tool that can do stuff like autoprefix our CSS for us. Which is exactly what we'll do here. For more info on Gulp, see http://gulpjs.com/.
-
-1. First, install Gulp with `npm install gulp gulp-autoprefixer --savedev`.
-- Now, create a file called `gulpfile.js` in your project directory and put these contents in it:
-
-    ```js
-        var gulp = require('gulp');
-        var autoprefixer = require('gulp-autoprefixer');
-
-        gulp.task('prefix', function () {
-            return gulp.src('./*.css')
-                .pipe(autoprefixer({}))
-                .pipe(gulp.dest('dist'));
-        });
-
-        gulp.task('watch', function () {
-            gulp.watch("./*.css", ['prefix']);
-        });
-    ```
-
-- In your terminal, run
-
-    ```sh
-    echo "node_modules" >> .gitignore
-    ```
-
-- In your terminal, run `gulp watch`.
-- Point your `<link href="...">` in your HTML to the `./dist/style.css` file instead of `./style.css` to use the auto-prefixed version.
-
-Now, whenever you edit a CSS file in your project directory, Gulp will put a prefixed version of that CSS in a folder called `dist`.
-
-![](./examples/extras/gulp-dist.png)

@@ -2,6 +2,7 @@
 #
 # test for a Folder name and URL
 
+say "Attention: please answer a question in the terminal!"
 echo "(1) Enter the folder name to create for this new project:"
 read folderName
 
@@ -9,6 +10,7 @@ if [ -z $folderName ] ; then
     echo "You emptied an empty answer. Can't continue." >&2; exit 1
 fi
 
+say "Attention: please answer a question in the terminal!"
 echo "(2) Enter the Git SSH URL for this project:"
 read gitSshUrl
 
@@ -30,11 +32,11 @@ git pull origin master
 mkdir ./css
 mkdir ./dist
 mkdir ./js
-mkdir ./test
+mkdir ./js/test
 mkdir ./templates
 mkdir ./scss
 
-bower install normalize.css typeplate-starter-kit jquery lodash pathjs Loader mocha chai backbone --save
+bower install normalize.css typeplate-starter-kit jquery lodash pathjs Loader backbone --save
 
 if [ ! -f ./index.html ]; then
     touch ./index.html
@@ -143,8 +145,8 @@ function app(){
 }
     ' > ./js/app.js
 fi
-if [ ! -f ./test/main.js ]; then
-    touch ./test/main.js
+if [ ! -f ./js/test/main.js ]; then
+    touch ./js/test/main.js
     # write to our testing js
     echo '
 _.templateSettings.interpolate = /{([\s\S]+?)}/g;
@@ -176,30 +178,7 @@ mocha.globals(["jQuery"]);
 mocha.run();
     ' > ./test/main.js
 fi
-if [ ! -f ./test.html ]; then
-    touch ./test.html
-    # setup our test.html file
-    echo '
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="./bower_components/mocha/mocha.css">
-    <title></title>
-</head>
-<body>
-    <div id="mocha"></div>
-    <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="./bower_components/lodash/dist/lodash.min.js"></script>
-    <script type="text/javascript" src="./bower_components/backbone/backbone.js"></script>
-    <script type="text/javascript" src="./bower_components/mocha/mocha.js"></script>
-    <script type="text/javascript" src="./bower_components/chai/chai.js"></script>
-    <!-- load all of your declaration files and what not here -->
-    <!-- for example, <script type="text/javascript" src="./js/libs/EtsyClient.js"></script> -->
-    <script type="text/javascript" src="./test/main.js"></script>
-</body>
-</html>
-' > ./test.html
-fi
+
 if [ ! -f ./Procfile ]; then
     touch ./Procfile
     # setup our Procfile
@@ -235,6 +214,8 @@ git add --all .
 git commit -am "ok, wrapping up install process"
 git branch gh-pages
 git push --all
+
+say "Installation and setup of this get repository has been successful!"
 
 # final messages
 echo "Don't forget to:
