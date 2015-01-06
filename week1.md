@@ -529,7 +529,7 @@ $ git status
 To track *all* files. You can do this by adding the current directory.
 
 ```sh
-$ git add .
+$ git add --all .
 ```
 
 **Checking the status**
@@ -543,28 +543,10 @@ $ git status
 Now that you have files in the staging area, you can save a snapshot of the staging area using a commit.
 
 ```sh
-$ git commit
-```
-
-This will open a text editor, probably Sublime. (See [Configuring git editor](#configuring-git-editor) if Sublime doesn't open.)
-
-Enter a commit message as the first line in the editor (e.g. "Initial commit" or "Fix the font in index.html"). Save the document in the editor and close the window. Git will finish running in the terminal and you should see output like the following:
-
-```
-$ git commit
-[master 7b84c79] Fix font in index.html
-1 file changed, 12 insertions(+), 2 deletions(-)
+$ git commit -am "some commit message"
 ```
 
 **Pushing to GitHub**
-
-First you'll need to make a repository on GitHub (replace `<projectname>` with the name of your project) and clone it:
-
-```sh
-$ git clone <project SSH URL>
-```
-
-Then, push your commits to GitHub:
 
 ```sh
 $ git push origin master
