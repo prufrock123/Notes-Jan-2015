@@ -727,8 +727,8 @@ $ git merge master
 # 3. push these updates to git
 $ git push origin gh-pages
 # 4. checkout 'master' again; you should do this so that any edits you make to your code starts in the 'master' branch
-```
 $ git checkout master
+```
 
 ---
 
