@@ -42,7 +42,7 @@
 
 ### (2.) Wednesday
 
--  TBD
+1. Do this assignment: [responsive-html-forms](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-2-responsive-forms/README.md)
 
 **Homework**
 
