@@ -24,37 +24,39 @@
 
 ---
 
-# This Journey
+# Discussion Topics and Homework
 
-http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
+### (1.) Monday
 
-- 30SS and taking notes,
+**Homework**
 
-    Immediately after every lecture, meeting, or any significant experience, take 30 seconds — no more, no less — to write down the most important points. All notes in detail will be given to you. If they aren't written by me, then they are available online. What is hardest is learning, using, becoming fluent with, and reflecting on this content.
+1. Read http://learnlayout.com/, blog at least 15 things you learned, start exploring/coding these lessons in the "intro-html-1" file we started today. Zip that up and email it to matt@theironyard.com.
+- Watch "The Long Game pt 1 and 2": http://delve.tv/essays/
+- Blog about "The Long Game" and your first assignment ~~> start a blog on http://medium.com
 
-- communication,
+### (2.) Tuesday
 
-    If you are sick, running late, have to take care of a car, etc... ping me directly on hipchat. Failing to do so will only hurt your progress in this class.
+**Homework**
 
-    Also, **you need to ask questions.** If you aren't, you either aren't involved/paying attention or you aren't understanding enough to ask a question. :-) Asking questions is a muscle, and you need to exercise that muscle!
+1. Do this assignment: [html-intro-1](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-1/README.md)
 
-- automating, scheduling, and decision fatigue,
+### (2.) Wednesday
 
-    We are hardwired to need breaks every 90-120 minutes. Schedule your energy, not your time. Block out parts of your day for exercise, for reading (fiction), for cooking, for family.
+-  TBD
 
-    Group similar activities; if you need to do emails, do them in batches. If you need to do an assignment, do it without looking around at websites, checking Facebook/Twitter, or reading emails.
+**Homework**
 
-    **There is no excuse to not work on high-priority items first.**
+- TBD
 
-    To overcome decision fatigue and be more productive in general, Tim Ferriss recommends putting systems and processes in place that automate as much thinking as possible. The goal is to turn open-ended questions (What am I going to eat for breakfast?) into if/then statements (If it’s a weekday, I’m going to have a protein shake for breakfast).
+### (2.) Thursday
 
-    I’ve adopted Tim’s approach during the first three hours of my morning. As soon as I have a cup of coffee in hand, I’m working on some kind of code lesson for the day. Then, I write for an hour. Finally, I get in some sort of physical activity. This removes any and all wasted time from my morning.
+-  TBD
 
-- focus
+**Homework**
 
-    Devote all of your energy to one task at a time. Multi-tasking has a cost, especially when programming. TURN ON DND MODE.
+- TBD
 
-    Don't check email until lunch. Rather than checking your email dozens of times throughout the day, dedicate two blocks of time (one at the beginning and one at the end of the day).
+---
 
 # Resources
 
@@ -91,40 +93,37 @@ http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
 
 ---
 
-# Discussion Topics and Homework
+# This Journey
 
-### (1.) Monday
+http://blog.pickcrew.com/5-alternative-ways-to-manage-time/
 
-**Homework**
+- 30SS and taking notes,
 
-1. Read http://learnlayout.com/, blog at least 15 things you learned, start exploring/coding these lessons in the "intro-html-1" file we started today. Zip that up and email it to matt@theironyard.com.
-- Watch "The Long Game pt 1 and 2": http://delve.tv/essays/
-- Blog about "The Long Game" and your first assignment ~~> start a blog on http://medium.com
+    Immediately after every lecture, meeting, or any significant experience, take 30 seconds — no more, no less — to write down the most important points. All notes in detail will be given to you. If they aren't written by me, then they are available online. What is hardest is learning, using, becoming fluent with, and reflecting on this content.
 
-### (2.) Tuesday
+- communication,
 
--  TBD
-- Do this assignment: [html-intro-1](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-1/README.md)
+    If you are sick, running late, have to take care of a car, etc... ping me directly on hipchat. Failing to do so will only hurt your progress in this class.
 
-**Homework**
+    Also, **you need to ask questions.** If you aren't, you either aren't involved/paying attention or you aren't understanding enough to ask a question. :-) Asking questions is a muscle, and you need to exercise that muscle!
 
-- TBD
+- automating, scheduling, and decision fatigue,
 
-### (2.) Wednesday
+    We are hardwired to need breaks every 90-120 minutes. Schedule your energy, not your time. Block out parts of your day for exercise, for reading (fiction), for cooking, for family.
 
--  TBD
+    Group similar activities; if you need to do emails, do them in batches. If you need to do an assignment, do it without looking around at websites, checking Facebook/Twitter, or reading emails.
 
-**Homework**
+    **There is no excuse to not work on high-priority items first.**
 
-- TBD
+    To overcome decision fatigue and be more productive in general, Tim Ferriss recommends putting systems and processes in place that automate as much thinking as possible. The goal is to turn open-ended questions (What am I going to eat for breakfast?) into if/then statements (If it’s a weekday, I’m going to have a protein shake for breakfast).
 
-### (2.) Thursday
+    I’ve adopted Tim’s approach during the first three hours of my morning. As soon as I have a cup of coffee in hand, I’m working on some kind of code lesson for the day. Then, I write for an hour. Finally, I get in some sort of physical activity. This removes any and all wasted time from my morning.
 
--  TBD
+- focus
 
-**Homework**
+    Devote all of your energy to one task at a time. Multi-tasking has a cost, especially when programming. TURN ON DND MODE.
 
-- TBD
+    Don't check email until lunch. Rather than checking your email dozens of times throughout the day, dedicate two blocks of time (one at the beginning and one at the end of the day).
 
 ---
 
@@ -403,17 +402,185 @@ Thus, generally you should be careful about how specific your _selectors_ are un
 
 **Layout techniques**
 
-**Pseudo-objects**
+(From http://learnlayout.com) Creating "columns"
 
-**Transitions**
+1. `position: absolute`
+- `float: left`
+- `display: inline-block`
+
+**Pseudo-elements**
+
+There are two "free" elements that you can use with any HTML tag. These can be used to reduce the amount of code needed to produce some graphical effect, and can be added to many elements on multiple HTML pages with just a few lines of CSS.
+
+By default, these pseudo-elements exist inside any element:
+
+```css
+div::before {
+
+}
+
+div::after {
+
+}
+```
+
+They are simply hidden by default. We can "enable" these hidden elements by adding:
+
+```css
+div::before {
+    content: "hi!"
+}
+
+div::after {
+    content: "bye!"
+}
+```
+
+This will make the `::before` and `::after` elements visible, which are now the very first and very last element in each div.
+
+We can style pseudo-elements with any CSS attributes our hearts desire:
+
+```css
+div::before {
+    content: "hi!"
+    display: inline-block;
+    float: left;
+    padding: 1em;
+    color: #ccc;
+    font-size: 1.5em;
+}
+```
+
+If deconstructing [codepens](http://codepen.io) hasn't taught you what you can do with pseudo-elements, perhaps we can look at a few examples.
+
+**Custom attributes**
+
+```html
+<div name="Matt"></div>
+```
+
+```css
+div::before {
+    content: "Hello, my name is " attr(name);
+    display: inline-block;
+    float: left;
+    padding: 1em;
+    color: #ccc;
+    font-size: 1.5em;
+}
+```
+
+As in the above, we can access attributes on an element through the CSS with `attr()`.
+
+**Counters**
+
+CSS has counters as well. We can count the occurance of elements. The following code will add a counter to every `<h3>`, and write it out to a pseudo-element's `content`:
+
+```css
+body {
+  counter-reset: section;
+}
+h3:before {
+  counter-increment: section;
+  content: "Section" counter(section) ": ";
+}
+```
+
+We can even go crazy and count every single element on the page:
+
+```css
+body {
+  counter-reset: element;
+}
+*:before {
+  counter-increment: element;
+  content: "Element" counter(section) ": ";
+}
+```
+
+**Transitions and Pseudo-classes**
+
+Pseudo-classes like `:hover` can be used to style an element when you hover over it with your mouse.
+
+In a common scenario:
+
+```css
+a {
+    color: green;
+}
+a:hover {
+    color: red;
+}
+```
+
+The above CSS will "flicker" between green and red. I want the transition to be smooth!
+
+```css
+a {
+    color: green;
+    transition: color .5s ease;
+}
+a:hover {
+    color: red;
+}
+```
+
+That's better. :-)
 
 **Transforms**
 
+One method of moving elements up, left, down, and right is to give said element a `position`:
+
+- `relative`,
+- `absolute`, or
+- `fixed`
+
+However, there is another method to moving elements around on the screen (and more, like rotating, skewing, scaling, etc). We do that with `transform`:
+
+```css
+div {
+    transition: transform .5s ease;
+}
+div:hover {
+    transform: translateX(10px) translateY(5px) rotate(45deg) skew(20deg) scale(.8);
+}
+```
+
+We can use any combination of the following in the `transform` property:
+
+1. `translate(X, Y)`
+- `translateX(a)`
+- `translateY(a)
+- `translateZ(a)
+- `rotate(Adeg)` same as `rotateZ(Adeg)`
+- `rotateX(Adeg)`
+- `rotateY(Adeg)`
+- `skew(Adeg)`
+- `scale(A)`
+
 **Keyframes**
 
-**attr()**
+Keyframe animations let us control the intermediate steps of an animation (which is not possible in a transition). The following will demonstrate a method to define an animation in CSS and add it to a hover-state:
 
-- counters
+```css
+@keyframes zoomInAndRotate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.5) rotate(5deg);
+    }
+    100% {
+        transform: scale(1.5) rotate(90deg);
+    }
+}
+```
+
+```html
+.animated:hover {
+    animation: zoomInAndRotate 1s linear both;
+}
+```
 
 ---
 
@@ -422,26 +589,17 @@ Thus, generally you should be careful about how specific your _selectors_ are un
 **Install Package Control**
 
 1. Open Sublime Terminal with `CTRL + ~`.
-2. Copy and paste the Sublime Text 3 code from https://sublime.wbond.net/installation to the Sublime Terminal.
+2. Copy and paste the following into the Sublime Terminal:
+
+    > import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+
 3. Hit Enter.
 4. Close Sublime Terminal with `ESC`.
 5. Open Package Control `CMD + SHIFT + P`.
 6. Type `install`, notice all the options you can do and how Sublime suggests items based on what you are searching for.
 7. Select the item named `Package Control: Install Package`.
-8. Search for `DocBlockr` and `Sublime-HTMLPrettify` and install!
-
-Install:
-
-- DocBlockr
-- Prettify
-
-**DocBlockr**
-
-In your CSS, on a new line, type `/**` then `ENTER`.
-
-**Prettify**
-
-In any code, type `CMD + SHIFT + H`. Boom! Formatting.
+8. Search for `Prettify` and install!
+9. Now you should be able to type `CMD + SHIFT + H` in any file and have the file by automatically formatted.
 
 ---
 
@@ -785,7 +943,7 @@ Forcing the aspect ratio can be done with an `::after` pseudo-element. In this c
 
 # Absolute Centering
 
-http://tiy-houston-front-end-sept-2014.github.io/TShirts/centering.html
+http://tiy-houston-front-end-engineering.github.io/TShirts/centering.html
 
 ```css
 *, *::before, *::after {

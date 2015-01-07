@@ -4,9 +4,8 @@
 
 1. [Resources](#resources)
 - [NPM](#npm)
-- [Animations with CSS](#animations-with-css) #keyframes #transitions
-- [Parallax with CSS](#parallax-with-css)
 - [SCSS](#scss)
+- [Building our own CSS framework](#building-our-own-css-framework)
 - [SMACSS](#smacss)
 - [A Visual Description of Responsive Design](#a-visual-description-of-responsive-design)
 - [JavaScript](#javascript)
@@ -31,14 +30,6 @@
 "Node Package Manager" is the metadata and tool for storing information about a project, automating some scripts, and recording information such as dependencies and tools that should be installed alongside the codebase.
 
 We will walk through [this package.json file](./extras/package.json) to further discuss.
-
----
-
-# Animations with CSS
-
----
-
-# Parallax with CSS
 
 ---
 
@@ -166,6 +157,19 @@ LESS, Sass and Compass compile a language into CSS (which can be read by a brows
         width: 300px / 960px * 100%;
     }
     ```
+
+---
+
+# Building our own CSS framework
+
+- Typography
+- Icons
+- Grid
+- mobile-first
+- off-screen nav
+- modals
+- menu-bars
+- ...
 
 ---
 
