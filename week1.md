@@ -48,11 +48,9 @@
 
 ### (2.) Thursday
 
--  TBD
-
 **Homework**
 
-- TBD
+- Do this assignment: [responsive-tshirt-layout](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-3-tshirts/README.md)
 
 ---
 
