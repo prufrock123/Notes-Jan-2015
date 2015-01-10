@@ -1,15 +1,6 @@
 @import "../bower_components/normalize-scss/_normalize.scss";
 @import "../bower_components/typeplate-starter-kit/css/_typeplate.scss";
-
-@mixin gridify($col, $width, $gutter: 2) {
-    @media only screen and (min-width: #{$width}#{"px"}){
-        .grid-#{$col}-#{$width} {
-            & > * {
-                width: #{(100 / $col) - $gutter}#{"%"};
-            }
-        }
-    }
-}
+@import "./mixins.scss";
 
 /**
  * BOX-SIZING
@@ -52,6 +43,8 @@
 /**
  * GENERAL
  */
+
+img {max-width:100;}
 
 body {
     transition: opacity .25s ease;

@@ -1,5 +1,5 @@
 #!/bin/sh
-usernames=("user1" "user2")
+usernames=("aallen-dev" "bmagnantb" "arbolkiri" "dorshinho" "Jrharper0592" "cjros" "pmarsh41" "maprules1000" "firehawk09" "kawill")
 
 for i in "${usernames[@]}"
 do

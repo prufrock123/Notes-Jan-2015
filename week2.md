@@ -12,6 +12,34 @@
 
 ---
 
+# Discussion Topics and Homework
+
+### (1.) Monday
+
+**Homework**
+
+1. TBD
+
+### (2.) Tuesday
+
+**Homework**
+
+1. read http://bonsaiden.github.io/JavaScript-Garden/#types and blog 15 key points or factsent
+
+### (2.) Wednesday
+
+**Homework**
+
+1. TBD
+
+### (2.) Thursday
+
+**Homework**
+
+- TBD
+
+---
+
 # Resources
 
 - http://onepagelove.com/
@@ -389,51 +417,627 @@ I like to use a prefix to differentiate between Layout, State, and Module rules.
 
 ---
 
-# JavaScript
+- closures and private variables
+- Automatic Semicolon Insertion (ASI)
+- SOLID
+- Prototypes and Constructors
 
-**Syntax**
+    ```js
+        base = new Base();
+        Derived.prototype = base; // Must be before new Derived()
+        Derived.prototype.constructor = Derived; // Required to make `instanceof` work
+    ```
 
-**Variables**
+# Resources
 
-**Primitives vs. Objects**
-
-**Accessors**
-
-**Comments**
-
-**Operators**
-
-**Statements vs. Assignments**
-
-**Functions**
-
-IIFEs, declaring fn's, invoking functions, arguments vs. parameters
-
-**Arrays and Array Methods**
-
-**Objects and Object Methods**
-
-**Date(), Regex(), Math, String()**
-
-**Loops**
-
-**Conditionals**
-
-**Scope and `this`**
-
-**Functional programming - lodash and vanilla methods**
-
-**DOM APIs**
-
-Events,
-
-**jQuery vs DOM APIs**
-
-**AJAX**
-
-**Error handling, try-catch-finally, throw**
-
-**Prototypes and Constructors**
+- http://bonsaiden.github.io/JavaScript-Garden/
+- ASI
+- ES6
 
 ---
 
+# JavaScript (ECMAScript 5)
+
+## Types
+
+1. **Primitives** - simple values that can be passed around and referenced directly. They are kind of like cash. If you give someone a $5 bill, they have the money and they can use it immediately.
+
+    - Numbers - `0`, `-1`, `49.123`, `0x000010`, `2e5`
+    - Booleans - `true`, `false`
+    - Strings -
+
+        ```js
+        'Cool';
+        "Cool";
+        "That was 'cool'";
+        "That was \"cool\"";
+        "how much wood could a woodchuck chuck if woodchuck could chuck wood?";
+        ```
+
+- **Objects** - more abstract "things". They are like checks. They're too complex to be passed around or referenced directly, you have to know how to use them to actually get the value out of them.
+
+    - Literals
+
+        ```js
+        {
+            name: "Matt",
+            height: "6'2\"",
+            Name: "Instructor"  //<-- case sensitive property names
+        }
+        ```
+    - Arrays
+
+        ```js
+        var names = ["Matt", "Mark", "Mike", "Mitch", "Moe"];
+        ```
+    - Functions
+
+        ```js
+        function sum(a, b){
+            return a+b;
+        }
+        ```
+    - there will be many more...
+
+## Variables
+
+```js
+    var x = 5;
+```
+
+Variables are like labeled boxes, where the box `x` has the number `5` inside it.
+
+Variables can be named almost anything with alphanumeric characters (numbers, lower and uppercase letters), underscores, and dollar signs ($). The only condition is that the name cannot start with a number.
+
+Variable names are case sensitive.
+
+The convention, but not rule, is to capitalize each word after the first:
+
+```js
+    var someCoolVariable;
+```
+
+**Declare multiple variables:**
+
+```js
+var age, favoriteColor, name;
+```
+
+**Declare and assign multiple:**
+
+```js
+var age = 37,
+    favoriteColor = "green",
+    name = "Jake";
+```
+
+The following are all reserved words, meaning you cannot create a variable with any of these names:
+
+`arguments`, `break`, `case`, `catch`, `class`, `const`, `continue`, `debugger`, `default`, `delete`, `do`, `else`, `enum`, `export`, `extends`, `false`, `finally`, `for`, `function`, `if`, `implements`, `import`, `in`, `instanceof`, `interface`, `let`, `new`, `null`, `package`, `private`, `protected`, `public`, `return`, `static`, `super`, `switch`, `this`, `throw`, `true`, `try`, `typeof`, `var`, `void`, `while`
+
+> Kevin Henney points out that the “labeled boxes” analogy also works nicely for introducing “arrays (a row or column of boxes) and objects (a group of boxes).” Ikai Lan likes how “box size is a good analogy for type discussions later on.”
+>
+> https://twitter.com/KevlinHenney/status/372598874462253056
+> https://twitter.com/ikai/status/372656503947149312
+
+## Code Comments
+
+In JavaScript, there are two types of comments (a.k.a. ways to put a note in the code)
+
+```js
+    // single line comment
+
+    /*
+        and a multi-line
+        comment
+        .
+     */
+```
+
+## Operators
+
+- assignment operator: `=`
+- mathematical operators: `+`, `-`, `*`, `/`, `++`, `--`, `%`
+- compound operators: `+=`, `-=`, `*=`, `/=`
+- conditional operators: `!`, `==`, `===`, `!=`, `!==`, `>`, `>=`, `<`, `<=`
+- binary combinators: `&&`, `||`
+- grouping operators: `( ... )` e.g. `(5+9)*3`
+- function operators: `()` e.g. `sum(5, 10)`
+- string operator: `+`
+
+For more, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+## Accessors
+
+In JavaScript, we can access properties of an object with `.`:
+
+```js
+var instructor = {
+    name: "Matt",
+    height: "6'2\"",
+    laptop: {
+        type: "MacBook Air"
+    }
+};
+
+instructor.name; //<-- "Matt"
+instructor.laptop.type; //<-- "MacBook Air"
+```
+
+## Statements
+
+Statements can consist of a combination of accessors and operators:
+
+```js
+instructor.name + " owns a " + 2013 + instructor.laptop.type; //<-- "Matt owns a 2013 MacBook Air"
+```
+
+Like a sentence, a statement is one coherent "thought" or instruction.
+- It should appear on its own line.
+- It should end with a semicolon (a semicolon means "this instruction is over, move to the next one.")
+
+## Assignments
+
+Assignments have a new or existing variable, an assignment operator `=`, and then a statement.
+
+```js
+var x = (2 + 45) + "a"; //<-- x is "47a"
+x += (45 + 2); //<-- x is "47a47"
+```
+
+## Functions
+
+Functions are the reusable, composable building-blocks of JavaScript. Functions are declared and used, sometimes in the same statement, sometimes in a seperate statement:
+
+```
+functiom sum(a, b){
+    return a+b;
+}
+sum(1, 2); //<-- 3
+
+// or
+
+(functiom (a, b){
+    return a+b;
+})
+(1, 2); //<-- 3
+```
+
+`return` is a statement inside functions that "unboxes" a value where the function was invoked:
+
+```
+var a = sum(1,2) + 4;
+// becomes
+//  a = 3 + 4
+// then
+//  a = 7
+a; //<-- 7
+```
+
+## IIFEs (Immediately Invoked Function Expressions)
+
+![](./examples/day07/iifes.png)
+
+## Strict Mode
+
+ECMAScript 5 has a strict mode that results in cleaner JavaScript, with fewer unsafe features, more warnings, and more logical behavior. The normal (nonstrict) mode is sometimes called "sloppy mode."
+
+You can switch on strict mode by writing it inside functions like this:
+
+```js
+function foo() {
+    'use strict';
+    // ...
+}
+```
+
+I am going to recommend that you `use strict` mode (see what I did there? :thumbsup:) for the code you write.
+
+## Using JavaScript In Your Websites
+
+### In `<head>`
+
+```html
+<head>
+  <title>Cool</title>
+  <script type="text/javascript">
+    var cool = true;
+  </script>
+</head>
+```
+
+### External file (preferred)
+
+At the end of the body:
+
+```html
+<body>
+  <h1>Hay</h1>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+```
+
+## DOM APIs
+
+- `document.getElementById`
+- `document.getElementByTagName`
+- `document.getElementsByClassName`
+- `document.querySelector`
+- `document.querySelectorAll`
+
+**what we can edit/read on DOM elements**
+
+- `attributes` (`classList`, `className`, `id`, etc)
+- `textContent`
+- `innerHTML`
+- `style`
+- and many more...
+
+## Accessors (`.` vs `[]`)
+
+```js
+sum += person.finishingTime1;
+sum += person["finishingTime1"];
+sum += person["finishingTime"+1];
+```
+
+## Conditional statements and blocks
+
+- `if`
+
+    ```js
+    if(){
+        ...
+    }
+    ```
+
+- `if`/`else`
+
+    ```js
+    if(){
+
+    } else {
+
+    }
+    ```
+
+- `if`/`else if`/`else`
+
+    ```js
+    if(){
+
+    } else if(){
+
+    } else if(){
+
+    } else {
+
+    }
+    ```
+
+- `switch`
+
+    ```js
+    var answer = "A";
+
+    switch (answer.toLowerCase()) {
+        case "A":
+            console.log("Correct");
+            break;
+        default:
+            console.log("Incorrect");
+            break;
+    }
+    ```
+
+- `ternary`
+
+    ```js
+    var result = true ? "yey for red" : "it's actually salmon"; //<-- "yey for red"
+    ```
+
+- `short-circuited statement`
+
+    ```js
+    var isMyShirtRed = false;
+    var result = (!isMyShirtRed && "it's actually salmon") || "yey for red";
+    ```
+
+# Loops
+
+- `for`
+
+    ```js
+    for(declare vars; conditional; modifier){
+        .. do shit X amount of times
+    }
+    ```
+
+- `for-in`
+
+    ```js
+    "use strict";
+
+    var matt = {
+        finishingTime1: 240, //in minutes
+        finishingTime2: 210.4,
+        finishingTime3: 235.1,
+        finishingTime4: 208.9,
+        finishingTime5: 197.5,
+        unqualifyingFinishingTime: 250.5,
+        unqualifyingFinishingTime2: 350.5
+    };
+
+    var getAverageTime = function(person) {
+        "use strict";
+        var sum = 0;
+        for(var index in person){
+            sum += person[index];
+        }
+        return sum / Object.keys(person).length;
+    }
+
+    console.log(getAverageTime(matt));
+    ```
+
+- `while`
+
+    ```js
+    var matt = {
+        finishingTime1: 240, //in minutes
+        finishingTime2: 210.4,
+        finishingTime3: 235.1,
+        finishingTime4: 208.9,
+        finishingTime5: 197.5,
+    };
+
+    var getAverageTime = function(person) {
+        "use strict";
+
+        var sum = 0,
+            i = 1,
+            length = Object.keys(person).length;
+
+        while(i <= length){
+            sum += person["finishingTime"+i];
+            i++;
+        }
+
+        return sum / length;
+    }
+
+    console.log(getAverageTime(matt));
+    ```
+
+- `do`/`while`
+
+    ```js
+    var matt = {
+        finishingTime1: 240, //in minutes
+        finishingTime2: 210.4,
+        finishingTime3: 235.1,
+        finishingTime4: 208.9,
+        finishingTime5: 197.5,
+    };
+
+    var getAverageTime = function(person) {
+        "use strict";
+
+        var sum = 0,
+            i = 1,
+            length = Object.keys(person).length;
+
+        do {
+            sum += person["finishingTime"+i];
+            i++;
+        } while(i <= length)
+
+        return sum / length;
+    }
+
+    console.log(getAverageTime(matt));
+    ```
+
+## Arrays
+
+- creating arrays
+
+    ```js
+    var names = ['matt', 'mark', 'mike'];
+
+    // or
+
+    var names = new Array(3);
+    name[0] = 'matt';
+    name[1] = 'mark';
+    name[2] = 'mike';
+    ```
+
+- array methods and properties
+
+    - `length`
+    - `indexOf` / `lastIndexOf`
+    - `push` / `pop`
+    - `unshift` / `shift`
+    - `join`
+    - `forEach`
+    - `sort`
+    - `reverse`
+    - `slice`
+    - `filter`
+    - `map`
+    - `reduce`
+    - `concat`
+
+    ```js
+    var fruits = [{
+        name: "apple",
+        color: "red"
+    }, {
+        name: "strawberry",
+        color: "red"
+    }, {
+        name: "tomato",
+        color: "red"
+    }, {
+        name: "grape",
+        color: "red"
+    }]
+
+    fruits = fruits.filter(function(fruit){
+        return fruit.color === "red";
+    }).map(function(fruit){
+        return fruit.name;
+    })
+
+    console.log(fruits.join(", "));
+    ```
+
+## Date()
+
+## Implicit Type coercion
+
+http://bonsaiden.github.io/JavaScript-Garden/#types
+
+## `instanceof` / `typeof`
+
+# Automatic Semicolon Insertion
+
+Read up on this here: http://bonsaiden.github.io/JavaScript-Garden/#core.semicolon
+
+We talked in class about how JavaScript will imply where semicolons should go if you omit them, and where we can omit curly braces (`{}`) with conditional and loop blocks:
+
+```js
+// valid one-line loops
+for(...) some one line statement;
+while(...) some one line statement;
+
+// valid one-line conditionals
+if() some one line statement;
+
+// valid for-loop block
+for(...){
+    some one line statement;
+}
+
+// valid if block
+if(){
+    some one line statement;
+}
+
+// valid return statements
+return {};
+return {}
+
+// not a good return statement
+
+return //<-- ; assumed here, so undefined will be returned, not {a: 0}
+    {
+        a: 0
+    }
+
+// valid function declaration
+function(){
+    //...
+}
+
+// function declaration in an assignment statement, semicolon recommended
+var x = function(){};
+```
+
+## `setInterval()`, `setTimeout()`
+
+Test the following in Chrome dev tools:
+
+```js
+var d = new Date(),
+    interval = 3000; //1000ms = 1s
+
+var id = setInterval(function() {
+    d.setTime(d.getTime() + interval);
+    console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+}, interval);
+```
+
+If you want to make the interval stop executing every 3000ms, run:
+
+```js
+clearInterval(id);
+```
+
+## String methods (and some RegExp)
+
+```js
+"a".anchor("test")
+"a".bold()
+"hello there!".link("test"); //<-- "<a href="test">hello there!</a>"
+
+
+"    Hi! I'm a string. ".trim(); //<-- "Hi! I'm a string."
+
+"hello".charAt(0); //<-- "h"
+"hello"[0]; //<-- "h"
+
+"a".charCodeAt(0); //<-- 97
+"b".charCodeAt(0); //<-- 98
+"Z".charCodeAt(0); //<-- 90
+
+"Z" < "a"; //<-- true (because "Z"'s charcode is less than "a"' charcode)
+
+String.fromCharCode(97); //<-- "a"
+
+"howdy".indexOf("o"); //<-- 1
+"howdy".indexOf("ow"); //<-- 1
+"howdy".indexOf("nope"); //<-- -1
+
+"hello there!".length; //<-- 12
+
+"howdy".replace("owd", "ey bab"); //<-- "hey baby"
+
+"hi mi fli whi GI Ri Shi".replace(/i/, "a"); //<-- "ha mi fli whi GI Ri Shi"
+"hi mi fli whi GI Ri Shi".replace(/i/ig, "a"); //<-- "ha ma fla wha Ga Ra Sha"
+"hi mi fli whi GI Ri Shi".replace(/hi/ig, "a"); //<-- "a mi fli wa GI Ri Sa"
+
+"a-b-c".split(""); //<-- ["a", "-", "b", "-", "c"]
+"a-b-c".split("-"); //<-- ["a", "b", "c"]
+
+"hello there!".substr(0, 5); //<-- "hello"
+"hello there!".substr(1, 5); //<-- "ello "
+"hello there!".substr(2, 5); //<-- "llo t"
+"hello there!".substr(3, 5); //<-- "lo th"
+"hello there!".substr(4, 5); //<-- "o the"
+"hello there!".substr(5, 5); //<-- " ther"
+"hello there!".substr(6, 5); //<-- "there"
+
+"i'M AlL FuNKy LoOkINg".toLowerCase(); //<-- "i'm all funky looking"
+"i'M AlL FuNKy LoOkINg".toUpperCase(); //<-- "I'M ALL FUNKY LOOKING"
+
+```
+
+## `RegExp`
+
+## Loop labels
+
+```js
+outerLoop: for(var i=0; i<10; i++){
+    innerLoop: for(var j=0; j<10; j++){
+        if(i*j > 70){
+            break outerLoop;
+        }
+        console.log(i, j);
+    }
+}
+```
+
+## `continue`
+
+```js
+for(var i=0; i<10; i++){
+    if(i % 2 === 0){
+        continue;
+    }
+    console.log(i);
+}
+```
+
+## Combining DOM APIs, loops, and strings to dynamically change content on a Github page
