@@ -18,13 +18,13 @@
 
 **Homework**
 
-1. TBD
+1. Do this assignment: [Responsive Timeline](https://github.com/matthiasak/js-assignments/blob/ba308382c346a44a92bccebb790214d0b6dc840f/html-intro-4-timeline/README.md)
 
 ### (2.) Tuesday
 
 **Homework**
 
-1. read http://bonsaiden.github.io/JavaScript-Garden/#types and blog 15 key points or factsent
+1. read http://bonsaiden.github.io/JavaScript-Garden/#types and blog 15 key points or facts
 
 ### (2.) Wednesday
 
@@ -44,12 +44,21 @@
 
 - http://onepagelove.com/
 - http://sass-lang.com/guide
-- https://www.npmjs.org/package/gulp-sass
+- https://www.npmjs.org/
 - https://github.com/jonathanpath/SASS-SMACSS
 - http://bonsaiden.github.io/JavaScript-Garden/
 - http://devdocs.io/
 - Mozilla Developer Network: https://developer.mozilla.org/en-US/
 - http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+- https://developer.mozilla.org/en-US/docs/Web/Reference/API
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://leanpub.com/understandinges6/read/
+- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
+- https://github.com/PROSPricing/js-assessment/tree/master/app
+- https://github.com/enaqx/awesome-react
+- http://backbonejs.org
+- https://github.com/instanceofpro/awesome-backbone
+- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
 
 ---
 
@@ -205,7 +214,7 @@ LESS, Sass and Compass compile a language into CSS (which can be read by a brows
 
 SMACSS (pronounced “smacks”) is more style guide than rigid framework. There is no library to download or install. SMACSS is a way to examine your design process and is a way to fit those rigid frameworks into a flexible thought process.
 
-## Categorizing
+### Categorizing
 
 At the very core of SMACSS is categorization. By categorizing CSS rules, we begin to see patterns and can define better practices around each of these patterns.
 
@@ -417,26 +426,7 @@ I like to use a prefix to differentiate between Layout, State, and Module rules.
 
 ---
 
-- closures and private variables
-- Automatic Semicolon Insertion (ASI)
-- SOLID
-- Prototypes and Constructors
-
-    ```js
-        base = new Base();
-        Derived.prototype = base; // Must be before new Derived()
-        Derived.prototype.constructor = Derived; // Required to make `instanceof` work
-    ```
-
-# Resources
-
-- http://bonsaiden.github.io/JavaScript-Garden/
-- ASI
-- ES6
-
----
-
-# JavaScript (ECMAScript 5)
+# JavaScript
 
 ## Types
 
@@ -1016,19 +1006,6 @@ String.fromCharCode(97); //<-- "a"
 
 ## `RegExp`
 
-## Loop labels
-
-```js
-outerLoop: for(var i=0; i<10; i++){
-    innerLoop: for(var j=0; j<10; j++){
-        if(i*j > 70){
-            break outerLoop;
-        }
-        console.log(i, j);
-    }
-}
-```
-
 ## `continue`
 
 ```js
@@ -1041,3 +1018,356 @@ for(var i=0; i<10; i++){
 ```
 
 ## Combining DOM APIs, loops, and strings to dynamically change content on a Github page
+
+## debugger with Chrome
+
+- `console.log()`
+- `console.assert()`
+- `console.count()`
+- `console.dir()`
+- `console.trace()`
+- `console.time()`/`console.timeEnd()`
+- `performance.now()`
+- `console.timeline()`/`console.timelineEnd()`
+- `console.profile()`/`console.profileEnd()`
+- `inspect(any html element, or function)`
+- `console.timeStamp()` - // label the timeline
+- `copy()` - copy an object as a string to clipboard
+
+more info: https://developer.chrome.com/devtools/docs/console-api
+
+## errors, try/catch/finally, throw
+
+```
+/**
+ * EXAMPLE: when asking the user for a number
+ */
+
+function askForANumber(){
+    var number = prompt("please provide a number");
+    try {
+        handleResponse(number);
+    } catch(e) {
+        // :mindblown:
+        console.log(e, e.stack);
+        askForANumber(); // recursion
+    }
+}
+
+function handleResponse(number){
+    number = parseFloat(number); // handle decimal places too, with parseFloat
+    if(typeof number !== "number" || Number.isNaN(number)){ // is it not a number or is it NaN?
+        throw new Error("Whatch'you talkin' bout? SAY WAT AGAIN."); // if yes, throw error
+    } else {
+        alert('You typed in a number: '+number+'!');
+    }
+}
+
+askForANumber();
+```
+
+## `arguments` (variadic behavior)
+
+```js
+/**
+ * sum functions
+ */
+function sumOnlyTwoNumbers(a, b){
+    "use strict";
+    return a + b;
+}
+function sumForLoop(){
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    for(var i = 0; i < args.length; i++){
+        sum += args[i];
+    }
+    return sum;
+}
+function sumForEach(){
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    args.forEach(function(num){ sum += num; });
+    return sum;
+}
+function sumForEachCustom(){
+    "use strict";
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    forEach(args, function(){ sum += arguments[0]; });
+    return sum;
+}
+
+/**
+ * forEach functions
+ */
+function forEach(array, callback){
+    "use strict";
+    for(var i = 0; i < array.length; i++){
+        callback(array[i], i);
+    }
+}
+Array.prototype.forEach = function(callback){
+    "use strict";
+    for(var i = 0; i < this.length; i++){
+        callback(array[i], i);
+    }
+}
+```
+
+## Regex
+
+> From http://tutorialzine.com/2014/12/learn-regular-expressions-in-20-minutes/
+
+**Matching a single character**
+
+The most basic regexes are those that match a single character. Here are the rules:
+
+- The dot (.) matches any character. If you want to match the dot as a character, escape it like this: \.
+- A question mark (?) means that the preceding character is optional. If you want to match an actual question mark, escape it: \?
+- The star (*) matches 0 or more characters
+- The plus (+) matches 1 or more characters
+- The parens () group states together
+
+```javascript
+var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lest. Donec convallis dignissim ligula, et rutrum est elat vistibulum eu.';
+
+// Will match both "elit" and "elat". The dot can match any character.
+// Tip: try removing the "g" modifier of the regex to see what happens.
+
+var regex = /el.t/g;
+
+console.log( text.match(regex) );
+
+
+// Will match both "est" and "lest". The question mark makes "l" optional.
+
+var regex2 = /l?est/g;
+
+console.log( text.match(regex2) );
+```
+
+**Matching a set of characters**
+
+Building up from the previous example, we can write regexes that match only certain character by using sets:
+
+A set is one or more characters enclosed in brackets [abc]. It matches only one of those characters – in this example only a, b or c. You can negate a set with ^. [^abc] will match any character that is not a, b or c. You can also specify a range [0-9], [a-z], which will match everything in the range.
+There are built-in sets that make writing regexes easier (they are called shorthand). Instead of [0-9] you can write \d and for [^0-9] you can write \D. There are also sets for word characters (a through z with digits and underscore) – \w and \W, and spaces (including tabs and new lines) - \s and \S.
+
+```
+// Match only "cat" and "can", but not "car".
+
+var text = 'cat car can';
+
+console.log( text.match(/ca[tn]/g) );
+
+// Match everything BUT cat and can (notice the ^ symbol)
+
+console.log( text.match(/ca[^tn]/g) );
+
+
+// Here is another example, which matches only the number
+
+text = 'I would like 8 cups of coffee, please.';
+
+
+console.log('How many cups: ' + text.match( /[0-9]/g ));
+
+// A better, shorter way to write it, using the \d character class
+
+console.log('How many cups: ' + text.match( /\d/g ));
+
+
+// Matching everything BUT the number (will return an array of chars)
+
+console.log( text.match(/\D/g) );
+```
+
+**Matching words**
+
+Most of the time, you will want to match entire words, instead of single characters. This is done by using modifiers which repeat a character or a character set. These are:
+
+- +, which repeats the preceding character or set one or more times
+- *, which repeats the preceding character or set zero or more times
+- {x} for an exact number of repetitions, {x,y} for varying number of repetitions (where x and y are numbers)
+- Also, there is the special \b pattern which matches the boundaries at the ends of words (not a real symbol).
+
+```
+var text = 'Hello people of 1974. I come from the future. In 2014 we have laser guns, hover boards and live on the moon!';
+
+// Find the years. \d+ will match one or more chars
+
+var yearRegex = /\d+/g;
+
+console.log('Years: ', text.match( yearRegex ) );
+
+
+// Find all sentences. Our sentences begin with a capital letter and end in either a dot or an exclamation mark.
+// The question mark makes the regex non-greedy. Try removing it.
+
+var sentenceRegex = /[A-Z].+?(\.|!)/g;
+
+console.log('Sentences: ', text.match(sentenceRegex) );
+
+
+// Find all words that begin with h. We want to match both lower and upper case, so we include the i modifier.
+// Notice the \b for word boundary. Try removing it.
+
+var hWords = /\bh\w+/ig;
+
+console.log('H Words: ', text.match(hWords) );
+
+
+// Find all words between four and six characters
+
+var findWords = /\b\w{4,6}\b/g;
+
+console.log( 'Words between 4 and 6 chars: ', text.match(findWords) );
+
+
+// Find words longer than 5 chars
+
+console.log( 'Words 5 chars or longer: ', text.match(/\b\w{5,}\b/g) );
+
+
+// Find words exactly 6 chars long
+
+console.log( 'Words exactly 6 chars long: ', text.match(/\b\w{6}\b/g) );
+```
+
+**Matching/validating entire lines**
+
+In JavaScript, this is the type of patterns you would use to validate user input from text fields. It is just a ordinary regex, but anchored to the start and end of the text using ^ (start of line), $ (end of line) expressions. This will make sure that the pattern that you write spans the entire length of the text, and doesn’t only match a part of it.
+
+Also, in this case we use the test() method of the regex object, which returns either true or false if the regex matches the string.
+
+```
+// We have an array with strings. Let's extract only the URLs!
+
+var strings = [
+    'http://tutorialzine.com/posts/',
+    'this is not a URL',
+    'https://google.com/',
+    '123461',
+    'http://tutorialzine.com/?search=jquery',
+    'http://not a valid url',
+    'abc http://invalid.url/'
+];
+
+// Here is a simple regex that will do the job. Note the ^ and $ symbols for beggining and end of line.
+// Try removing them and see which URLs are detected.
+
+var regex = /^https?:\/\/[\w\/?.&-=]+$/;
+
+var urls = [];
+
+for( var i = 0; i < strings.length; i++ ){
+
+    if( regex.test(strings[i]) ){
+
+        // This is a valid URL
+        urls.push(strings[i]);
+
+    }
+
+}
+
+console.log('Valid URLs: ', urls);
+```
+
+**Search and replace**
+
+Another common task that often calls for the use of regular expressions is searching and replacing text. There are two basic ideas here:
+
+A group is a set of patterns enclosed in braces (). Each group collects the text that was matched by the patterns inside it. The text matched by each group can be addressed later with indexes prefixed with dollar signs (starting from $1 for the first group).
+Each group is available in the pattern itself as a back reference – backward slash followed by the group index, starting from \1 (see the example below). This is only rarely used, so you can blissfully forget about this feature.
+
+```
+// Using backreferences
+// Find the words which consist only of the same letters
+
+var text = 'Abc ddefg, hijk lllll mnopqr ssss. Tuv wxyyy z.';
+
+var sameLetterRegex = /\b(\w)\1*\b/g;
+
+console.log( text.match(sameLetterRegex) );
+
+
+// Let's turn "John Smith" into "Smith, John"
+// Each group (\w+) matches a single word. Each group is assigned
+// an index, starting from $1
+
+var name = 'John Smith';
+var nameRegex = /(\w+) (\w+)/;
+
+console.log( name.replace(nameRegex, '$2, $1') );
+
+
+// For more advanced manipulations, we need to provide a JS callback.
+// For example, lets make the surname uppercase
+
+var upcasename = name.replace(nameRegex, function(string, group1, group2){
+    return group2.toUpperCase() + ', ' + group1;
+});
+
+console.log( upcasename );
+```
+
+## Inheritance / OOP
+
+> http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
+
+```js
+    base = new Base();
+    Derived.prototype = base; // Must be before new Derived()
+    Derived.prototype.constructor = Derived; // Required to make `instanceof` work
+```
+
+```js
+    function Character(name){
+        this.name = name;
+    }
+
+    Character.prototype.fight = function(){
+        console.log(this.name, this.power);
+    }
+
+    function Wizard(name){
+        Character.apply(this, arguments);
+        this.power = 10;
+    }
+
+    Wizard.prototype = new Character();
+    Wizard.prototype.constructor = Wizard;
+```
+
+## jQuery's AJAX functions
+
+jQuery has some built-in methods of requesting and sending information to and from a server. We covered `$.get()` and `$.getJSON` today. We will get to posting information to a server shortly.
+
+- `$.get(url).then(function(data){...})`
+
+    http://api.jquery.com/jQuery.get/
+
+
+- `$.getJSON(url).then(function(data){...})`
+
+    http://api.jquery.com/jQuery.getJSON/
+
+
+- `$.ajax(options).then(function(data){...})`
+- `$.post(url).then(function(data){...})`
+
+All of the above methods return a **jQuery Promise** object that has a `then` method. This is how we handle **asynchronous** communications in JavaScript. Promises are used because we don't know when the AJAX request will return (.5s? 1s? 10s? never?).
+
+```js
+var githubUsername = "matthiasak";
+var url = "https://api.github.com/users/"+githubUsername;
+var result = $.get(url);
+result.then(function(data){
+    // do something with the data retrieved
+})
+```
