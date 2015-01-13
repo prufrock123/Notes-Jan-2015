@@ -8,6 +8,7 @@
 - [Building our own CSS framework](#building-our-own-css-framework)
 - [SMACSS](#smacss)
 - [A Visual Description of Responsive Design](#a-visual-description-of-responsive-design)
+- [SOLID](#solid)
 - [JavaScript](#javascript)
 
 ---
@@ -59,6 +60,7 @@
 - http://backbonejs.org
 - https://github.com/instanceofpro/awesome-backbone
 - https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
+- http://youmightnotneedjquery.com/
 
 ---
 
@@ -426,6 +428,12 @@ I like to use a prefix to differentiate between Layout, State, and Module rules.
 
 ---
 
+# SOLID
+
+
+
+---
+
 # JavaScript
 
 ## Types
@@ -647,22 +655,6 @@ At the end of the body:
 </body>
 ```
 
-## DOM APIs
-
-- `document.getElementById`
-- `document.getElementByTagName`
-- `document.getElementsByClassName`
-- `document.querySelector`
-- `document.querySelectorAll`
-
-**what we can edit/read on DOM elements**
-
-- `attributes` (`classList`, `className`, `id`, etc)
-- `textContent`
-- `innerHTML`
-- `style`
-- and many more...
-
 ## Accessors (`.` vs `[]`)
 
 ```js
@@ -733,7 +725,7 @@ sum += person["finishingTime"+1];
     var result = (!isMyShirtRed && "it's actually salmon") || "yey for red";
     ```
 
-# Loops
+## Loops
 
 - `for`
 
@@ -885,13 +877,29 @@ sum += person["finishingTime"+1];
 
 ## Date()
 
+## DOM APIs
+
+- `document.getElementById`
+- `document.getElementByTagName`
+- `document.getElementsByClassName`
+- `document.querySelector`
+- `document.querySelectorAll`
+
+**what we can edit/read on DOM elements**
+
+- `attributes` (`classList`, `className`, `id`, etc)
+- `textContent`
+- `innerHTML`
+- `style`
+- and many more...
+
 ## Implicit Type coercion
 
 http://bonsaiden.github.io/JavaScript-Garden/#types
 
 ## `instanceof` / `typeof`
 
-# Automatic Semicolon Insertion
+## Automatic Semicolon Insertion
 
 Read up on this here: http://bonsaiden.github.io/JavaScript-Garden/#core.semicolon
 
@@ -1004,8 +1012,6 @@ String.fromCharCode(97); //<-- "a"
 
 ```
 
-## `RegExp`
-
 ## `continue`
 
 ```js
@@ -1018,6 +1024,31 @@ for(var i=0; i<10; i++){
 ```
 
 ## Combining DOM APIs, loops, and strings to dynamically change content on a Github page
+
+**Live drawing data pulled from `$.get()` to the DOM**
+
+```js
+// ---------------------
+// Let's draw some info from our github profiles to the screen
+// NOTE: you will need jQuery loaded on the page!
+// ---------------------
+var githubUsername = "matthiasak";
+var url = "https://api.github.com/users/"+githubUsername;
+$.get(url).then(function(data){
+    drawProfile(data);
+})
+function drawProfile(data) {
+    document.body.innerHTML = [
+        '<h1>',
+        data.name,
+        '</h1>',
+        '<h2> blog:',
+        data.blog,
+        '</h2>'
+    ].join('')
+}
+```
+
 
 ## debugger with Chrome
 
@@ -1371,3 +1402,15 @@ result.then(function(data){
     // do something with the data retrieved
 })
 ```
+
+## Making Video Games in JavaScript
+
+Includes topics of:
+
+- `canvas`
+- the game loop
+- event handling
+- and others
+
+Video on "making Space Invaders from scratch": http://vimeo.com/105955605
+
