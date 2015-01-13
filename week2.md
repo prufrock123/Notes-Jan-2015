@@ -26,6 +26,7 @@
 **Homework**
 
 1. read http://bonsaiden.github.io/JavaScript-Garden/#types and blog 15 key points or facts
+2. Do this assignment: [JS Intro HW - data types, variables, functions, simple math](https://github.com/matthiasak/js-assignments/blob/7a2b9af5ded7fe254496afb822e0e2a37957b927/js-functions-datatypes-math-1/README.md)
 
 ### (2.) Wednesday
 
