@@ -4,6 +4,11 @@
 
 1. [Resources](#resources)
 - [RESTful APIs](#restful-apis)
+- [Routing](#routing)
+- [Script Loaders](#script-loaders)
+- [Polyfills](#polyfills)
+- [Caching](#caching)
+- [More on Inheritance](#more-on-inheritance)
 
 ---
 
@@ -55,6 +60,8 @@
 - https://github.com/instanceofpro/awesome-backbone
 - https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
 - http://youmightnotneedjquery.com/
+- https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
+- http://caniuse.com/
 
 ---
 
@@ -160,3 +167,206 @@ $.getJSON(etsy_url).then(function(data){
     });
     ```
 
+# Routing
+
+**Routing, Path.js, wikipedia and :target, JS functions based on the URL, deeplinking**
+
+> Check out this StackOverflow link on Hipchat: http://stackoverflow.com/questions/10075507/what-does-javascript-routing-buy-you
+
+When you go to Gmail and load:
+- The _chats_ tab, the URL changes to `https://mail.google.com/mail/u/0/#chats`.
+- The inbox is `https://mail.google.com/mail/u/0/#inbox`.
+- The spam folder is `https://mail.google.com/mail/u/0/#spam`.
+
+Whenever you click a link that has a URL like:
+```html
+<a href="#target"></a>
+```
+
+The browser interprets a tap/click on this link as "scroll the element with the target id into view". If that target id doesn't exist, the browser will scroll to the top.
+
+No matter what, you will see "#target" be appended to the end of the browser's live URL, and after clicking on multiple target links, you can actually hit the browser's Back and Forward buttons to navigate back and forth along the same page.
+
+We as JavaScript developers can build Single Page App routing experiences on-top of this :-)
+
+In simplest form, we will be doing:
+
+```js
+window.addEventListener('hashchange', callbackFunction);
+```
+
+However, we will be using a library called Path.js (git://github.com/mtrpcic/pathjs.git), which is installable via bower:
+```sh
+bower install pathjs
+```
+
+Example code for the Etsy site:
+```js
+EtsyClient.prototype.setupRouting = function(){
+    var self = this;
+
+    Path.map("#/").to(function() {
+        self.showListings();
+    });
+
+    Path.map("#/listing/:id").to(function() {
+        console.log(this);
+        self.showListing(this.params.id);
+    });
+
+    // set the default hash
+    Path.root("#/");
+    Path.listen();
+}
+```
+
+# Script Loaders
+
+We uncovered something interesting when working with `$.get()`: we can load any file type, not just JSON. We learned to load template files, or anything accessible via a URL.
+
+We already know one method of putting scripts onto a  website:
+
+```html
+<script type="text/javascript" src="..."></script>
+```
+
+One popular method of loading JavaScript files into the DOM (the live website) is to do so via JavaScript. This is doable in two ways:
+1. The JS will create a script element on the page with `document.createElement('script')` and set its `src` attribute, or
+2. The JS will download the text of a JS file via AJAX and when that is done, create a script element and set its `textContent` to that of the AJAX result
+
+These last two methods of "loading JavaScript with JavaScript" are used on sites when:
+1. We want to load only a certain script file at a certain time, such as when one area of the page is scrolled into view.
+2. We want to load a certain polyfill if the browser doesn't have a certain functionality supported
+
+Number 2 here is a major one - polyfills. It's been mentioned a couple of times now that `Array.prototype.map` doesn't exist in browsers older then IE9. Well, it just so happens that we can test for this, and then load a polyfill (a piece of code that enables a newer feature in an older browser) all in JavaScript:
+
+```js
+if(!Array.prototype.map){
+    loader.load({url:"./js/url-to-ES5-polyfill.js"}).then(function(){
+        // do something when it is done?
+    })
+}
+```
+
+The script-loader used here is something Matt built, simply named Loader (https://github.com/matthiasak/Loader), but there are many script loaders out there. The most popular is called require.js (http://requirejs.org/).
+
+All are, again, installable via bower:
+
+```sh
+bower install Loader
+```
+
+## Using Loader is easy.
+
+Load one file.
+```js
+loader.load(
+    {url:"..."}
+).then(function(){
+    // do something when it is done?
+})
+```
+
+Load three files.
+```js
+loader.load(
+    {url:"..."},
+    {url:"..."},
+    {url:"..."}
+).then(function(){
+    // do something when it is done?
+})
+```
+
+# Polyfills
+
+- Finding polyfills is so easy: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
+- Finding if your browser supports something is so easy: http://caniuse.com/
+
+# Caching
+
+**Caching network requests with `$.get()`**
+
+Caching is a term used in networking and computing when a a result can be reused.
+
+For instance, if I compute the sum of ten numbers from by passing those ten numbers to `sumAll()`, I could save that result somewhere and return the same result if the same arguments are ever given again later:
+
+Well, we can **cache** any data requested with `$.get()` as well:
+
+```js
+EtsyClient.prototype.loadTemplate = function(name){
+    if(!this.templates){
+        this.templates = {};
+    }
+
+    var self = this;
+
+    if(this.templates[name]){
+        var promise = $.Deferred();
+        promise.resolve(this.templates[name]);
+        return promise;
+    } else {
+        return $.get('./templates/'+name+'.html').then(function(data){
+            self.templates[name] = data; // <-- cache it for any subsequent requests to this template
+            return data;
+        });
+    }
+}
+```
+
+Using `EtsyClient.prototype.loadTemplate()` in this fashion will make a brand new request the first time, and then send back a cached result every call thereafter.
+
+# More on Inheritance
+
+We have covered Prototypes and Constructors:
+
+```js
+function Cat(name){
+    this.name = name;
+}
+Cat.prototype.speak = function(){
+    console.log('meow! My name is '+this.name);
+}
+```
+
+One thing we noted was that any new function that we declare (like `Cat()`) automatically has a prototype chain with the `Object()` function as the highest entity on that prototype chain. In other words, any method on `Object()`'s prototype is available for `Cat()` to use.
+
+### Inheritance and Pokémon
+
+Yes. I'm going to make a mother-effing Pokémon reference. Deal with it. :-)
+
+![](./examples/day22/pikachu.gif)
+
+Imagine our understanding (I hope) of Pokémon:
+- All Pokémon can `evolve()`.
+- All Pokémon start as the lowest "level" on the food chain, and evolve as they conquer.
+
+Let's model this in JavaScript :-)
+```js
+function Pokemon(level, levels){
+    this.level = level || 0;
+    this.levels = levels;
+}
+Pokemon.prototype.evolve = function(){
+    var old_level = this.level;
+    this.level = Math.min(this.level+1, this.levels.length-1);
+    if(old_level !== this.level){
+        console.log(this.levels[old_level]+" evolves into "+this.levels[this.level]+"!");
+    } else {
+        console.log(this.levels[old_level]+" is at the top of the food chain!");
+    }
+}
+
+function Pikachu(){
+    Pokemon.call(this, 0, ["Pikachu", "Raichu"]);
+}
+Pikachu.prototype = new Pokemon();
+Pikachu.prototype.constructor = Pikachu;
+
+// later, when using it
+
+var myPikachu = new Pikachu();
+myPikachu.level; // 0
+myPikachu.evolve(); // "Pikachu evolves into Raichu!"
+myPikachu.evolve(); // "Raichu is at the top of the food chain!"
+```

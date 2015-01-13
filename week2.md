@@ -1544,6 +1544,10 @@ That means `_.forEach`, `_.filter`, `_.reduce`, `_.map`, `_.where`, `_.reject`, 
 
 One thing I will focus on today with lodash is new: `_.template`, which can be used to plug data (from AJAX) into HTML and put it on the DOM.
 
+## DOM Events, `addEventListener()`, and `$.on()`
+
+- http://vimeo.com/96425312 ("What is the event loop?")
+
 ## Making Video Games in JavaScript
 
 Includes topics of:
