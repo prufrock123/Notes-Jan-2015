@@ -32,7 +32,7 @@
 
 **Homework**
 
-1. Do this assignment: [JS functions, loops, structures](https://github.com/matthiasak/js-assignments/blob/7710ff376dc0f4bf5c7fa2318317c59b54029f42/js-functions-practice/README.md)
+1. Do this assignment: [JS functions, loops, structures](https://github.com/matthiasak/js-assignments/blob/b40c26d300174e0d80b835ffc6f9eb591a6732ed/js-functions-practice/README.md)
 
 ### (2.) Thursday
 
