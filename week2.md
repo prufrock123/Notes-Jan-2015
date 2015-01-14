@@ -32,7 +32,7 @@
 
 **Homework**
 
-1. TBD
+1. Do this assignment: [JS functions, loops, structures](https://github.com/matthiasak/js-assignments/blob/7710ff376dc0f4bf5c7fa2318317c59b54029f42/js-functions-practice/README.md)
 
 ### (2.) Thursday
 
@@ -589,17 +589,24 @@ x += (45 + 2); //<-- x is "47a47"
 Functions are the reusable, composable building-blocks of JavaScript. Functions are declared and used, sometimes in the same statement, sometimes in a seperate statement:
 
 ```
-functiom sum(a, b){
+function sum(a, b){
     return a+b;
 }
 sum(1, 2); //<-- 3
 
 // or
 
-(functiom (a, b){
+
+// the following is an anonymous function because it has no name
+// when invoking anonymous functions this way, it is called an IIFE
+// (Immeidately Invoked Function Expression)
+
+(function (a, b){ 
     return a+b;
 })
 (1, 2); //<-- 3
+
+
 ```
 
 `return` is a statement inside functions that "unboxes" a value where the function was invoked:
@@ -612,10 +619,6 @@ var a = sum(1,2) + 4;
 //  a = 7
 a; //<-- 7
 ```
-
-## IIFEs (Immediately Invoked Function Expressions)
-
-![](./examples/day07/iifes.png)
 
 ## Strict Mode
 
