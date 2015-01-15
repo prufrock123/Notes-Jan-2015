@@ -1069,230 +1069,6 @@ console.log( upcasename );
 
 > See http://devdocs.io/dom/htmlelement for more
 
-## Combining DOM APIs, loops, and strings to dynamically change content on a Github page
-
-**Live drawing data pulled from `$.get()` to the DOM**
-
-```js
-// ---------------------
-// Let's draw some info from our github profiles to the screen
-// NOTE: you will need jQuery loaded on the page!
-// ---------------------
-var githubUsername = "matthiasak";
-var url = "https://api.github.com/users/"+githubUsername;
-$.get(url).then(function(data){
-    drawProfile(data);
-})
-function drawProfile(data) {
-    document.body.innerHTML = [
-        '<h1>',
-        data.name,
-        '</h1>',
-        '<h2> blog:',
-        data.blog,
-        '</h2>'
-    ].join('')
-}
-```
-
-## `setInterval()`, `setTimeout()`
-
-Test the following in Chrome dev tools:
-
-```js
-var d = new Date(),
-    interval = 3000; //1000ms = 1s
-
-var id = setInterval(function() {
-    d.setTime(d.getTime() + interval);
-    console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
-}, interval);
-```
-
-If you want to make the interval stop executing every 3000ms, run:
-
-```js
-clearInterval(id);
-```
-
-## Implicit Type coercion
-
-http://bonsaiden.github.io/JavaScript-Garden/#types
-
-## `instanceof` / `typeof`
-
-## Automatic Semicolon Insertion
-
-Read up on this here: http://bonsaiden.github.io/JavaScript-Garden/#core.semicolon
-
-We talked in class about how JavaScript will imply where semicolons should go if you omit them, and where we can omit curly braces (`{}`) with conditional and loop blocks:
-
-```js
-// valid one-line loops
-for(...) some one line statement;
-while(...) some one line statement;
-
-// valid one-line conditionals
-if() some one line statement;
-
-// valid for-loop block
-for(...){
-    some one line statement;
-}
-
-// valid if block
-if(){
-    some one line statement;
-}
-
-// valid return statements
-return {};
-return {}
-
-// not a good return statement
-
-return //<-- ; assumed here, so undefined will be returned, not {a: 0}
-    {
-        a: 0
-    }
-
-// valid function declaration
-function(){
-    //...
-}
-
-// function declaration in an assignment statement, semicolon recommended
-var x = function(){};
-```
-
-
-## debugger with Chrome
-
-- `console.log()`
-- `console.assert()`
-- `console.count()`
-- `console.dir()`
-- `console.trace()`
-- `console.time()`/`console.timeEnd()`
-- `performance.now()`
-- `console.timeline()`/`console.timelineEnd()`
-- `console.profile()`/`console.profileEnd()`
-- `inspect(any html element, or function)`
-- `console.timeStamp()` - // label the timeline
-- `copy()` - copy an object as a string to clipboard
-
-more info: https://developer.chrome.com/devtools/docs/console-api
-
-## errors, try/catch/finally, throw
-
-```
-/**
- * EXAMPLE: when asking the user for a number
- */
-
-function askForANumber(){
-    var number = prompt("please provide a number");
-    try {
-        handleResponse(number);
-    } catch(e) {
-        // :mindblown:
-        console.log(e, e.stack);
-        askForANumber(); // recursion
-    }
-}
-
-function handleResponse(number){
-    number = parseFloat(number); // handle decimal places too, with parseFloat
-    if(typeof number !== "number" || Number.isNaN(number)){ // is it not a number or is it NaN?
-        throw new Error("Whatch'you talkin' bout? SAY WAT AGAIN."); // if yes, throw error
-    } else {
-        alert('You typed in a number: '+number+'!');
-    }
-}
-
-askForANumber();
-```
-
-## `arguments` (variadic behavior)
-
-```js
-/**
- * sum functions
- */
-function sumOnlyTwoNumbers(a, b){
-    "use strict";
-    return a + b;
-}
-function sumForLoop(){
-    "use strict";
-    var args = Array.prototype.slice.apply(arguments, []),
-        sum = 0;
-    for(var i = 0; i < args.length; i++){
-        sum += args[i];
-    }
-    return sum;
-}
-function sumForEach(){
-    "use strict";
-    var args = Array.prototype.slice.apply(arguments, []),
-        sum = 0;
-    args.forEach(function(num){ sum += num; });
-    return sum;
-}
-function sumForEachCustom(){
-    "use strict";
-    "use strict";
-    var args = Array.prototype.slice.apply(arguments, []),
-        sum = 0;
-    forEach(args, function(){ sum += arguments[0]; });
-    return sum;
-}
-
-/**
- * forEach functions
- */
-function forEach(array, callback){
-    "use strict";
-    for(var i = 0; i < array.length; i++){
-        callback(array[i], i);
-    }
-}
-Array.prototype.forEach = function(callback){
-    "use strict";
-    for(var i = 0; i < this.length; i++){
-        callback(array[i], i);
-    }
-}
-```
-
-## Inheritance / OOP
-
-> http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
-
-```js
-    base = new Base();
-    Derived.prototype = base; // Must be before new Derived()
-    Derived.prototype.constructor = Derived; // Required to make `instanceof` work
-```
-
-```js
-    function Character(name){
-        this.name = name;
-    }
-
-    Character.prototype.fight = function(){
-        console.log(this.name, this.power);
-    }
-
-    function Wizard(name){
-        Character.apply(this, arguments);
-        this.power = 10;
-    }
-
-    Wizard.prototype = new Character();
-    Wizard.prototype.constructor = Wizard;
-```
-
 ## jQuery's AJAX functions
 
 jQuery has some built-in methods of requesting and sending information to and from a server. We covered `$.get()` and `$.getJSON` today. We will get to posting information to a server shortly.
@@ -1446,6 +1222,233 @@ $.when(promise1, promise2).then(function(resultsOfPromise1, resultsOfPromise2){
 })
 ```
 
+## DOM Events, `addEventListener()`, and `$.on()`
+
+- http://vimeo.com/96425312 ("What is the event loop?")
+
+## Combining DOM APIs, loops, and strings to dynamically change content on a Github page
+
+**Live drawing data pulled from `$.get()` to the DOM**
+
+```js
+// ---------------------
+// Let's draw some info from our github profiles to the screen
+// NOTE: you will need jQuery loaded on the page!
+// ---------------------
+var githubUsername = "matthiasak";
+var url = "https://api.github.com/users/"+githubUsername;
+$.get(url).then(function(data){
+    drawProfile(data);
+})
+function drawProfile(data) {
+    document.body.innerHTML = [
+        '<h1>',
+        data.name,
+        '</h1>',
+        '<h2> blog:',
+        data.blog,
+        '</h2>'
+    ].join('')
+}
+```
+
+## `setInterval()`, `setTimeout()`
+
+Test the following in Chrome dev tools:
+
+```js
+var d = new Date(),
+    interval = 3000; //1000ms = 1s
+
+var id = setInterval(function() {
+    d.setTime(d.getTime() + interval);
+    console.log(d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
+}, interval);
+```
+
+If you want to make the interval stop executing every 3000ms, run:
+
+```js
+clearInterval(id);
+```
+
+## Implicit Type coercion
+
+http://bonsaiden.github.io/JavaScript-Garden/#types
+
+- `instanceof` / `typeof`
+
+## Automatic Semicolon Insertion
+
+Read up on this here: http://bonsaiden.github.io/JavaScript-Garden/#core.semicolon
+
+We talked in class about how JavaScript will imply where semicolons should go if you omit them, and where we can omit curly braces (`{}`) with conditional and loop blocks:
+
+```js
+// valid one-line loops
+for(...) some one line statement;
+while(...) some one line statement;
+
+// valid one-line conditionals
+if() some one line statement;
+
+// valid for-loop block
+for(...){
+    some one line statement;
+}
+
+// valid if block
+if(){
+    some one line statement;
+}
+
+// valid return statements
+return {};
+return {}
+
+// not a good return statement
+
+return //<-- ; assumed here, so undefined will be returned, not {a: 0}
+    {
+        a: 0
+    }
+
+// valid function declaration
+function(){
+    //...
+}
+
+// function declaration in an assignment statement, semicolon recommended
+var x = function(){};
+```
+
+## debugger with Chrome
+
+- `console.log()`
+- `console.assert()`
+- `console.count()`
+- `console.dir()`
+- `console.trace()`
+- `console.time()`/`console.timeEnd()`
+- `performance.now()`
+- `console.timeline()`/`console.timelineEnd()`
+- `console.profile()`/`console.profileEnd()`
+- `inspect(any html element, or function)`
+- `console.timeStamp()` - // label the timeline
+- `copy()` - copy an object as a string to clipboard
+
+more info: https://developer.chrome.com/devtools/docs/console-api
+
+## errors, try/catch/finally, throw
+
+```
+/**
+ * EXAMPLE: when asking the user for a number
+ */
+
+function askForANumber(){
+    var number = prompt("please provide a number");
+    try {
+        handleResponse(number);
+    } catch(e) {
+        // :mindblown:
+        console.log(e, e.stack);
+        askForANumber(); // recursion
+    }
+}
+
+function handleResponse(number){
+    number = parseFloat(number); // handle decimal places too, with parseFloat
+    if(typeof number !== "number" || Number.isNaN(number)){ // is it not a number or is it NaN?
+        throw new Error("Whatch'you talkin' bout? SAY WAT AGAIN."); // if yes, throw error
+    } else {
+        alert('You typed in a number: '+number+'!');
+    }
+}
+
+askForANumber();
+```
+
+## `arguments` (variadic behavior)
+
+```js
+/**
+ * sum functions
+ */
+function sumOnlyTwoNumbers(a, b){
+    "use strict";
+    return a + b;
+}
+function sumForLoop(){
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    for(var i = 0; i < args.length; i++){
+        sum += args[i];
+    }
+    return sum;
+}
+function sumForEach(){
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    args.forEach(function(num){ sum += num; });
+    return sum;
+}
+function sumForEachCustom(){
+    "use strict";
+    "use strict";
+    var args = Array.prototype.slice.apply(arguments, []),
+        sum = 0;
+    forEach(args, function(){ sum += arguments[0]; });
+    return sum;
+}
+
+/**
+ * forEach functions
+ */
+function forEach(array, callback){
+    "use strict";
+    for(var i = 0; i < array.length; i++){
+        callback(array[i], i);
+    }
+}
+Array.prototype.forEach = function(callback){
+    "use strict";
+    for(var i = 0; i < this.length; i++){
+        callback(array[i], i);
+    }
+}
+```
+
+## Inheritance / OOP
+
+> http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
+
+```js
+    base = new Base();
+    Derived.prototype = base; // Must be before new Derived()
+    Derived.prototype.constructor = Derived; // Required to make `instanceof` work
+```
+
+```js
+    function Character(name){
+        this.name = name;
+    }
+
+    Character.prototype.fight = function(){
+        console.log(this.name, this.power);
+    }
+
+    function Wizard(name){
+        Character.apply(this, arguments);
+        this.power = 10;
+    }
+
+    Wizard.prototype = new Character();
+    Wizard.prototype.constructor = Wizard;
+```
+
 ## Underscore / lodash
 
 Underscore (http://underscorejs.org/, `bower install underscore`) and lodash (https://lodash.com/, `bower install lodash`) are two sides of the same coin.
@@ -1461,10 +1464,6 @@ Many of the functions from our previous homework are actually implemented in lod
 That means `_.forEach`, `_.filter`, `_.reduce`, `_.map`, `_.where`, `_.reject`, etc are all there. Yey! :yey:
 
 One thing I will focus on today with lodash is new: `_.template`, which can be used to plug data (from AJAX) into HTML and put it on the DOM.
-
-## DOM Events, `addEventListener()`, and `$.on()`
-
-- http://vimeo.com/96425312 ("What is the event loop?")
 
 ## Making Video Games in JavaScript
 
