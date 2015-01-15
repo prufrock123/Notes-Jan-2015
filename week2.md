@@ -36,6 +36,10 @@
 
 ### (2.) Thursday
 
+**Review**
+
+- https://gist.github.com/matthiasak/10ccc502ae702866f9f0
+
 **Homework**
 
 - http://www.staticshowdown.com/
