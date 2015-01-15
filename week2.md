@@ -881,6 +881,15 @@ sum += person["finishingTime"+1];
 
 ## Date()
 
+```js
+var x = new Date(),
+    y = new Date(1421298156652),
+    z = new Date("Wed Jan 14 2015");
+    // new Date(year, month[, day[, hour[, minute[, second[, millisecond]]]]]);
+```
+
+> See more http://devdocs.io/javascript-date/
+
 ## String methods
 
 ```js
