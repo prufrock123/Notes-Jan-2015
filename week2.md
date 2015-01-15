@@ -940,11 +940,10 @@ String.fromCharCode(97); //<-- "a"
 
 ## Regular Expressions (or RegEx for short)
 
-> From http://tutorialzine.com/2014/12/learn-regular-expressions-in-20-minutes/
-
 In JS, there is a `RegExp` Object. RegEx is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
 
 We will use RegEx most often through two primary approaches:
+
 1. We know a string `x`, and would like to test for any occurrences of a RegExp `y`,
 - or we know a RegExp `y` and would like to find the matches (if any) from a string `x`
 
