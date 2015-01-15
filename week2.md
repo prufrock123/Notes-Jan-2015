@@ -38,7 +38,8 @@
 
 **Homework**
 
-- TBD
+- http://www.staticshowdown.com/
+- Do this assignment: [ROT13](https://github.com/matthiasak/js-assignments/blob/a9223d3b13b04a1fc942ef9d2f16b65dfa2de64b/rot13/README.md)
 
 ---
 
