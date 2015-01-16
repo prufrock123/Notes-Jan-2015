@@ -45,6 +45,12 @@
 - http://www.staticshowdown.com/
 - Do this assignment: [ROT13](https://github.com/matthiasak/js-assignments/blob/a9223d3b13b04a1fc942ef9d2f16b65dfa2de64b/rot13/README.md)
 
+### (3.) Friday
+
+**Homework**
+
+- For the 3-day weekend, do as much of this assignment as you can. We will review on Tuesday. [looping, loopity, loops](https://github.com/matthiasak/js-assignments/blob/master/js-functions-functional-practice-1/exercises-1.js)
+
 ---
 
 # Resources
