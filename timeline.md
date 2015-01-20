@@ -1,202 +1,100 @@
-Potential Timeline for BB + React
----
+# Backbone + React Timeline
 
-> ordered by Week and then instruction day
+## 12 weeks
 
-# 1
+### Week 1 Goals
+By the end of this week students should be comfortable with:
 
-## 1.1
----
-- blogging and branding,
-- basic keyboard shortcuts,
-- install some programs,
-- cover creating the HTML boilerplate code in Sublime Text,
-- cover the ipsums (http://meettheipsums.com/),
-- talk about display:block and display:inline-block,
-- build a very simple blog layout,
-- discuss the Box Model
+  * HTML/CSS basics
+  * basic navigation and tasks in Terminal
+  * using basic Git and GitHub workflows
+  * large PSD-to-semantic-markup-and-css projects (such as Surf and Paddle)
+  * pixel perfect work on any layout their given
+  * quality documentation and resources (MDN, Stackoverflow, etc.)
 
-## 1.2
----
-- terminal basics
-- git basics
-- sublime plugins
-- shell-scripting basics
-- gh-pages
+### Week 2 Goals
+By the end of this week students should be comfortable with:
 
-## 1.3
----
-- layout and CSS techniques
-- A-To-Z CSS podcast
+  * SCSS syntax, Sass mixins, variable, and functions like `darken` and `lighten`.
+  * refactoring plain CSS into well-written SASS
+  * using a simple `package.json` and `gulpfile.js` to watch SCSS files for changes and re-pre-compile (or use `sass-watch`)
+  * jQuery-less DOM traversal (`getElementById`, `querySelectorAll`, etc.)
+  * basic JavaScript types
+  * iteration in JS
+  * `Array.prototype.map`, `Array.prototype.reduce`, `Array.prototype.filter`, etc.
 
-## 1.4
----
-- bower
-- normalize and typeplate
-- deep topics on CSS selectors
-- SCSS
-- more with gulp (JSHint, etc)
-# 2
+### Week 3 Goals
+By the end of this week students should be comfortable with:
 
-## 2.1
----
-- layout techniques, the
-- justify-text-inline-block grid,
-- iconfonts and other icon resources,
-- gulp, box-sizing, aspect-ratio fixing,
-- pseudo-elements, nth-of-type()
-- bootstrap, foundation,
-- building a CSS framework
+  * non-DOM-related jQuery
+  * Underscore as a fallback for native methods like `Array.prototype.map`
+  * Underscore chaining
+  * datamining a large set of JSON objects using Underscore to find average prices, materials etc (generally done with data from Etsy.com)
+  * the basics of HTTP and AJAX
+  * Yeoman
+  * Gulp basics
 
-## 2.2
----
-- continued builidng a CSS framework
+### Week 4 Goals
+By the end of this week students should be comfortable with:
 
-## 2.3
----
-- intro to JS
-- syntax
-- constructs
-- variables
-- primitives
-- objects
-- data types
-- operators
-- accessors ([] vs .)
-- chaining
-- statements vs. assignments
-- functions
-- IIFEs
-- strict mode
+  * building a simple, polling-based chat application using GET and POST HTTP methods
+  * team-based workflow with Git/GitHub
+  * `git rebase`, `git pull --rebase`, `git merge`
+  * JS promises (jQuery-flavored)
+  * basics of JavaScript unit testing
+  * Mocha and Chai
 
-## 2.4
----
-- conditionals
-- loops
-- loop labels
-- continue keyword
-- arrays vs array methods
-- Date's
-- RegExp's
-- type coercion
-- DOM APIs
-- script loaders (require.js, loader.js)
-- polyfills
+### Week 5 Goals
+By the end of this week students should be comfortable with:
 
-# 3
+  * JS constructors and the `new` keyword
+  * `this`
+  * scope
+  * closures
+  * currying and partial application
+  * `Backbone.Model`
+  * `Backbone.Collection`
+  * using Backbone's Model and Collection constructors to refactor a previous AJAX project
 
-## 3.1
----
-- String and String methods
-- setInterval/setTimeout/clearInterval/clearTimeout
-- more DOM APIs
-- parseInt, toString, valueOf, etc
-- SRP
-- try/catch/finally
-- errors, throw error
-- variadic behavior, arguments object
-- metaprogramming
-- typeof, instanceof
 
-## 3.2
----
-- merge conflicts in Git
-- more variadic behavior
-- writing own array fn's
-- the prototype chain, prototypes, constructors, arguments
-- this, function.call, function.apply, function.bind
+### Week 6 Goals
+By the end of this week students should be comfortable with:
 
-## 3.3
----
-- jQuery vs DOM APIs (including AJAX)
-- Promises
+  * `Backbone.View`
+  * `Backbone.Router`
+  * hashbangs vs HTML5 Pushstate API
+  * Building a small JavaScript MVC "todo" app.
+  * Using REST APIs (with jsonp, CORS, or some other x-domain circumvention method)
 
-## 3.4
----
-- lodash / underscore
-- templating (vanilla vs lodash vs mustache)
+### Week 7 Goals
+By the end of this week students should be comfortable with:
 
-# 4
+  * all aspects of Backbone.js
+  * reading and understanding the Backbone.js source code
+  * using Parse's REST API and datastore
+  * relational vs non-relational databases
+  * basics of user authentication, cookies, and localStorage
+  * building a small-scale social network with Parse.
 
-## 4.1
----
-- REST API's, JSON, JSONP
-- Vanilla JS implementation
-- Backbone Models
+### Week 8 Goals
+By the end of this week students should be comfortable with:
 
-## 4.2
----
-- routing, window.location, Backbone.Router
-- Working with APIs, discussion 1: Etsy
+  * HTML5 Geolocation API
+  * the Haversene formula for calculating distances on spherical shapes
+  * complex queries on relational Parse data
+  * cloud modules with Parse
+  * building an HTTP proxy in node.js
 
-## 4.3
----
-- Workin with APIs, discussion 2: Foursquare
-- geolocation
+### Week 9 Goals
+This week is a week for review and catch-up. Things will fall through the cracks during the previous 8 weeks, and so we have this week as a flex week to make sure we cover everything we've missed.
 
-## 4.4
----
-- complete JS walkthrough of jQuery plugins and native JS APIs
+By the end of this week students should be comfortable with:
 
-# 5
+  * replacing `Backbone.View` with React.js views
+  * JSX
+  * React's virtual DOM and DOM diffing
+  * Web Components
+  * ES6 and ES7
 
-## 5.1
----
-- BDD/TDD with Mocha/Chai
-
-## 5.2
----
-- Project structure, UI approaches, Brad Frost's Atomic UI patterns, GoodUI Principles
-- web dev resources
-- typography
-- fonts
-- stock photography
-- review of how 'Facing North' was built
-
-## 5.3
----
-- mid-week week-long project
-
-# 6
-
-## 6.3
----
-- Node.js, Express, Proxying, Heroku
-
-## 6.4
----
-- Backbone Views, nested views, templating, nesting data
-
-# 7
-
-## 7.1
----
-- Backbone Collections
-
-## 7.2
----
-- Backbone Routers, Collections, and Views
-
-## 7.3
----
-- BaaS's - Firebase and others
-
-## 7.4
----
-- React Components
-- BB + React
-
-# 8
-
-## 8.1
----
-- 3 day project using BB + React + home-built CSS framework
-
-## 8.4
----
-- final project specs
-- review, going forward
-
-# 9 - 12
----
-- TBD
+### Week 10, 11, 12
+The last three weeks are for final projects. Each student will design, build and deploy a major project of their own, using as much tech from the previous nine weeks as possible. Lecture is light and mostly Q&A based on problems students encounter. The rest of the time is spent working on final projects and prepping demos
