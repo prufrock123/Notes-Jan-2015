@@ -42,7 +42,7 @@
 
 **Homework**
 
-1. TBD
+1. [Color Clock](https://github.com/matthiasak/js-assignments/tree/master/color-clock)
 
 ### (2.) Wednesday
 
