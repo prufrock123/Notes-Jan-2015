@@ -297,10 +297,12 @@ _identifiers_
 - a `.class`
 - an `#id`
 - a star `*` (which matches any `tagname`)
-- `[name="value"]` - matches elements where name is exactly "value"
--  `[name~="value"]` - matches elements where name contains "value"
-- `[name$="value"]` - matches elements where name starts with "value"
-- `[name^="value"]` - matches elements where name ends with "value"
+- `[att=value]` - The attribute has to have the exact value specified.
+- `[att~=value]` - The attribute’s value needs to be a whitespace separated list of words (for example, class=”title featured home”), and one of the words is exactly the specified value.
+- `[att|=value]` - The attribute’s value is exactly “value” or starts with the word “value” and is immediately followed by “-“, so it would be “value-“.
+- `[att^=value]` - The attribute’s value starts with the specified value.
+- `[att$=value]` - The attribute’s value ends with the specified value.
+- `[att*=value]` - The attribute’s value contains the specified value.
 
 _pseudo-classes_
 

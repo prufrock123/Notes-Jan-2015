@@ -8,16 +8,22 @@
 
     For whatever reason, don't market yourself as a designer if your stuff doesn't look good. :-) You are JS **engineers**. NOT learning a little serverside and being afraid to try will limit your job search. SO start learning some serveriside and apply for jobs that ask for fullstack devs!
 
+- http://hnhiring.me/
 - http://codepen.io/jobs
+- http://nomadjobs.io/
+- http://remotehackers.com/
 - http://codingforinterviews.com/internships (internship experience at BIG companies)
 - http://www.founderweekly.com/ (great email list of udates on startup lessons)
 - http://codingforinterviews.com/ (great email list of updates, interview questions, developer culture)
 - https://twitter.com/workingnomads
+- https://weworkremotely.com/
 - http://workingnomads.co/
+- http://remotedigest.com/
 - https://underdog.io/
 - https://www.ziprecruiter.com/jobs
 - https://remotecoder.io/
 - http://frontenddeveloperjob.com/
+- https://jobsremotely.com/
 - http://monster.com
 - https://www.linkedin.com/job/home?trk=hb_tab_jobs_top
 - http://authenticjobs.com
@@ -30,7 +36,6 @@
 - http://slashdot.org/job_board.pl?job-board.php
 - http://dribbble.com/jobs/
 - http://www.crunchboard.com/crunchboard.php
-- https://weworkremotely.com/
 - http://arstechnica.com/jobs/
 - https://www.interviewstreet.com/recruit2/
 - http://jobs.readwriteweb.com/
