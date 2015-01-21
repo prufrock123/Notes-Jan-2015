@@ -36,7 +36,7 @@
 
 **Homework**
 
-1. TBD
+1. MLK Day - keep doing weekend assignment.
 
 ### (2.) Tuesday
 
@@ -46,9 +46,12 @@
 
 ### (2.) Wednesday
 
+- AJAX, Promises, and Github API (https://api.github.com/)
+
 **Homework**
 
-1. TBD
+1. Review https://github.com/TIY-Houston-Front-End-Engineering/AJAX-1
+2. [Github profile](https://github.com/matthiasak/js-assignments/tree/master/github-api-profile)
 
 ### (2.) Thursday
 
