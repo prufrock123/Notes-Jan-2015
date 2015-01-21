@@ -52,6 +52,7 @@
 
 1. Review https://github.com/TIY-Houston-Front-End-Engineering/AJAX-1
 2. [Github profile](https://github.com/matthiasak/js-assignments/tree/master/github-api-profile)
+3. Blog something.
 
 ### (2.) Thursday
 
