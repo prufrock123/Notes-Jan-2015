@@ -21,6 +21,7 @@
 - [Inheritance / OOP](#Inheritance / OOP)
 - [Underscore / lodash](#Underscore / lodash)
 - [Making Video Games in JavaScript](#Making Video Games in JavaScript)
+- [Prototypes, Constructors, and Organizing Code](#prototypes-constructors-and-organizing-code)
 - [RESTful APIs](#restful-apis)
 - [Routing](#routing)
 - [Script Loaders](#script-loaders)
@@ -78,6 +79,8 @@
 - http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
 - https://github.com/PROSPricing/js-assessment/tree/master/app
 - https://github.com/enaqx/awesome-react
+- http://futurice.com/blog/reactive-mvc-and-the-virtual-dom
+- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 - http://backbonejs.org
 - https://github.com/instanceofpro/awesome-backbone
 - https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
@@ -738,6 +741,12 @@ Includes topics of:
 - and others
 
 Video on "making Space Invaders from scratch": http://vimeo.com/105955605
+
+# Prototypes, Constructors, and Organizing Code
+
+![](./images/prototypes-1.png)
+
+![](./images/prototypes-2.png)
 
 # RESTful APIs
 
