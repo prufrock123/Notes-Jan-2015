@@ -28,13 +28,13 @@
 1. Read http://bonsaiden.github.io/JavaScript-Garden/#types and blog 15 key points or facts
 2. Do this assignment: [JS Intro HW - data types, variables, functions, simple math](https://github.com/matthiasak/js-assignments/blob/7710ff376dc0f4bf5c7fa2318317c59b54029f42/js-functions-datatypes-math-1/README.md)
 
-### (2.) Wednesday
+### (3.) Wednesday
 
 **Homework**
 
 1. Do this assignment: [JS functions, loops, structures](https://github.com/matthiasak/js-assignments/blob/b40c26d300174e0d80b835ffc6f9eb591a6732ed/js-functions-practice/README.md)
 
-### (2.) Thursday
+### (4.) Thursday
 
 **Review**
 
@@ -45,7 +45,7 @@
 - http://www.staticshowdown.com/
 - Do this assignment: [ROT13](https://github.com/matthiasak/js-assignments/blob/a9223d3b13b04a1fc942ef9d2f16b65dfa2de64b/rot13/README.md)
 
-### (3.) Friday
+### (5.) Friday
 
 **Homework**
 

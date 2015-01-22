@@ -45,7 +45,7 @@
 
 1. [Color Clock](https://github.com/matthiasak/js-assignments/tree/master/color-clock)
 
-### (2.) Wednesday
+### (3.) Wednesday
 
 - AJAX, Promises, and Github API (https://api.github.com/)
 
@@ -55,7 +55,18 @@
 2. [Github profile](https://github.com/matthiasak/js-assignments/tree/master/github-api-profile)
 3. Blog something.
 
-### (2.) Thursday
+### (4.) Thursday
+
+- AJAX review (`$.when`, `$.get`, `promise.then`)
+- Github Profile homework recap
+- Templating (seperating our HTML and JS)
+- Constructors and Prototypes
+
+**Homework**
+
+1. [Github profile (hard/nightmare mode)](https://github.com/matthiasak/js-assignments/tree/master/github-api-profile)
+
+### (5.) Friday
 
 **Homework**
 
