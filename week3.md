@@ -813,10 +813,6 @@ These actions (`GET`, `PUT`, `POST`, `DELETE`) are called HTTP verbs, and are ac
 
 Simply put, RESTful API's exist because it means there is a standardized way for front-end and back-end (browser and server-side code) to talk to each other.
 
-> example RESTful API interaction
-
-![](./examples/day20/1.png)
-
 ### JSONP vs JSON
 
 JavaScript in the browser is subject to more security controls. I mentioned that we used Github API because it is CORS-compatible (Cross Origin Resource Sharing), meaning Github lets other sites access it via JavaScript.
@@ -1052,8 +1048,6 @@ One thing we noted was that any new function that we declare (like `Cat()`) auto
 ### Inheritance and Pokémon
 
 Yes. I'm going to make a mother-effing Pokémon reference. Deal with it. :-)
-
-![](./examples/day22/pikachu.gif)
 
 Imagine our understanding (I hope) of Pokémon:
 - All Pokémon can `evolve()`.
