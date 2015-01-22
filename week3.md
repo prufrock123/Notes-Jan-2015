@@ -783,6 +783,34 @@ Screenshots of Chrome Console:
 
 ![](./images/prototypes-2.png)
 
+Screenshot of whiteboard:
+
+![](./images/prototypes-3.jpg)
+
+# SOLID
+
+> http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29
+
+- Single responsibility, 
+
+    > a class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
+
+- Open-closed, 
+
+    > software entities … should be open for extension, but closed for modification
+
+- Liskov substitution, 
+
+    > objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program
+
+- Interface segregation,
+
+    > many client-specific interfaces are better than one general-purpose interface
+
+- and Dependency inversion
+
+    > one should “Depend upon Abstractions. Do not depend upon concretions.”
+
 # RESTful APIs
 
 ### In simplest terms: What is a database?
