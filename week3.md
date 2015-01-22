@@ -744,6 +744,30 @@ Video on "making Space Invaders from scratch": http://vimeo.com/105955605
 
 # Prototypes, Constructors, and Organizing Code
 
+In class, we took the following code (loaded from `app.js`) and explored it in the Chrome Console (shown in the subsequent screenshots):
+
+```js
+function Person(username, token){
+    this.username = username;
+    this.token = token;
+}
+
+Person.prototype.typeOnKeyboard = function(){
+    console.log(this.username)
+}
+Person.prototype.swingSword = function(){}
+Person.prototype.action3 = function(){}
+
+
+///////
+
+
+var matt = new Person("matthiasak", "09053bbd5cd5b90fdfd05055ce45635ea9f676b")
+var nicole = new Person("arbolkiri", "09053basldahsbdjabdsjhabsdjhabsdjhabsd")
+```
+
+Screenshots of Chrome Console:
+
 ![](./images/prototypes-1.png)
 
 ![](./images/prototypes-2.png)
