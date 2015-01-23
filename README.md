@@ -70,6 +70,64 @@ A custom [install script](./extras/ultimate-install-script.sh) will be provided 
 - [Modernizr and Polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills)
 - Micro-libs on [microjs.com](http://microjs.com)
 
+--- 
+
+## Other Resources
+
+- http://onepagelove.com/
+- http://sass-lang.com/guide
+- https://www.npmjs.org/
+- https://github.com/jonathanpath/SASS-SMACSS
+- http://bonsaiden.github.io/JavaScript-Garden/
+- http://devdocs.io/
+- Mozilla Developer Network: https://developer.mozilla.org/en-US/
+- http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+- https://developer.mozilla.org/en-US/docs/Web/Reference/API
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://leanpub.com/understandinges6/read/
+- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
+- https://github.com/PROSPricing/js-assessment/tree/master/app
+- https://github.com/enaqx/awesome-react
+- http://futurice.com/blog/reactive-mvc-and-the-virtual-dom
+- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+- http://backbonejs.org
+- https://github.com/instanceofpro/awesome-backbone
+- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
+- http://youmightnotneedjquery.com/
+- https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
+- http://caniuse.com/
+
+**HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN**
+
+- http://meettheipsums.com/
+- Mozilla Developer Network: https://developer.mozilla.org/en-US/
+- List of HTML tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+- List of HTML attributes: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
+- All the CSS properties! https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+- You need GIFs, so get 'em here: http://giphy.com/
+
+**Typography, Fonts, Icons, A-to-Z-css podcast**
+
+- http://necolas.github.io/normalize.css/
+- http://typeplate.com/
+- http://kennethormandy.com/journal/normalize-opentype-css
+- http://hellohappy.org/beautiful-web-type/
+- http://www.atozcss.com/media-queries/ and the entire AtoZcss podcast lineup: http://www.atozcss.com/
+- http://fortawesome.github.io/Font-Awesome/get-started/
+- http://thenounproject.com/
+- https://icomoon.io/
+- http://iconmelon.com/
+
+**CSS almanac, pseudo-classes/selectors, codepen patterns, currentColor**
+
+- http://css-tricks.com/almanac/
+- CSS pseudo-classes and selectors
+- http://a.singlediv.com/
+- http://codepen.io/patterns/
+- `currentColor`
+- `::before` / `::after`
+- http://onepagelove.com/
+
 # After class ends..
 
 > ... you will be looking for those next steps. Check out the following ideas:

@@ -2,8 +2,7 @@
 
 # Objectives
 
-1. [Resources](#resources)
-- [NPM](#npm)
+1. [NPM](#npm)
 - [SCSS](#scss)
 - [Building our own CSS framework](#building-our-own-css-framework)
 - [SMACSS](#smacss)
@@ -50,29 +49,6 @@
 **Homework**
 
 - For the 3-day weekend, do as much of this assignment as you can. We will review on Tuesday. [looping, loopity, loops](https://github.com/matthiasak/js-assignments/blob/master/js-functions-functional-practice-1/exercises-1.js)
-
----
-
-# Resources
-
-- http://onepagelove.com/
-- http://sass-lang.com/guide
-- https://www.npmjs.org/
-- https://github.com/jonathanpath/SASS-SMACSS
-- http://bonsaiden.github.io/JavaScript-Garden/
-- http://devdocs.io/
-- Mozilla Developer Network: https://developer.mozilla.org/en-US/
-- http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
-- https://developer.mozilla.org/en-US/docs/Web/Reference/API
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript
-- https://leanpub.com/understandinges6/read/
-- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
-- https://github.com/PROSPricing/js-assessment/tree/master/app
-- https://github.com/enaqx/awesome-react
-- http://backbonejs.org
-- https://github.com/instanceofpro/awesome-backbone
-- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
-- http://youmightnotneedjquery.com/
 
 ---
 

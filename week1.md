@@ -9,7 +9,6 @@
 - [DND mode]()
 - [Mac OS X Terminal Basics](#mac-os-x-terminal-basics)
 - [Sublime Text shortcuts]()
-- [Resources](#resources)
 - [How a browser reads HTML](#how-a-browser-reads-html)
 - [HTML](#html)
 - [Chrome Dev Tools](#chrome-dev-tools)
@@ -51,41 +50,6 @@
 **Homework**
 
 - Do this assignment: [responsive-tshirt-layout](https://github.com/matthiasak/js-assignments/blob/95838cbf5dd7c6645265784645040f2664f44969/html-intro-3-tshirts/README.md)
-
----
-
-# Resources
-
-**HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN**
-
-- http://meettheipsums.com/
-- Mozilla Developer Network: https://developer.mozilla.org/en-US/
-- List of HTML tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
-- List of HTML attributes: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-- All the CSS properties! https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
-- You need GIFs, so get 'em here: http://giphy.com/
-
-**Typography, Fonts, Icons, A-to-Z-css podcast**
-
-- http://necolas.github.io/normalize.css/
-- http://typeplate.com/
-- http://kennethormandy.com/journal/normalize-opentype-css
-- http://hellohappy.org/beautiful-web-type/
-- http://www.atozcss.com/media-queries/ and the entire AtoZcss podcast lineup: http://www.atozcss.com/
-- http://fortawesome.github.io/Font-Awesome/get-started/
-- http://thenounproject.com/
-- https://icomoon.io/
-- http://iconmelon.com/
-
-**CSS almanac, pseudo-classes/selectors, codepen patterns, currentColor**
-
-- http://css-tricks.com/almanac/
-- CSS pseudo-classes and selectors
-- http://a.singlediv.com/
-- http://codepen.io/patterns/
-- `currentColor`
-- `::before` / `::after`
-- http://onepagelove.com/
 
 ---
 
