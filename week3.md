@@ -70,7 +70,11 @@
 
 **Homework**
 
-- http://www.staticshowdown.com/
+- Watch and code along with [Making Space Invaders in JS](https://github.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/blob/master/week3.md#making-video-games-in-javascript)
+- If you run into questions, not only ask your peers/TA/instructor on Hipchat, but write the questions down with example code and:
+
+    1. blog them
+    2. bring those questions to class so we can review
 
 ---
 
