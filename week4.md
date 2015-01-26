@@ -26,16 +26,17 @@
 
 ### (1.) Monday
 
-- review:
-
-    1. [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
-    2. http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/
-
-- 
+- reviewed: http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/
+- exercise from today: https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone
+- gh-pages version: http://tiy-houston-front-end-engineering.github.io/Routing-1-Vanilla-and-Backbone/
 
 **Homework**
 
-1. TBD
+1. Complete and polish up your homework assignments (as much as you can, check with me if you have questions). You'll receive an email with a Status Report from me by 1pm.
+2. When you finish fixing your work, review: 1. [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
+3. Finally, create your own repo, and replicate http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/ with Routing (Backbone). 
+
+    > Remember that the [exercise from today](https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone) has an example Backbone Router.
 
 ### (2.) Tuesday
 
