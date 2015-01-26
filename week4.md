@@ -33,7 +33,7 @@
 **Homework**
 
 1. Complete and polish up your homework assignments (as much as you can, check with me if you have questions). You'll receive an email with a Status Report from me by 1pm.
-2. When you finish fixing your work, review: 1. [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
+2. When you finish fixing your work, review: [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
 3. Finally, create your own repo, and replicate http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/ with Routing (Backbone). 
 
     > Remember that the [exercise from today](https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone) has an example Backbone Router.
@@ -321,6 +321,7 @@ It is used when browsers that have older versions of JS (like IE8 and less) don'
 
 - http://youmightnotneedjquery.com/#on
 - http://vimeo.com/96425312 ("What is the event loop?")
+- http://devdocs.io/dom_events/
 
 ---
 
