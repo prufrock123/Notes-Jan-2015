@@ -12,12 +12,10 @@
 - [Underscore / lodash](#Underscore / lodash)
 - [RESTful APIs](#restful-apis)
 - [Routing](#routing)
-
 - [Script Loaders](#script-loaders)
 - [Polyfills](#polyfills)
 - [Caching](#caching)
 - [More on Inheritance](#more-on-inheritance)
-
 - [BDD](#bdd)
 - [Node.js and Heroku](#nodejs-and-heroku)
 - [Happy API Days!](#happy-api-days)
@@ -27,6 +25,13 @@
 # Discussion Topics and Homework
 
 ### (1.) Monday
+
+- review:
+
+    1. [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
+    2. http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/
+
+- 
 
 **Homework**
 
