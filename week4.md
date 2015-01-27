@@ -119,15 +119,22 @@
     var myGHRouter = new GithubRouter();
     ```
 
-3. Polyfills
+3. Scope
+
+    ![](./images/scope.png)
+
+4. Polyfills
 
     Polyfills are JS libraries that let the developer use modern APIs in browsers that don't support them.
 
     - Finding polyfills is so easy: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
     - Finding if your browser supports something is so easy: http://caniuse.com/
 
-4. Lodash
-5. Creating our own Promises
+5. Lodash
+
+    https://lodash.com/docs#template
+
+6. Creating our own Promises
 
     ```js
     var x = $.Deferred();
@@ -150,7 +157,7 @@
     })
     ```
 
-6. Caching
+7. Caching
 
     > Caching is a term used in networking and computing when a a result can be stored and reused.
 
@@ -179,14 +186,14 @@
 
     Using `EtsyClient.prototype.loadTemplate()` in this fashion will make a brand new request the first time, and then send back a cached result every call thereafter.
 
-7. Implicit Type coercion
+8. Implicit Type coercion
 
     http://bonsaiden.github.io/JavaScript-Garden/#types
 
     - `instanceof` / `typeof`
     - How does this tie-in to prototypes?
 
-8. Error handling 
+9. Error handling 
 
     > ...is important for robust code.
 
@@ -217,7 +224,7 @@
     }
     ```
 
-9. Inheritance
+10. Inheritance
 
     > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
 
