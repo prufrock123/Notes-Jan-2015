@@ -97,6 +97,13 @@ A custom [install script](./extras/ultimate-install-script.sh) will be provided 
 - https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
 - http://caniuse.com/
 
+**Programming Problems and Practice**
+
+- https://projecteuler.net/problems
+- https://www.hackerrank.com/
+- http://codeforces.com/problemset
+- http://www3.cs.stonybrook.edu/~algorith/video-lectures/
+
 **HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN**
 
 - http://meettheipsums.com/

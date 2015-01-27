@@ -39,32 +39,130 @@
 
 ---
 
-# Resources
-
-- http://onepagelove.com/
-- http://sass-lang.com/guide
-- https://www.npmjs.org/
-- https://github.com/jonathanpath/SASS-SMACSS
-- http://bonsaiden.github.io/JavaScript-Garden/
-- http://devdocs.io/
-- Mozilla Developer Network: https://developer.mozilla.org/en-US/
-- http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
-- https://developer.mozilla.org/en-US/docs/Web/Reference/API
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript
-- https://leanpub.com/understandinges6/read/
-- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
-- https://github.com/PROSPricing/js-assessment/tree/master/app
-- https://github.com/enaqx/awesome-react
-- http://backbonejs.org
-- https://github.com/instanceofpro/awesome-backbone
-- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
-- http://youmightnotneedjquery.com/
-- https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
-- http://caniuse.com/
+# jQuery vs. Vanilla
 
 ---
 
-# jQuery vs. Vanilla
+# BDD
+
+> **Disclaimer**: Behavior Driven Development and Test Driven Development are typically included under the same moniker, and really don't differ too much. We will specifically focus on BDD. But seriously, they are almost exactly the same thing save a function or two's names.
+
+BDD is a weird, backwards way of programming. It is slower to do this, but writing tests for your code **before** writing the complete implementation of your code makes you think about the Single Responsibility Principle and how your Constructors/Prototypes should be structured.
+
+In other words, Behavior Driven Development **uses** forces you to invoke your functions first, and then declare them later.
+
+Weird, huh? So how do we use our code before it's written? Won't that throw errors?
+
+**Yes!** That is exactly the point of this next section:
+
+##### BDD is implemented using a process typically termed "Red, Green, Refactor":
+
+1. You write a single test, make the test fail (i.e. a Constructor `Cat()` doesn't exist yet),
+2. Then you make that test pass (i.e. create a Constructor `Cat()`),
+3. Finally you repeat this process until your app is complete.
+
+##### Why is this awesome on big projects?
+
+Whenever someone uses your code, makes edits to it, or you simply haven't touched the code for a while and there's a new version of jQuery out (or whatever other dependencies you are using), your code may no longer work.
+
+Wouldn't it be nice if some tests could tell you with certainty that your code will work?
+
+Hint: that is what TDD will do :-)
+
+However, that means writing tests isn't good enough, you have to write **testable JavaScript**.
+
+## Installing a testing framework
+
+Mocha and Chai are two separate projects that are used in tandem to provide a testing framework. I have taken the liberty of adding these to our setup-projects.sh file at https://github.com/TIY-Houston-Front-End-Sept-2014/Notes/blob/master/examples/extras/setup-project.sh.
+
+These are just driven by JavaScript, and thus can be run by Node (i.e. by Gulp) or in the browser (which is the method we will take).
+
+I have already updated our `setup-projects.sh` file to create a `test` folder with a `main.js` file inside, and a `test.html` file in the project's root directory.
+
+If you are needing some documentation for Mocha and Chai:
+
+- Mocha - (http://mochajs.github.io/mocha/) - Mocha provides a test runner (e.g. `describe` and `it`).
+- Chai - (http://chaijs.com/) - Chai provides the expectations (e.g. `to.be.true`).
+
+## Writing Testable JavaScript
+
+Writing tests for code starts with calling some expected behavior, and then telling the test suite to expect some particular output or behavior.
+
+```js
+var foo;
+// do something with foo, then...
+
+// demo of the ways we can test foo
+expect(foo).to.be.a('string');
+expect(foo).to.equal('bar');
+expect(foo).to.have.length(3);
+expect(tea).to.have.property('flavors').with.length(3)
+```
+
+There's a lot of fantastic resources out there to whet your whistle, but these particular resources below are a great start to learning how some of the most prolific JS coders / conf speakers write testable JavaScript:
+
+- [Video](https://www.youtube.com/watch?v=OzjogCFO4Zo)
+- [Slides](https://speakerdeck.com/rmurphey/writing-testable-javascript)
+- [Article](http://alistapart.com/article/writing-testable-javascript)
+
+## Other resources
+
+The homework is being adapted from the "Array Methods" koan available on Github. A koan is a problem or context in which one meditates on (a term lovingly borrowed from Zen and Buddhism). In the programming world, there is a set of practice koans that have been translated into JavaScript (from other languages, I think these were from Ruby), where we can write tests for the built-in Array methods.
+
+- JavaScript Koans - (https://github.com/mrdavidlaing/javascript-koans)
+
+I have further modified the "Array Methods" koan to be used with Mocha and Chai (it was originally written to be used with another TDD framework called Jasmine).
+
+> NOTE: also cover the combination of throwing errors, writing tests, and SOLID principles; how the strength of this combination creates really defensive and resilient code
+
+# Node.js and Heroku
+
+###  Getting started with Proxying
+
+In the `server.js` file, there is a spot that says `add your proxies here`, with some examples, including proxying BreweryDB. Follow those as examples, and if you have any questions I will add/update them here for documentation. :-)
+
+### Pushing to Heroku
+
+Heroku is setup via the heroku toolbelt we installed. It essentially is a command-line program, nothing more, nothing less.
+
+If you look at your git remotes (i.e. Github), you will see where your endpoints are:
+
+```sh
+mattbook-air:BreweryDBAPI matthiasak$ git remote -v
+origin  git@github.com:TIY-Houston-Front-End-Sept-2014/TIY_HW24.git (fetch)
+origin  git@github.com:TIY-Houston-Front-End-Sept-2014/TIY_HW24.git (push)
+```
+
+That `origin` above is why we do `git push origin master` or `git push origin gh-pages`. It means we are pushing to Github, and to the master or gh-pages branch.
+
+Now run (where appName is some name for the app):
+```sh
+heroku create <appName>
+```
+
+If you don't provide an appName, then Heroku will choose one for you.
+
+Now check your git remotes:
+```sh
+mattbook-air:BreweryDBAPI matthiasak$ git remote -v
+heroku  git@heroku.com:tiy24yo.git (fetch)
+heroku  git@heroku.com:tiy24yo.git (push)
+origin  git@github.com:TIY-Houston-Front-End-Sept-2014/TIY_HW24.git (fetch)
+origin  git@github.com:TIY-Houston-Front-End-Sept-2014/TIY_HW24.git (push)
+```
+
+Now, you just need to do this to get a working server on Heroku:
+```sh
+git add --all .
+git commit -am "some message -- pushing to heroku?"
+git push heroku master
+```
+
+### Want to easily open your shiny new app on Heroku's website?
+
+```sh
+heroku open
+```
 
 ---
 
