@@ -53,10 +53,13 @@
 ---
 
 1. DOM Events, `addEventListener()`, and `$.on()`
+
     - http://youmightnotneedjquery.com/#on
     - http://vimeo.com/96425312 ("What is the event loop?")
     - http://devdocs.io/dom_events/
+
 - Routing
+
     > Check out this StackOverflow link on Hipchat: http://stackoverflow.com/questions/10075507/what-does-javascript-routing-buy-you
 
     When you go to Gmail and load:
@@ -128,11 +131,14 @@
     // initialize an instance of the Router
     var myGHRouter = new GithubRouter();
     ```
+
 - Polyfills
+
     Polyfills are JS libraries that let the developer use modern APIs in browsers that don't support them.
 
     - Finding polyfills is so easy: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
     - Finding if your browser supports something is so easy: http://caniuse.com/
+
 - Lodash
 - Creating our own Promises
 
@@ -156,7 +162,9 @@
         data.time; // Jan 27 2015 7:05
     })
     ```
+
 - Caching
+
     > Caching is a term used in networking and computing when a a result can be stored and reused.
 
     Well, we can cache data requested with `$.get()`:
@@ -183,12 +191,16 @@
     ```
 
     Using `EtsyClient.prototype.loadTemplate()` in this fashion will make a brand new request the first time, and then send back a cached result every call thereafter.
+
 - Implicit Type coercion
+
     http://bonsaiden.github.io/JavaScript-Garden/#types
 
     - `instanceof` / `typeof`
     - How does this tie-in to prototypes?
+
 - Error handling 
+
     > ...is important for robust code.
 
     <!-- errors, try/catch/finally, throw -->
@@ -217,7 +229,9 @@
         // was an error
     }
     ```
+
 - Inheritance
+
     > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
 
     General approach:
@@ -247,7 +261,9 @@
         Wizard.prototype = new Character();
         Wizard.prototype.constructor = Wizard;
     ```
+
 - RESTful APIs
+
     ** A database is, in simplest terms, spreadsheet. **
 
     It has columns (a property name) and rows (the records).
@@ -331,7 +347,9 @@
             console.log(data);
         });
         ```
+
 - Regular Expressions (or RegEx for short)
+
     In JS, there is a `RegExp` Object. RegEx is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
 
     We will use RegEx most often through two primary approaches:
