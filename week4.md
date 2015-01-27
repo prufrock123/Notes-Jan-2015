@@ -23,34 +23,21 @@
     - reviewed: http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/
     - exercise from today: https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone
     - gh-pages version: http://tiy-houston-front-end-engineering.github.io/Routing-1-Vanilla-and-Backbone/
+    - **Homework**
 
-    **Homework**
-
-    1. Complete and polish up your homework assignments (as much as you can, check with me if you have questions). You'll receive an email with a Status Report from me by 1pm.
-    2. When you finish fixing your work, review: [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
-    3. Finally, create your own repo, and replicate http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/ with Routing (Backbone). 
+        1. Complete and polish up your homework assignments (as much as you can, check with me if you have questions). You'll receive an email with a Status Report from me by 1pm.
+        2. When you finish fixing your work, review: [map and filter](https://github.com/cjros/js-assignments/blob/master/three-part.js)
+        3. Finally, create your own repo, and replicate http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/ with Routing (Backbone). 
 
         > Remember that the [exercise from today](https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone) has an example Backbone Router.
 
 - Tuesday
-
-    **Homework**
-
-    1. TBD
-
 - Wednesday
-
-    **Homework**
-
-    1. TBD
-
 - Thursday
 
-    **Homework**
-
-    - TBD
-
 ---
+
+# Notes
 
 1. DOM Events, `addEventListener()`, and `$.on()`
 
@@ -58,7 +45,7 @@
     - http://vimeo.com/96425312 ("What is the event loop?")
     - http://devdocs.io/dom_events/
 
-- Routing
+2. Routing
 
     > Check out this StackOverflow link on Hipchat: http://stackoverflow.com/questions/10075507/what-does-javascript-routing-buy-you
 
@@ -132,15 +119,15 @@
     var myGHRouter = new GithubRouter();
     ```
 
-- Polyfills
+3. Polyfills
 
     Polyfills are JS libraries that let the developer use modern APIs in browsers that don't support them.
 
     - Finding polyfills is so easy: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
     - Finding if your browser supports something is so easy: http://caniuse.com/
 
-- Lodash
-- Creating our own Promises
+4. Lodash
+5. Creating our own Promises
 
     ```js
     var x = $.Deferred();
@@ -163,7 +150,7 @@
     })
     ```
 
-- Caching
+6. Caching
 
     > Caching is a term used in networking and computing when a a result can be stored and reused.
 
@@ -192,14 +179,14 @@
 
     Using `EtsyClient.prototype.loadTemplate()` in this fashion will make a brand new request the first time, and then send back a cached result every call thereafter.
 
-- Implicit Type coercion
+7. Implicit Type coercion
 
     http://bonsaiden.github.io/JavaScript-Garden/#types
 
     - `instanceof` / `typeof`
     - How does this tie-in to prototypes?
 
-- Error handling 
+8. Error handling 
 
     > ...is important for robust code.
 
@@ -230,7 +217,7 @@
     }
     ```
 
-- Inheritance
+9. Inheritance
 
     > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
 
@@ -262,7 +249,7 @@
         Wizard.prototype.constructor = Wizard;
     ```
 
-- RESTful APIs
+10. RESTful APIs
 
     ** A database is, in simplest terms, spreadsheet. **
 
@@ -348,7 +335,7 @@
         });
         ```
 
-- Regular Expressions (or RegEx for short)
+11. Regular Expressions (or RegEx for short)
 
     In JS, there is a `RegExp` Object. RegEx is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
 
