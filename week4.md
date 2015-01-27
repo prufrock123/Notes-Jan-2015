@@ -53,11 +53,9 @@
 ---
 
 1. DOM Events, `addEventListener()`, and `$.on()`
-
     - http://youmightnotneedjquery.com/#on
     - http://vimeo.com/96425312 ("What is the event loop?")
     - http://devdocs.io/dom_events/
-
 - Routing
 
     > Check out this StackOverflow link on Hipchat: http://stackoverflow.com/questions/10075507/what-does-javascript-routing-buy-you
