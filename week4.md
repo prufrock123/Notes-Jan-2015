@@ -40,7 +40,17 @@
         1. Create a copy of the exercise today and add the right side to the Github Profile Browser (the "detail" part - which shows a user's repo's)
 
 - Wednesday
+
+    - more review
+        - [overview of topics considered/covered (in week 4)](#overview)
+
 - Thursday
+
+---
+
+# Overview
+
+![](./images/overview-wk4.jpg)
 
 ---
 
@@ -126,9 +136,18 @@
     var myGHRouter = new GithubRouter();
     ```
 
+    **Visual descriptions/screenshots**
+
+    ![](./images/routing.jpg)
+    ![](./images/routing-2.png)
+
 3. Scope
 
+    **Visual descriptions/screenshots**
+
     ![](./images/scope.png)
+    ![](./images/scope.jpg)
+    ![](./images/scope-2.png)
 
 4. Polyfills
 
@@ -164,6 +183,12 @@
     })
     ```
 
+    **Visual descriptions/screenshots**
+
+    ![](./images/promises.png)
+    ![](./images/streams.jpg)
+    ![](./images/streams-3.png)
+
 7. Caching
 
     > Caching is a term used in networking and computing when a a result can be stored and reused.
@@ -192,6 +217,10 @@
     ```
 
     Using `EtsyClient.prototype.loadTemplate()` in this fashion will make a brand new request the first time, and then send back a cached result every call thereafter.
+
+    **Visual descriptions/screenshots**
+
+    ![](./images/streams-2.png)
 
 8. Implicit Type coercion
 
@@ -231,7 +260,7 @@
     }
     ```
 
-10. Inheritance
+10. Constructors, Prototypes, and Inheritance
 
     > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
 
@@ -263,7 +292,7 @@
         Wizard.prototype.constructor = Wizard;
     ```
 
-10. RESTful APIs
+11. RESTful APIs
 
     ** A database is, in simplest terms, spreadsheet. **
 
@@ -349,7 +378,7 @@
         });
         ```
 
-11. Regular Expressions (or RegEx for short)
+12. Regular Expressions (or RegEx for short)
 
     In JS, there is a `RegExp` Object. RegEx is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
 
