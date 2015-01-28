@@ -32,6 +32,13 @@
         > Remember that the [exercise from today](https://github.com/TIY-Houston-Front-End-Engineering/Routing-1-Vanilla-and-Backbone) has an example Backbone Router.
 
 - Tuesday
+
+    - reviewed: http://maprules1000.github.io/TIY-Jan-15-Class-Git-Pages/
+    - exercise from today: https://github.com/TIY-Houston-Front-End-Engineering/Github-Profile-Browser
+    - **Homework**
+
+        1. Create a copy of the exercise today and add the right side to the Github Profile Browser (the "detail" part - which shows a user's repo's)
+
 - Wednesday
 - Thursday
 

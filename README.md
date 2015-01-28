@@ -60,7 +60,6 @@ A custom [install script](./extras/ultimate-install-script.sh) will be provided 
 - [Cheatsheets](http://overapi.com/)
 - [For a Rainy Day - John Resig slides on learning JS](http://ejohn.org/apps/learn/#1)
 - [For a Rainy Day - Rich Hicke's Simple Made Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
-- [Rainy Day Quizzes](http://tcorral.github.io/javascript-challenges-book/index.html)
 - [What the heck is the event loop anyways?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 - [BetterExplainedMath](http://betterexplained.com/cheatsheet/bex.cheatsheet.pdf)
 - [Linear algebra examples](http://betterexplained.com/articles/linear-algebra-guide/)
@@ -177,6 +176,8 @@ What is prework?
 **Part 0**
 
 Check the software and accounts you will need in the [Materials sections](#materials). Signup for any accounts that you currently do no have.
+
+If you're new to a Mac (or old, even), check out https://www.apple.com/support/macbasics/.
 
 **Part 1**
 
