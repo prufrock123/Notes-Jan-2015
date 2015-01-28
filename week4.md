@@ -10,7 +10,7 @@
 - Caching
 - Implicit Type coercion
 - Error handling 
-- Inheritance
+- Constructors, Prototypes, and Inheritance
 - RESTful APIs
 - Regular Expressions (or RegEx for short)
 
