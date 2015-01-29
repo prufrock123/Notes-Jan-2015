@@ -499,45 +499,65 @@
 
 13. PubSub / Mediator
 
-```js
-;(function($) {
+    ```js
+    ;(function($) {
 
-    var mediator = $({});
+        var mediator = $({});
 
-    $.subscribe = function() {
-        mediator.on.apply(mediator, arguments);
-    };
+        $.subscribe = function() {
+            mediator.on.apply(mediator, arguments);
+        };
 
-    // example
+        // example
+        // 
+        // $.subscribe("mattWantsCoffee", callback)
+        // 
+        // ~~~~> arguments is ["mattWantsCoffee", callback]
+        // 
+        // BAD:             $.subscribe(arguments)
+        // DESIRED EFFECT:  $.subscribe("mattWantsCoffee", callback)
+        // TO DO THE ABOVE: mediator.on.apply(mediator, arguments)
+
+        $.unsubscribe = function() {
+          mediator.off.apply(mediator, arguments);
+        };
+
+        $.publish = function() {
+            mediator.trigger.apply(mediator, arguments);
+        };
+
+    })($);
+
+    // USAGE:
     // 
-    // $.subscribe("mattWantsCoffee", callback)
-    // 
-    // ~~~~> arguments is ["mattWantsCoffee", callback]
-    // 
-    // BAD:             $.subscribe(arguments)
-    // DESIRED EFFECT:  $.subscribe("mattWantsCoffee", callback)
-    // TO DO THE ABOVE: mediator.on.apply(mediator, arguments)
+    // 1. listen for events in module A
 
-    $.unsubscribe = function() {
-      mediator.off.apply(mediator, arguments);
-    };
+    $.subscribe("IneedCoffeeNAOW", function(event, data){ 
+        // do something when event occurs
+        console.log(data)
+    })
 
-    $.publish = function() {
-        mediator.trigger.apply(mediator, arguments);
-    };
+    // 2. trigger event in module B
 
-})($);
+    $.publish("IneedCoffeeNAOW", { hotOrIced: "hot" })
+    ```
 
-// USAGE:
-// 
-// 1. listen for events in module A
+    More example code:
 
-$.subscribe("IneedCoffeeNAOW", function(event, data){ 
-    // do something when event occurs
-    console.log(data)
-})
+    ```js
+    function A(){
+        var self = this;
+        $.subscribe("mattWantsCoffee", function(event, data){
+            self.hotOrCold = data.hotOrCold;
+        })
+    }
 
-// 2. trigger event in module B
+    function B(){
+        var v = (Math.random() > .5) ? "hot" : "cold";
+        $.publish("mattWantsCoffee", {hotOrCold: v})
+    }
 
-$.publish("IneedCoffeeNAOW", { hotOrIced: "hot" })
-```
+    window.A = A;
+    window.B = B;
+    ```
+    
