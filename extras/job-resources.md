@@ -8,6 +8,7 @@
 
     For whatever reason, don't market yourself as a designer if your stuff doesn't look good. :-) You are JS **engineers**. NOT learning a little serverside and being afraid to try will limit your job search. SO start learning some serveriside and apply for jobs that ask for fullstack devs!
 
+- http://hackersurfing.com/
 - http://hnhiring.me/
 - http://codepen.io/jobs
 - http://nomadjobs.io/

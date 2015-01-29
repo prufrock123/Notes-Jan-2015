@@ -13,6 +13,7 @@
 - Constructors, Prototypes, and Inheritance
 - RESTful APIs
 - Regular Expressions (or RegEx for short)
+- PubSub / Mediator
 
 ---
 
@@ -45,6 +46,9 @@
         - [overview of topics considered/covered (in week 4)](#overview)
 
 - Thursday
+
+    - **homework** (due Thursday: Feb 5th, 2015)
+        - [jQuery Etsy](https://github.com/matthiasak/js-assignments/tree/master/map-filter-sort-jquery-etsy)
 
 ---
 
@@ -491,3 +495,49 @@
 
     console.log( upcasename );
     ```
+
+
+13. PubSub / Mediator
+
+```js
+;(function($) {
+
+    var mediator = $({});
+
+    $.subscribe = function() {
+        mediator.on.apply(mediator, arguments);
+    };
+
+    // example
+    // 
+    // $.subscribe("mattWantsCoffee", callback)
+    // 
+    // ~~~~> arguments is ["mattWantsCoffee", callback]
+    // 
+    // BAD:             $.subscribe(arguments)
+    // DESIRED EFFECT:  $.subscribe("mattWantsCoffee", callback)
+    // TO DO THE ABOVE: mediator.on.apply(mediator, arguments)
+
+    $.unsubscribe = function() {
+      mediator.off.apply(mediator, arguments);
+    };
+
+    $.publish = function() {
+        mediator.trigger.apply(mediator, arguments);
+    };
+
+})($);
+
+// USAGE:
+// 
+// 1. listen for events in module A
+
+$.subscribe("IneedCoffeeNAOW", function(event, data){ 
+    // do something when event occurs
+    console.log(data)
+})
+
+// 2. trigger event in module B
+
+$.publish("IneedCoffeeNAOW", { hotOrIced: "hot" })
+```
