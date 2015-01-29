@@ -47,6 +47,9 @@
 
 - Thursday
 
+    - reviewed Github Profile Browser
+        - [Github Repo link](https://github.com/TIY-Houston-Front-End-Engineering/Github-Profile-Browser)
+        - [gh-pages link](http://tiy-houston-front-end-engineering.github.io/Github-Profile-Browser/#bmagnantb)
     - **homework** (due Thursday: Feb 5th, 2015)
         - [jQuery Etsy](https://github.com/matthiasak/js-assignments/tree/master/map-filter-sort-jquery-etsy)
 
@@ -560,4 +563,3 @@
     window.A = A;
     window.B = B;
     ```
-    
