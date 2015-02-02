@@ -63,13 +63,13 @@
 
 # Notes
 
-1. DOM Events, `addEventListener()`, and `$.on()`
+- DOM Events, `addEventListener()`, and `$.on()`
 
     - http://youmightnotneedjquery.com/#on
     - http://vimeo.com/96425312 ("What is the event loop?")
     - http://devdocs.io/dom_events/
 
-2. Routing
+- Routing
 
     > Check out this StackOverflow link on Hipchat: http://stackoverflow.com/questions/10075507/what-does-javascript-routing-buy-you
 
@@ -148,7 +148,7 @@
     ![](./images/routing.jpg)
     ![](./images/routing-2.png)
 
-3. Scope
+- Scope
 
     **Visual descriptions/screenshots**
 
@@ -156,18 +156,18 @@
     ![](./images/scope.jpg)
     ![](./images/scope-2.png)
 
-4. Polyfills
+- Polyfills
 
     Polyfills are JS libraries that let the developer use modern APIs in browsers that don't support them.
 
     - Finding polyfills is so easy: https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
     - Finding if your browser supports something is so easy: http://caniuse.com/
 
-5. Lodash
+- Lodash
 
     https://lodash.com/docs#template
 
-6. Creating our own Promises
+- Creating our own Promises
 
     ```js
     var x = $.Deferred();
@@ -196,7 +196,7 @@
     ![](./images/streams.jpg)
     ![](./images/streams-3.png)
 
-7. Caching
+- Caching
 
     > Caching is a term used in networking and computing when a a result can be stored and reused.
 
@@ -229,77 +229,18 @@
 
     ![](./images/streams-2.png)
 
-8. Implicit Type coercion
+- Implicit Type coercion
 
     http://bonsaiden.github.io/JavaScript-Garden/#types
 
     - `instanceof` / `typeof`
     - How does this tie-in to prototypes?
 
-9. Error handling 
+        ```js
+        function Cat(){}
+        ```
 
-    > ...is important for robust code.
-
-    <!-- errors, try/catch/finally, throw -->
-
-    ```
-    console.log( undefined() ); // ERROR: undefined is not a function
-
-    var x = undefined;
-    console.log( x() ); // ERROR: undefined is not a function
-
-    // code doesn't break here
-    try {
-        x();
-    } catch(e) {
-        console.log(e.message); // ERROR: undefined is not a function
-    }
-
-    // code doesn't break here
-    try {
-        x();
-    } catch(e) {
-        console.log(e.message); // ERROR: undefined is not a function
-    } finally {
-        // do something that should always 
-        // be run after x(), even if there 
-        // was an error
-    }
-    ```
-
-10. Constructors, Prototypes, and Inheritance
-
-    > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
-
-    General approach:
-
-    ```js
-        base = new Base();
-        Derived.prototype = base; // Must be before new Derived()
-        Derived.prototype.constructor = Derived; // Required to make `instanceof` work
-    ```
-
-    Example:
-
-    ```js
-        function Character(name){
-            this.name = name;
-        }
-
-        Character.prototype.fight = function(){
-            console.log(this.name, this.power);
-        }
-
-        function Wizard(name){
-            Character.apply(this, arguments);
-            this.power = 10;
-        }
-
-        Wizard.prototype = new Character();
-        Wizard.prototype.constructor = Wizard;
-    ```
-
-11. RESTful APIs
+- RESTful APIs
 
     ** A database is, in simplest terms, spreadsheet. **
 
@@ -385,122 +326,7 @@
         });
         ```
 
-12. Regular Expressions (or RegEx for short)
-
-    In JS, there is a `RegExp` Object. RegEx is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
-
-    We will use RegEx most often through two primary approaches:
-
-    1. We know a string `x`, and would like to test for any occurrences of a RegExp `y`,
-    - or we know a RegExp `y` and would like to find the matches (if any) from a string `x`
-
-    **Example 1**
-
-    - The dot (.) matches any character. If you want to match the dot as a character, escape it like this: \.
-    - A question mark (?) means that the preceding character is optional. If you want to match an actual question mark, escape it: "\?"
-    - The star (*) matches 0 or more characters
-    - The plus (+) matches 1 or more characters
-    - The parens () group states together
-    - The square brackets [] define a character-group
-    - The ^ at the front of a character-group [] means "not"
-    - The "/g" at the end of the RegEx object means "global", so `.match()` returns an array of matches instead of just one
-    - The "\d" means "decimal", and "\D" means "not a decimal"
-    - {x} for an exact number of repetitions, {x,y} for varying number of repetitions (where x and y are numbers)
-    - Also, there is the special "\b" pattern which matches the boundaries at the ends of words (not a real symbol).
-
-    ```javascript
-    var text = 'The eyes of Texas are upon you.';
-
-    // Will match both "elit" and "elat". The dot can match any character.
-    var regex = /./g;
-    console.log( text.match(regex) );
-
-    // Will match both "est" and "lest". The question mark makes "l" optional.
-    var regex2 = /l?est/g;
-    console.log( text.match(regex2) );
-
-    // Match only "cat" and "can", but not "car".
-    var text = 'cat car can';
-    console.log( text.match(/ca[tn]/g) );
-
-    // Match everything BUT cat and can (notice the ^ symbol)
-    console.log( text.match(/ca[^tn]/g) );
-
-    // Here is another example, which matches only the number
-    text = 'I would like 8 cups of coffee, please.';
-    console.log('How many cups: ' + text.match( /[0-9]/g ));
-
-    // A better, shorter way to write it, using the \d character class
-    console.log('How many cups: ' + text.match( /\d/g ));
-
-    // Matching everything BUT the number (will return an array of chars)
-    console.log( text.match(/\D/g) );
-
-    //////////--------------
-
-    text = 'Hello people of 1974. I come from the future. In 2015 we have laser guns, hover boards and live on the moon!';
-
-    // Find the years. \d+ will match one or more chars
-    var yearRegex = /\d+/g;
-    console.log('Years: ', text.match( yearRegex ) );
-
-    // Find all sentences. Our sentences begin with a capital letter and end in either a dot or an exclamation mark.
-    // The question mark makes the regex non-greedy. Try removing it.
-    var sentenceRegex = /[A-Z].+?(\.|!)/g;
-    console.log('Sentences: ', text.match(sentenceRegex) );
-
-    // Find all words that begin with h. We want to match both lower and upper case, so we include the i modifier.
-    // Notice the \b for word boundary. Try removing it.
-    var hWords = /\bh\w+/ig;
-    console.log('H Words: ', text.match(hWords) );
-
-
-    // Find all words between four and six characters
-    var findWords = /\b\w{4,6}\b/g;
-    console.log( 'Words between 4 and 6 chars: ', text.match(findWords) );
-
-
-    // Find words longer than 5 chars
-    console.log( 'Words 5 chars or longer: ', text.match(/\b\w{5,}\b/g) );
-
-
-    // Find words exactly 6 chars long
-    console.log( 'Words exactly 6 chars long: ', text.match(/\b\w{6}\b/g) );
-    ```
-
-    **Example 2**
-
-    RegEx keeps track of the groups () it has matched, and automatically numbers them.
-
-    ```js
-    // Find the words which consist only of the same letters
-    var text = 'Abc ddefg, hijk lllll mnopqr ssss. Tuv wxyyy z.';
-    var sameLetterRegex = /\b(\w)\1*\b/g;
-    console.log( text.match(sameLetterRegex) );
-    ```
-
-    Aside from matching character patterns in strings, we can use RegEx to to substitute text out (think "find and replace" feature of text editors). We can do this with `String.replace()`.
-
-    ```js
-    // Let's turn "John Smith" into "Smith, John"
-    // Each group (\w+) matches a single word. Each group is assigned
-    // an index, starting from $1
-    var name = 'John Smith';
-    var nameRegex = /(\w+) (\w+)/;
-    console.log( name.replace(nameRegex, '$2, $1') );
-
-
-    // For more advanced manipulations, we need to provide a JS callback.
-    // For example, lets make the surname uppercase
-    var upcasename = name.replace(nameRegex, function(string, group1, group2){
-        return group2.toUpperCase() + ', ' + group1;
-    });
-
-    console.log( upcasename );
-    ```
-
-
-13. PubSub / Mediator
+- PubSub / Mediator
 
     ```js
     ;(function($) {
