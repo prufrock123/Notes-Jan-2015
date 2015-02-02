@@ -12,6 +12,11 @@
 
 # Discussion Topics and Homework
 
+- Friday
+    + **Homework**
+        * Watch and blog about: [Writing Testable JS](https://www.youtube.com/watch?v=OzjogCFO4Zo)
+        * JavaScript Koans - (https://github.com/mrdavidlaing/javascript-koans)
+
 ---
 
 - jQuery vs. Vanilla (from TA lecture Friday afternoon)
@@ -203,46 +208,56 @@
 
 - BDD
 
+    **Walkthrough of BDD: http://chaijs.com/api/bdd/**
+
     > **Disclaimer**: Behavior Driven Development and Test Driven Development are typically included under the same moniker, and really don't differ too much. We will specifically focus on BDD. But seriously, they are almost exactly the same thing save a function or two's names.
 
-    BDD is a weird, backwards way of programming. It is slower to do this, but writing tests for your code **before** writing the complete implementation of your code makes you think about the Single Responsibility Principle and how your Constructors/Prototypes should be structured.
+    BDD is a weird, backwards way of programming. It is slower to do this, but writing tests for your code **before** writing the complete implementation of your code makes you think about SOLID design and your APIs - it forces you to invoke your code first (thinking about how it will be used by someone else), and then write the code to make the test pass.
 
-    In other words, Behavior Driven Development **uses** forces you to invoke your functions first, and then declare them later.
-
-    Weird, huh? So how do we use our code before it's written? Won't that throw errors?
+    **So how do we use our code before it's written? Won't that throw errors?**
 
     **Yes!** That is exactly the point of this next section:
 
-    ##### BDD is implemented using a process typically termed "Red, Green, Refactor":
+    BDD is implemented using a process typically termed "Red, Green, Refactor":
 
-    1. You write a single test, make the test fail (i.e. a Constructor `Cat()` doesn't exist yet),
-    2. Then you make that test pass (i.e. create a Constructor `Cat()`),
-    3. Finally you repeat this process until your app is complete.
+    1. `RED`: You write a single test, make the test fail (i.e. a Constructor `Cat()` doesn't exist yet),
+    2. `GREEN`: Then you make that test pass (i.e. create a Constructor `Cat()`),
+    3. `REFACTOR`: Repeat with a new function.
 
-    ##### Why is this awesome on big projects?
+    **Why is this awesome on big projects?**
 
-    Whenever someone uses your code, makes edits to it, or you simply haven't touched the code for a while and there's a new version of jQuery out (or whatever other dependencies you are using), your code may no longer work.
+    Code breaks. _All the time._
 
-    Wouldn't it be nice if some tests could tell you with certainty that your code will work?
+    - Someone uses your API wrong (didn't RTFM)
+    - Someone edits your code
+    - Your code's dependencies changed (like lodash going from `v2.4.1` to `v3.0.0`)
 
-    Hint: that is what TDD will do :-)
+    Tests tell you with certainty that your code STILL WORKS, instead of having to manually crawl through a site to see if nothing is broken.
 
-    However, that means writing tests isn't good enough, you have to write **testable JavaScript**.
+    **Testing framework**
 
-    ## Installing a testing framework
+    Testing frameworks are wrappers around simple things like `console.assert()`. They take a file and run a series of tests, and tell you if those tests fail or succeed.
 
-    Mocha and Chai are two separate projects that are used in tandem to provide a testing framework. I have taken the liberty of adding these to our setup-projects.sh file at https://github.com/TIY-Houston-Front-End-Sept-2014/Notes/blob/master/examples/extras/setup-project.sh.
+    There are many testing frameworks, but we are using the most popular for JS and Node: Mocha and Chai.
 
-    These are just driven by JavaScript, and thus can be run by Node (i.e. by Gulp) or in the browser (which is the method we will take).
+    - Mocha (http://mochajs.org/) provides the 'test runner': it loads js files and tests them
+    - Chai (http://chaijs.com/) provides the 'testing functions' that tell Mocha if a test failed or succeeded
 
-    I have already updated our `setup-projects.sh` file to create a `test` folder with a `main.js` file inside, and a `test.html` file in the project's root directory.
+    Chai has "chains" - methods that help us define what something should be in English:
 
-    If you are needing some documentation for Mocha and Chai:
-
-    - Mocha - (http://mochajs.github.io/mocha/) - Mocha provides a test runner (e.g. `describe` and `it`).
-    - Chai - (http://chaijs.com/) - Chai provides the expectations (e.g. `to.be.true`).
-
-    ## Writing Testable JavaScript
+    - to
+    - be
+    - been
+    - is
+    - that
+    - and
+    - has
+    - have
+    - with
+    - at
+    - of
+    - same
+    - a
 
     Writing tests for code starts with calling some expected behavior, and then telling the test suite to expect some particular output or behavior.
 
@@ -256,22 +271,6 @@
     expect(foo).to.have.length(3);
     expect(tea).to.have.property('flavors').with.length(3)
     ```
-
-    There's a lot of fantastic resources out there to whet your whistle, but these particular resources below are a great start to learning how some of the most prolific JS coders / conf speakers write testable JavaScript:
-
-    - [Video](https://www.youtube.com/watch?v=OzjogCFO4Zo)
-    - [Slides](https://speakerdeck.com/rmurphey/writing-testable-javascript)
-    - [Article](http://alistapart.com/article/writing-testable-javascript)
-
-    ## Other resources
-
-    The homework is being adapted from the "Array Methods" koan available on Github. A koan is a problem or context in which one meditates on (a term lovingly borrowed from Zen and Buddhism). In the programming world, there is a set of practice koans that have been translated into JavaScript (from other languages, I think these were from Ruby), where we can write tests for the built-in Array methods.
-
-    - JavaScript Koans - (https://github.com/mrdavidlaing/javascript-koans)
-
-    I have further modified the "Array Methods" koan to be used with Mocha and Chai (it was originally written to be used with another TDD framework called Jasmine).
-
-    > NOTE: also cover the combination of throwing errors, writing tests, and SOLID principles; how the strength of this combination creates really defensive and resilient code
 
 - Node.js and Heroku
 
