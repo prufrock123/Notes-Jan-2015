@@ -3,10 +3,13 @@
 # Objectives
 
 1. jQuery vs. Vanilla JS
-- Inheritance
 - Error Handling
+- Constructors, Prototypes, and Inheritance, and the Prototype chain
+- Getters/Setters, Object.create
+- currying and partial application (Function.call, Function.apply, Function.bind)
 - RegEx
-- Heroku
+- BDD
+- Node.js and Heroku
 
 ---
 
@@ -33,7 +36,7 @@
     - try/catch/finally,
     - throw
 
-    ```
+    ```js
     console.log( undefined() ); // ERROR: undefined is not a function
 
     var x = undefined;
@@ -58,7 +61,48 @@
     }
     ```
 
-- Constructors, Prototypes, and Inheritance
+    Examples from instruction time:
+
+    ```js
+    // try/catch
+    // finally
+    // throw new Error()
+
+    function Person(name){
+        if(!name){
+            throw new Error("Name must be given to Person constructor.");
+        }
+    }
+
+    //////////////
+
+    var sum = 0;
+    try {
+        var matt = new Person();
+        sum = 1 + 2;
+    } catch(errorObj){
+        console.log(errorObj)
+        // send an error message to a server?
+        // $.post(..., errorObj)
+    }
+    console.log(sum); // ---> 0
+
+    //////////////
+
+    var sum = 0;
+    try {
+        var matt = new Person();
+    } catch(errorObj){
+        console.log(errorObj);
+        // send an error message to a server?
+        // $.post(..., errorObj)
+    } finally {
+        sum = 1 + 2;
+    }
+    console.log(sum); // ---> 3
+    ```
+
+- Constructors, Prototypes, and Inheritance, and the Prototype chain
 
     > http://bonsaiden.github.io/JavaScript-Garden/#object.prototype
 
@@ -89,6 +133,103 @@
         Wizard.prototype = new Character();
         Wizard.prototype.constructor = Wizard;
     ```
+
+    Examples from instruction time:
+
+    ```js
+    ////////////// Inheritance (Prototypal)
+
+    function Animal(){}
+    Animal.prototype = {
+        talk: function(){ console.log("hi") }
+    }
+
+    ///////
+
+    function Cat(){}
+    Cat.prototype = new Animal();
+    var garfield = new Cat();
+    garfield.talk(); // hi
+
+    //////
+
+    function Dog(){}
+    Dog.prototype = new Animal();
+    var odie = new Dog();
+    odie.talk(); // hi
+
+    ///////
+
+    Animal.prototype.yell = function(){ console.log("OHAI") }
+    odie.yell(); // OHAI
+    garfield.yell(); // OHAI
+
+    ///////
+
+    Dog.prototype.talk  = function(){ console.log("woof!") }
+    odie.talk(); // woof!
+    garfield.talk(); // hi
+
+    ///////
+
+    Cat.prototype.talk = function(){
+        // call Animal.prototype.talk too?
+        Animal.prototype.talk.call(this);
+        console.log("I want lasagna");
+    }
+    odie.talk(); // woof!
+    garfield.talk();
+    // hi
+    // I want lasagna
+    ```
+
+- Getters/Setters, Object.create
+
+    ```js
+    var o = {
+        a: 1,
+        get b: function(){ return this.a + 1 },
+        set c: function(x){ this.a = x/2 }
+    }
+    ```
+
+- currying and partial application (Function.call, Function.apply, Function.bind)
+
+    Assume we have a function `sum()`:
+
+    ```js
+    function sum(c, d){
+        return this.a + this.b + c + d;
+    }
+    ```
+
+    and an object `data`:
+
+    ```js
+    var data = {a:1, b:2}
+    ```
+
+    - Function.prototype.call
+
+        ```js
+        sum.call(data, 3, 4, 'a', 6, 7); // 1 + 2 + 3 + 4
+        ```
+
+    - Function.prototype.apply
+
+        ```js
+        sum.apply(data, [3, 4, 'a', 6, 7]); // 1 + 2 + 3 + 4
+        ```
+
+    - Funcion.prototype.bind
+
+        ```js
+        var sumC = sum.bind(3);
+        sumC.apply(data, [4]); // 1 + 2 + 3 + 4
+
+        var sumCD = sumC.bind(4);
+        sumCD.apply(data); // 1 + 2 + 3 + 4
+        ```
 
 - Regular Expressions (or RegExp for short)
 

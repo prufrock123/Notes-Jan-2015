@@ -2,8 +2,7 @@
 
 # Objectives
 
-1. currying and partial application (Function.call, Function.apply, Function.bind)
-- [Backbone](#Backbone)
+1. [Backbone](#Backbone)
 - [Backbone Views](#backbone-views)
 - [Backbone Models](#backbone-models)
 - [Backbone Routers](#backbone-routers)
@@ -13,44 +12,6 @@
 # Discussion Topics and Homework
 
 ---
-
-- Currying and Partial Application
-
-    Assume we have a function `sum()`:
-
-    ```js
-    function sum(c, d){
-        return this.a + this.b + c + d;
-    }
-    ```
-
-    and an object `data`:
-
-    ```js
-    var data = {a:1, b:2}
-    ```
-
-    - Function.prototype.call
-
-        ```js
-        sum.call(data, 3, 4, 'a', 6, 7); // 1 + 2 + 3 + 4
-        ```
-
-    - Function.prototype.apply
-
-        ```js
-        sum.apply(data, [3, 4, 'a', 6, 7]); // 1 + 2 + 3 + 4
-        ```
-
-    - Funcion.prototype.bind
-
-        ```js
-        var sumC = sum.bind(3);
-        sumC.apply(data, [4]); // 1 + 2 + 3 + 4
-
-        var sumCD = sumC.bind(4);
-        sumCD.apply(data); // 1 + 2 + 3 + 4
-        ```
 
 - Backbone
 
