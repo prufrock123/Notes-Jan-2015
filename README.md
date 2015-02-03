@@ -69,44 +69,18 @@ A custom [install script](./extras/ultimate-install-script.sh) will be provided 
 - [Modernizr and Polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills)
 - Micro-libs on [microjs.com](http://microjs.com)
 
---- 
+---
 
 ## Other Resources
 
-- http://onepagelove.com/
-- http://sass-lang.com/guide
-- https://www.npmjs.org/
-- https://github.com/jonathanpath/SASS-SMACSS
-- http://bonsaiden.github.io/JavaScript-Garden/
+**Documentation and Browser Support**
+
 - http://devdocs.io/
-- Mozilla Developer Network: https://developer.mozilla.org/en-US/
-- http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
-- https://developer.mozilla.org/en-US/docs/Web/Reference/API
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript
-- https://leanpub.com/understandinges6/read/
-- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
-- https://github.com/PROSPricing/js-assessment/tree/master/app
-- https://github.com/enaqx/awesome-react
-- http://futurice.com/blog/reactive-mvc-and-the-virtual-dom
-- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
-- http://backbonejs.org
-- https://github.com/instanceofpro/awesome-backbone
-- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
-- http://youmightnotneedjquery.com/
-- https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
 - http://caniuse.com/
 
-**Programming Problems and Practice**
-
-- https://projecteuler.net/problems
-- https://www.hackerrank.com/
-- http://codeforces.com/problemset
-- http://www3.cs.stonybrook.edu/~algorith/video-lectures/
-
-**HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN**
+**HTML Tags and Attributes, CSS Properties, Ipsums, GIFs, MDN, Lorem Ipsum**
 
 - http://meettheipsums.com/
-- Mozilla Developer Network: https://developer.mozilla.org/en-US/
 - List of HTML tags: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 - List of HTML attributes: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
 - All the CSS properties! https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
@@ -128,11 +102,59 @@ A custom [install script](./extras/ultimate-install-script.sh) will be provided 
 
 - http://css-tricks.com/almanac/
 - CSS pseudo-classes and selectors
-- http://a.singlediv.com/
-- http://codepen.io/patterns/
 - `currentColor`
 - `::before` / `::after`
+
+**Design Inspiration**
+
+- http://a.singlediv.com/
+- http://codepen.io/patterns/
 - http://onepagelove.com/
+
+**SCSS**
+
+- http://sass-lang.com/guide
+- https://github.com/jonathanpath/SASS-SMACSS
+
+**Programming Problems and Practice**
+
+- https://projecteuler.net/problems
+- https://www.hackerrank.com/
+- http://codeforces.com/problemset
+- http://www3.cs.stonybrook.edu/~algorith/video-lectures/
+- https://github.com/PROSPricing/js-assessment/tree/master/app
+- https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/README.md
+
+**JS from 30k feet**
+
+- http://bonsaiden.github.io/JavaScript-Garden/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- https://developer.mozilla.org/en-US/docs/Web/Reference/API
+- http://youmightnotneedjquery.com/
+- https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills
+- http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks
+
+**ES6**
+
+- https://leanpub.com/understandinges6/read/
+
+**NPM**
+
+- http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+
+**Reactive Programming and Streams**
+
+- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+
+**Backbone**
+
+- http://backbonejs.org
+- https://github.com/instanceofpro/awesome-backbone
+
+**React**
+
+- http://futurice.com/blog/reactive-mvc-and-the-virtual-dom
+- https://github.com/enaqx/awesome-react
 
 # After class ends..
 

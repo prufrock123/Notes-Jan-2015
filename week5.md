@@ -92,28 +92,120 @@
 
 - Regular Expressions (or RegExp for short)
 
-    > http://regexpal.com/
+    > test your regex with: http://regexpal.com/
 
-    In JS, there is a `RegExp` Object. RegExp is used to test for patterns in strings (i.e. the `type="email"` and `pattern="[a-zA-Z]+"` attributes on an HTML element uses RegEx to **test for matches**).
+    There are four primary functions we're going to look at here:
 
-    We will use RegExp most often through two primary approaches:
+    1. `String.prototype.replace` -> String
+    - `String.prototype.split` -> Array
+    - `String.prototype.match` -> Array
+    - `RegExp.prototype.test` -> Boolean
 
-    1. We know a string `x`, and would like to test for any occurrences of a RegExp `y`,
-    - or we know a RegExp `y` and would like to find the matches (if any) from a string `x`
+    Example use of the first three methods:
 
-    **Example 1**
+    ```js
+    "hello".replace("l", "m"); // hemmo
+    "How now brown cow".replace("ow", "ai"); //hai nai brain cai
 
-    - The dot (.) matches any character. If you want to match the dot as a character, escape it like this: \.
-    - A question mark (?) means that the preceding character is optional. If you want to match an actual question mark, escape it: "\?"
-    - The star (*) matches 0 or more characters
-    - The plus (+) matches 1 or more characters
-    - The parens () group states together
-    - The square brackets [] define a character-group
-    - The ^ at the front of a character-group [] means "not"
-    - The "/g" at the end of the RegEx object means "global", so `.match()` returns an array of matches instead of just one
-    - The "\d" means "decimal", and "\D" means "not a decimal"
-    - {x} for an exact number of repetitions, {x,y} for varying number of repetitions (where x and y are numbers)
-    - Also, there is the special "\b" pattern which matches the boundaries at the ends of words (not a real symbol).
+    "hello".split(""); // [h, e, l, l, o]
+    "How now brown cow".split(" "); // [How, now, brown, cow]
+
+    "hello".match("e"); // [e]
+    "How now brown cow".match(" "); // [" "]
+    ```
+
+    Strings are simple, straightforward. Dumb, even.
+
+    The previous code block is exactly similar to the following:
+
+    ```js
+    "hello".replace(/l/, "m"); // hemmo
+    "How now brown cow".replace(/ow/, "ai"); //hai nai brain cai
+
+    "hello".split(new RegExp("")); // [h, e, l, l, o]
+    "How now brown cow".split(/ /); // [How, now, brown, cow]
+
+    "hello".match(/e/); // [h, e, l, l, o]
+    "How now brown cow".match(/ /); // [How, now, brown, cow]
+    ```
+
+    The forward slashes (`/.../`) is a shortcut to saying `new RegExp(...)`. These are smarter than strings. They can be used to write patterns, not just exact strings.
+
+    Let's observe the last method which belongs to `RegExp.prototype`:
+
+    ```js
+    /a/.test("a"); // true
+    /ab/.test("a"); //false
+    /ababab/.test("b"); //false
+    ```
+
+    The contents of a RegExp object (the '...' in `/.../`) contain a sequence of "characters classes" and decorators.
+
+    "Character classes":
+
+    - any alphanumeric character (a, b, c, A, B, C, 0, 1, 2, etc.)
+    - \s (which means whitespace like a 'space', tab, newline character)
+    - \d (which means a single digit)
+    - . (period) which means a single character of any kind
+    - [...] - a specific group that matches any of the characters inside the brackets
+        + e.g. `[a-z]` matches one lowercase letter
+        + `[0-9abcf-m]` matches a single character that is a digit, 'a', 'b', 'c', or any letter between 'f' and 'm'
+
+    Decorators:
+
+    - ? means the char class before it is optional
+
+        ```js
+        "a".match(/ab?/); // [a]
+        "ab".match(/ab?/); // [ab]
+        "ab?".match(/ab\?/); // [ab?]
+        ```
+
+    - * means 0 or more of the preceding class
+
+        ```js
+        "".match(/a*/); // [""]
+        "a".match(/ab*/); // [a]
+        "abbb".match(/ab*/); // [abbb]
+        "abbb".match(/a[b]*/); // [abbb]
+        ```
+
+    - + means 1 or more of the preceding class
+
+        ```js
+        "".match(/a+/); // null
+        "a".match(/ab+/); // null
+        "abbb".match(/[ab]+/); // [abbb]
+        ```
+
+    - parens group classes together for precedence, but don't change anything matched
+
+        ```js
+        "".match(/(a*)/); // [""]
+        "a".match(/(ab*)/); // [a]
+        "abbb".match(/(ab*)/); // [abbb]
+        "".match(/(a+)/); // null
+        "a".match(/a(b+)/); // null
+        "abbb".match(/a(b+)/); // [abbb]
+        ```
+
+    - ^ means "not"
+
+        ```js
+        "a".match(/[^a]/); // null
+        "abbb".match(/[^0-9]+/); // [abbb]
+        ```
+
+    - {x} means the preceding class repeats x times, {x,y} means the preceding class repeats between x and y times
+
+        ```js
+        "a".match(/[a]{1}/); // [a]
+        "abbb".match(/[^0-9]{3}/); // [abb]
+        "abbb".match(/[^0-9]{1,}/); // [abbb]
+        "abbb".match(/[^0-9]{1,5}/); // [abbb]
+        ```
+
+    **More examples**
 
     ```javascript
     var text = 'The eyes of Texas are upon you.';
@@ -175,9 +267,9 @@
     console.log( 'Words exactly 6 chars long: ', text.match(/\b\w{6}\b/g) );
     ```
 
-    **Example 2**
+    **Examples that matching groups (not just classes)**
 
-    RegExp keeps track of the groups () it has matched, and automatically numbers them.
+    RegExp keeps track of the groups () it has matched, and automatically numbers them from `$1` to `$n` for n matches.
 
     ```js
     // Find the words which consist only of the same letters
@@ -195,7 +287,6 @@
     var name = 'John Smith';
     var nameRegex = /(\w+) (\w+)/;
     console.log( name.replace(nameRegex, '$2, $1') );
-
 
     // For more advanced manipulations, we need to provide a JS callback.
     // For example, lets make the surname uppercase
