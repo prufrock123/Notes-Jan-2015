@@ -33,13 +33,13 @@
     - Function.prototype.call
 
         ```js
-        sum.call(data, 3, 4)
+        sum.call(data, 3, 4, 'a', 6, 7); // 1 + 2 + 3 + 4
         ```
 
     - Function.prototype.apply
 
         ```js
-        sum.apply(data, [3, 4])
+        sum.apply(data, [3, 4, 'a', 6, 7]); // 1 + 2 + 3 + 4
         ```
 
     - Funcion.prototype.bind
