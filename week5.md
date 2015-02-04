@@ -188,8 +188,8 @@
     ```js
     var o = {
         a: 1,
-        get b: function(){ return this.a + 1 },
-        set c: function(x){ this.a = x/2 }
+        get b(){ return this.a + 1 },
+        set c(x){ this.a = x/2 }
     }
     ```
 
@@ -221,7 +221,7 @@
         sum.apply(data, [3, 4, 'a', 6, 7]); // 1 + 2 + 3 + 4
         ```
 
-    - Funcion.prototype.bind
+    - Function.prototype.bind
 
         ```js
         var sumC = sum.bind(3);
@@ -230,6 +230,59 @@
         var sumCD = sumC.bind(4);
         sumCD.apply(data); // 1 + 2 + 3 + 4
         ```
+
+    Examples from instruction:
+
+    ```js
+    $("body").on("click", ".left", this.left.bind(this));
+    $("body").on("click", ".right", this.right.bind(this));
+
+    // or
+    
+    var self = this;
+    $("body").on("click", ".left", function(){
+        self.left()
+    });
+    $("body").on("click", ".right", function(){
+        self.right()
+    });
+    ```
+
+    ```js
+    Function.prototype.bind = function(thisArg){
+        var self = this;
+        return function(){
+            return self.call(thisArg)
+        }
+    }
+
+    function sum(){ return this.a + this.b }
+    sum(); // NaN (undefined + undefined) (window.a + window.b)
+    window.a = 1;
+    window.b = 2;
+    sum(); // 3
+
+    var add5and6 = sum.bind({a: 5, b: 6}); // Function
+    add5and6(); // 11
+    ```
+
+    ```js
+    function sum(){
+        var args = Array.prototype.slice.call(arguments)
+
+        return args.reduce(function(prev, next){
+            return prev + next
+        })
+    }
+
+    function avg(){
+        var args = Array.prototype.slice.call(arguments)
+
+        return sum.apply(null, args) / args.length;
+    }
+
+    avg(1, 2, 3, 4, 5, 6) // 3.5
+    ```
 
 - Regular Expressions (or RegExp for short)
 
