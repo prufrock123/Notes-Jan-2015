@@ -2,25 +2,25 @@
 
 # Objectives
 
-1. [Resources](#resources)
-- [React, Mithril, and other "Virtual DOM" frameworks](#React, Mithril, and other "Virtual DOM" frameworks)
-- [History of React](#History of React)
-- [Intro the Virtual DOM](#Intro the Virtual DOM)
-- [React Components](#React Components)
-- [How React Implements Views (kinda)](#How React Implements Views (kinda))
-- [Composing Views (putting one view inside another)](#Composing Views (putting one view inside another))
-- [React rendering](#React rendering)
-- [Installing React](#Installing React)
-- [The Official™ React Build `render()`](#The Official™ React Build `render()`)
-- [Stateful React Components](#Stateful React Components)
-- [Event Handling and Synthetic Events](#Event Handling and Synthetic Events)
-- [Under the Hood: Autobinding and Event Delegation](#Under the Hood: Autobinding and Event Delegation)
-- [What Components Should Have State?](#What Components Should Have State?)
-- [Nesting Components in React](#Nesting Components in React)
-- [JSX](#JSX)
-- [Flux and Reflux](#Flux and Reflux)
-- [Resources](#Resources)
-- [Closing thoughts](#Closing thoughts)
+1. React in 7 Minutes
+- React, Mithril, and other "Virtual DOM" frameworks
+- History of React
+- Intro the Virtual DOM
+- React Components
+- How React Implements Views (kinda)
+- Composing Views (putting one view inside another)
+- React rendering
+- Installing React
+- The Official™ React Build `render()`
+- Stateful React Components
+- Event Handling and Synthetic Events
+- Under the Hood: Autobinding and Event Delegation
+- What Components Should Have State?
+- Nesting Components in React
+- JSX
+- Flux and Reflux
+- Resources
+- Closing thoughts
 
 
 ---
@@ -28,6 +28,10 @@
 # Discussion Topics and Homework
 
 ---
+
+- React in 7 Minutes
+
+    https://egghead.io/lessons/react-react-in-7-minutes
 
 - React, Mithril, and other "Virtual DOM" frameworks
 

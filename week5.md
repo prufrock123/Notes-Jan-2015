@@ -298,8 +298,8 @@
     Example use of the first three methods:
 
     ```js
-    "hello".replace("l", "m"); // hemmo
-    "How now brown cow".replace("ow", "ai"); //hai nai brain cai
+    "hello".replace("l", "m"); // hemlo
+    "How now brown cow".replace("ow", "ai"); // Hai now brown cow
 
     "hello".split(""); // [h, e, l, l, o]
     "How now brown cow".split(" "); // [How, now, brown, cow]
@@ -313,8 +313,10 @@
     The previous code block is exactly similar to the following:
 
     ```js
-    "hello".replace(/l/, "m"); // hemmo
-    "How now brown cow".replace(/ow/, "ai"); //hai nai brain cai
+    "hello".replace(/l/, "m"); // hemlo
+    "hello".replace(/l/g, "m"); // hemmo
+    "How now brown cow".replace(/ow/, "ai"); //hai now brown cow
+    "How now brown cow".replace(/ow/g, "ai"); //hai nai brain cai
 
     "hello".split(new RegExp("")); // [h, e, l, l, o]
     "How now brown cow".split(/ /); // [How, now, brown, cow]
