@@ -321,8 +321,8 @@
     "hello".split(new RegExp("")); // [h, e, l, l, o]
     "How now brown cow".split(/ /); // [How, now, brown, cow]
 
-    "hello".match(/e/); // [h, e, l, l, o]
-    "How now brown cow".match(/ /); // [How, now, brown, cow]
+    "hello".match(/e/); // [e]
+    "How now brown cow".match(/ /); // [ ]
     ```
 
     The forward slashes (`/.../`) is a shortcut to saying `new RegExp(...)`. These are smarter than strings. They can be used to write patterns, not just exact strings.
