@@ -25,6 +25,12 @@
 
 ---
 
+Overview of our progress at end of Week 5
+
+![](./images/overview-wk5.png)
+
+---
+
 - jQuery vs. Vanilla (from TA lecture Friday afternoon)
 
     > http://youmightnotneedjquery.com
