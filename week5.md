@@ -17,6 +17,9 @@
 
 - Friday
     + **Homework**
+        * Complete the [Regex Coffee assignment](https://github.com/matthiasak/js-assignments/blob/master/regex-coffee/README.md)
+- Friday
+    + **Homework**
         * Watch and blog about: [Writing Testable JS](https://www.youtube.com/watch?v=OzjogCFO4Zo)
         * JavaScript Koans - (https://github.com/mrdavidlaing/javascript-koans)
 
@@ -491,6 +494,37 @@
     });
 
     console.log( upcasename );
+    ```
+
+    Examples from instruction:
+
+    > RUN THESE AND OBSERVE!!
+
+    ```js
+    var isEmail = /[\.a-z-_]+@([a-z-_]+\.)+(com|net|org|edu|io)/ig;
+    "matt@theironyard.com".match(isEmail)
+    "matt@theironyard".match(isEmail)
+    "matt@.com".match(isEmail)
+    "matt@theironyard.org".match(isEmail)
+    "matt@theironyard.co.nz".match(isEmail)
+    ```
+
+    ```js
+    function getRegExpFromRoute(route){
+        var newRoute = route.replace(/\:[^\/]+/ig, "([^\/]+)")
+        debugger;
+        return new RegExp(newRoute, "ig");
+    }
+
+    var searchRoute = getRegExpFromRoute("#/search/:id")
+    searchRoute.exec("hello")
+    searchRoute.exec("#/search/")
+    searchRoute.exec("#/search/1")
+    ```
+
+    ```js
+    "John Smith, Matt Keas".replace(/(\w+) (\w+)(,)?/ig, "$2, $1;\n")
+    // --> "Smith, John; Keas, Matt;"
     ```
 
 - BDD
