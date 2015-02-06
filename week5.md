@@ -522,14 +522,13 @@ Overview of our progress at end of Week 5
     ```js
     function getRegExpFromRoute(route){
         var newRoute = route.replace(/\:[^\/]+/ig, "([^\/]+)")
-        debugger;
         return new RegExp(newRoute, "ig");
     }
 
     var searchRoute = getRegExpFromRoute("#/search/:id")
-    searchRoute.exec("hello")
-    searchRoute.exec("#/search/")
-    searchRoute.exec("#/search/1")
+    searchRoute.exec("hello"); // null
+    searchRoute.exec("#/search/") // null
+    searchRoute.exec("#/search/1") // ["#/search/1", "1"]
     ```
 
     ```js
