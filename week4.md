@@ -12,7 +12,6 @@
 - Error handling 
 - Constructors, Prototypes, and Inheritance
 - RESTful APIs
-- Regular Expressions (or RegEx for short)
 - PubSub / Mediator
 
 ---
