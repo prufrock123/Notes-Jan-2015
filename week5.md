@@ -21,7 +21,7 @@
 - Friday
     + **Homework**
         * Watch and blog about: [Writing Testable JS](https://www.youtube.com/watch?v=OzjogCFO4Zo)
-        * JavaScript Koans - (https://github.com/mrdavidlaing/javascript-koans)
+        * Complete the [BDD Arrays assignment](https://github.com/matthiasak/js-assignments/blob/master/tdd-mocha-chai-1/README.md)
 
 ---
 
