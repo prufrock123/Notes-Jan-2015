@@ -5,7 +5,6 @@
 1. [Backbone](#Backbone)
 - [Backbone Views](#backbone-views)
 - [Backbone Models](#backbone-models)
-- [Backbone Routers](#backbone-routers)
 
 ---
 
@@ -627,39 +626,3 @@
 
     The `parse` property given to `EtsyItems` tells Backbone Collection to look into the data returned and use the `results` array to create the Models.
 
-- Backbone Routers (covered earlier in class when discussing `window.addEventListener("hashchange")`)
-
-    ```js
-    var App = Backbone.Router.extend({
-        initialize: function(){
-            this.appView = new appView();
-            this.collection = new EtsyCollection();
-
-            Backbone.history.start();
-        },
-        routes: {
-            "etsy": "showEtsyItems", // matches http://example.com/#etsy
-            "etsy/:id": "showEtsyItem", // matches http://example.com/#etsy/1234
-            "download/*path": "downloadFile", // matches http://example.com/#/download/user/images/hey.gif
-            "*actions": "defaultRoute" // matches anything not matched before this, i.e. http://example.com/#anything-here
-        },
-        defaultRoute: function(){
-            //...
-        },
-        downloadFile: function(path){
-            //...
-        },
-        showEtsyItems: function(){
-            //...
-        },
-        showEtsyItem: function(id){
-            //...
-        }
-    })
-
-    window.onload = app;
-
-    function app(){
-        var app = new App();
-    }
-    ```

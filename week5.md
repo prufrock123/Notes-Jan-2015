@@ -476,14 +476,18 @@ Overview of our progress at end of Week 5
 
     RegExp keeps track of the groups () it has matched, and automatically numbers them from `$1` to `$n` for n matches.
 
+    **Backreferences**
+
     ```js
     // Find the words which consist only of the same letters
     var text = 'Abc ddefg, hijk lllll mnopqr ssss. Tuv wxyyy z.';
-    var sameLetterRegex = /\b(\w)\1*\b/g;
+    var sameLetterRegex = /(\w)\1+/g;
     console.log( text.match(sameLetterRegex) );
     ```
 
     Aside from matching character patterns in strings, we can use RegExp to to substitute text out (think "find and replace" feature of text editors). We can do this with `String.replace()`.
+
+    **Tokens**
 
     ```js
     // Let's turn "John Smith" into "Smith, John"
@@ -531,6 +535,30 @@ Overview of our progress at end of Week 5
     ```js
     "John Smith, Matt Keas".replace(/(\w+) (\w+)(,)?/ig, "$2, $1;\n")
     // --> "Smith, John; Keas, Matt;"
+    ```
+
+    **Example from Friday review**
+
+    ```js
+    /**
+     * var html = _.template(data, tmplString)
+     * @return String
+     */
+
+    var actualTemplate = "https://api.github.com/users/{user}/repos/{repo_url}"
+
+    function template(data, templateString){
+        return templateString.replace(/{(\w+)}/g, function(entireMatch, group1, index, str){
+            
+            if(typeof data[group1] === "undefined") {
+                throw new Error("that data don't exist, yo.")
+            }
+
+            return data[group1];
+        })
+    }
+
+    template( { user: "matthiasak", repo_url: "test" }, actualTemplate )
     ```
 
 - BDD
