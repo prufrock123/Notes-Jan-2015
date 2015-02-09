@@ -12,6 +12,10 @@
 
 # Discussion Topics and Homework
 
+- Monday
+    + **Homework**
+        * Complete the [BDD Arrays assignment](https://github.com/matthiasak/js-assignments/blob/master/tdd-mocha-chai-1/README.md)
+
 ---
 
 - SOLID

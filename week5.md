@@ -16,10 +16,7 @@
 - Friday
     + **Homework**
         * Complete the [Regex Coffee assignment](https://github.com/matthiasak/js-assignments/blob/master/regex-coffee/README.md)
-- Friday
-    + **Homework**
         * Watch and blog about: [Writing Testable JS](https://www.youtube.com/watch?v=OzjogCFO4Zo)
-        * Complete the [BDD Arrays assignment](https://github.com/matthiasak/js-assignments/blob/master/tdd-mocha-chai-1/README.md)
 
 ---
 
