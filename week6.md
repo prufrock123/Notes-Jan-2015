@@ -13,6 +13,7 @@
 # Discussion Topics and Homework
 
 - Monday
+    + Example TDD/BDD repo from today: https://github.com/TIY-Houston-Front-End-Engineering/BDD-discussion-Person-Arrays-Regex
     + **Homework**
         * Complete the [BDD Arrays assignment](https://github.com/matthiasak/js-assignments/blob/master/tdd-mocha-chai-1/README.md)
 
