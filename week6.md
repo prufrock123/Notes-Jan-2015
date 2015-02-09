@@ -231,7 +231,60 @@
 
     **collection object events**
     
-    - `add`  - model, collection, options  when a model is added to a collection
+    Event name  | Arguments passed to event callback | Description
+    ------------- | ------------- | -------------
+    `add` | model, collection, options | when a model is added to a collection
+    `remove` | model, collection, options | when a model is removed from a collection
+    `reset` | collection, options | when the collection's entire contents have been replaced.
+    `sort` | collection, options | when the collection has been re-sorted
+
+    **model object events**
+
+    Event name  | Arguments passed to event callback | Description
+    ------------- | ------------- | -------------
+    `change` | model, options | when a model's attributes have changed.
+    `change:[attribute]` | model, value, options | when a specific attribute has been updated.
+    `destroy` | model, collection, options | when a model is destroyed.
+    `error` | model, xhr, options | when a model's save call fails on the server.
+    `invalid` | model, error, options | when a model's validation fails on the client.
+
+    **model or collection object events**
+
+    Event name  | Arguments passed to event callback | Description
+    ------------- | ------------- | -------------
+    `request` | model, xhr, options | when a model or collection has started a request to the server.
+    `sync` | model, resp, options | when a model (or collection) has been successfully synced
+
+- Backbone Router
+
+    Instead of changing `window.location.hash`, we can also call `router.navigate()` with two parameters, the second meaning to trigger the `route` event:
+
+    ```js
+    //use navigate() passing it the url to run, this will log 'foo'
+    myRouter.navigate('test/foo', {
+        trigger: true
+    });
+    ```
+
+    We've historically ran `Backbone.history.start()` when creating a Router:
+
+    ```js
+    Backbone.history.start({
+
+        /*Boolean, default is false, true means use pushState if available and fallback to hash paths if needed.*/
+        pushState: true,
+
+        /*Boolean, default is true, a value of false if pushState is true means that browsers that don't support pushState will do a traditional browser reload based on URL pathname.  If pushState is false and hashChange is false then url changes will do a traditional browser reload based on URL pathname. */
+        hashChange: false,
+
+        /*String, default is '' and backbone assumes you are serving if from the root url (i.e. /).  A value other than '' is a string path to the directory your application is being server from and the directory Backbone should consider the root directory. */ 
+        root:'',
+
+        /* Boolean, default is false, a true value means don't run the default route (i.e.''). */
+        silent: true
+
+    });
+    ```
 
 - Backbone Views
     

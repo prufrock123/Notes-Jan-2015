@@ -12,6 +12,6 @@
         }
     }
 
-    m.exports.Person = Person;
+    m.Person = Person;
 
-})(typeof module === "object" ? module : window);
+})(typeof module === "object" ? module.exports : window);
