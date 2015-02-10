@@ -32,7 +32,6 @@ binaries=(
   webkit2png
   ffmpeg
   python
-  node
   git
 )
 
@@ -51,6 +50,7 @@ apps=(
   sublime-text3
   flux
   vlc
+  iojs
 )
 
 # Install apps to /Applications

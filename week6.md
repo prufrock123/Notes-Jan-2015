@@ -16,6 +16,9 @@
     + Example TDD/BDD repo from today: https://github.com/TIY-Houston-Front-End-Engineering/BDD-discussion-Person-Arrays-Regex
     + **Homework**
         * Complete the [BDD Arrays assignment](https://github.com/matthiasak/js-assignments/blob/master/tdd-mocha-chai-1/README.md)
+- Tuesday
+    + **Homework**
+        * Complete the [Backbone.Events & Views assignment](https://github.com/matthiasak/js-assignments/tree/master/backbone-events-views-1)
 
 ---
 
@@ -97,7 +100,7 @@
 
 - Backbone
 
-    **... an MVC (Model-View-Controller) JavaScript Framework**
+    **... an MVC (Model-View-Controller) JavaScript Library**
 
     Backbone is an MVC structure:
 
@@ -188,10 +191,12 @@
     jQuery PubSub just uses jQuery as a mediator (the global object with events) and stores events from all publishers/subscribers on `o`:
 
     ```js
-      var o = $({});
-      $.subscribe = function() { o.on.apply(o, arguments) }
-      $.unsubscribe = function() { o.off.apply(o, arguments) }
-      $.publish = function() { o.trigger.apply(o, arguments) }
+    ;(function(){
+        var o = $({});
+        $.subscribe = function() { o.on.apply(o, arguments) }
+        $.unsubscribe = function() { o.off.apply(o, arguments) }
+        $.publish = function() { o.trigger.apply(o, arguments) }
+    });
     ```
 
     Using:
@@ -212,6 +217,9 @@
 
     ```js
     _.extend(Model.prototype, Backbone.Events);
+    _.extend(Router.prototype, Backbone.Events);
+    _.extend(Collection.prototype, Backbone.Events);
+    _.extend(View.prototype, Backbone.Events);
     ```
 
     Recently we looked at jQuery as a pub/sub provider. We'll use the built-in event system instead, now that Backbone comes with that feature.
@@ -294,6 +302,27 @@
     `request` | model, xhr, options | when a model or collection has started a request to the server.
     `sync` | model, resp, options | when a model (or collection) has been successfully synced with the server.
 
+- Example with Backbone.Events
+
+```js
+var Pool = _.extend({}, Backbone.Events),
+    Michael = _.extend({}, Backbone.Events),
+    Chris = _.extend({}, Backbone.Events),
+    log = console.log;
+
+
+Pool.on("marco", function(){ log("someone yelled marco") })
+Michael.listenTo(Pool, "marco", function(){ log("POLO") })
+Pool.listenTo(Chris, "marco", function(){ this.trigger("marco") })
+Chris.trigger("marco");
+// two things logged:
+// ---
+// someone yelled marco
+// POLO
+Chris.trigger("marco");
+// ... nothing logged
+```
+
 - Backbone Router
 
     Instead of changing `window.location.hash`, we can also call `router.navigate()` with two parameters, the second meaning to trigger the `route` event:
@@ -338,10 +367,10 @@
         // remove: function(){}
         render: function(){},
 
-        model: {}, 
+        model: undefined, 
         events: {} || function(){return {}}
-        collection: {}, 
-        el: '' || function(){return ''}, 
+        collection: undefined, 
+        el: '' || function(){return ''} || DOMElement, 
         id: '', 
         className: '' || function(){return ''}, 
         tagName: '' || function(){return ''}, 
@@ -386,6 +415,39 @@
         ```js
         new MyView({ el: document.querySelector('.footer') })
         ```
+
+    **Example from instruction**
+
+    ```js
+    var BodyView = Backbone.View.extend({
+        el: "body",
+        events: {
+            "click a": "callback1",
+            "submit form": "callback2",
+            "mouseup": "callback3"
+        },
+        callback1: function(event){
+            event.preventDefault();
+            event.target; // the element that triggered the event
+
+            this.polo();
+        },
+        callback2: function(event){
+            event.preventDefault();
+            this.polo();
+        },
+        callback3: function(event){
+            event.preventDefault();
+            this.polo();
+        },
+
+        polo: function(){
+            console.log("POLO")
+        }
+    })
+
+    var body = new BodyView();
+    ```
 
 - Backbone Models
 
@@ -451,8 +513,6 @@
     var t1 = new Task({});
     console.log(t1);
     ```
-
-
 
 - Backbone Collections
 
