@@ -140,6 +140,16 @@
     
 - A quick chat about `Backbone.Router.extend`, `Backbone.View.extend`, `Backbone.Model.extend`
 
+    All the above are **constructors**, we can use them to create new instances:
+
+    ```js
+    var toothbrush = new Backbone.Model({ listing_id: 1234561, title: "My toothbrush", description: "so amaze.", price: 1337 })
+
+    var toothbrush_view = new Backbone.View({ el: ".menu" })
+
+    /// and so forth
+    ```
+
     Lodash's extend method takes all properties from the objects, and bundles them up into a single object, giving precedence to right-most arguments.
 
     ```js
@@ -160,7 +170,7 @@
     // → { name: 'fred', employer: 'TIY', years: 15 }
     ```
 
-    Backbone.Router.extend creates a new constructor function,whose constructor extends from the Backbone.Router constructor.
+    Backbone.Router.extend creates a new constructor function, whose constructor extends from the Backbone.Router constructor.
 
     ```js
     Backbone.Router.extend = function(proto){
@@ -168,6 +178,30 @@
         newConstructor.prototype = _.extend({}, Backbone.Router.prototype, proto);
         return newConstructor;
     }
+
+    var EtsyRouter = Backbone.Router.extend({ /* ... */ })
+    var myRouter = new EtsyRouter();
+    ```
+
+- A Quick Refresher on PubSub
+    
+    jQuery PubSub just uses jQuery as a mediator (the global object with events) and stores events from all publishers/subscribers on `o`:
+
+    ```js
+      var o = $({});
+      $.subscribe = function() { o.on.apply(o, arguments) }
+      $.unsubscribe = function() { o.off.apply(o, arguments) }
+      $.publish = function() { o.trigger.apply(o, arguments) }
+    ```
+
+    Using:
+
+    ```js
+    // in A.js
+    $.subscribe("saidHello", function(){ console.log("hiya back!") })
+
+    // in B.js
+    $.publish("saidHello"); // code from A.js logs "hiya back!"
     ```
 
 - Backbone.Events
@@ -258,7 +292,7 @@
     Event name  | Arguments passed to event callback | Description
     ------------- | ------------- | -------------
     `request` | model, xhr, options | when a model or collection has started a request to the server.
-    `sync` | model, resp, options | when a model (or collection) has been successfully synced
+    `sync` | model, resp, options | when a model (or collection) has been successfully synced with the server.
 
 - Backbone Router
 
@@ -303,10 +337,15 @@
         initialize: function(options){},
         // remove: function(){}
         render: function(){},
-        events: {},
-        tagName: "div",
-        className: "",
-        id: ""
+
+        model: {}, 
+        events: {} || function(){return {}}
+        collection: {}, 
+        el: '' || function(){return ''}, 
+        id: '', 
+        className: '' || function(){return ''}, 
+        tagName: '' || function(){return ''}, 
+        attributes: {'attribute':'value','attribute2':'value'}
 
         // event stuff from Backbone.Event
         // on: function(event, callback, context)
@@ -320,7 +359,33 @@
 
     // declare new instance to be used in your program
     var v1 = new myView();
+    v1.el //--> DOM Element
+    v1.$el //--> jQuery selection of DOM element above
+    v1.setElement(/* DOM element */) //--> sets the el and $el of v1
+    v1.attributes //--> returns attributes object {}
+    v1.$(".some #css [type='selector']") //--> selects elements inside the v1 container (el/$el) with jQuery
+    v1.render() //--> idempotent render function that should redraw v1's html inside the container (el/$el)
+    v1.remove() //--> removes v1 and it's container element from the DOM entirely; also unregisters any event listeners in v1
     ```
+
+    Each Backbone.View has its own `el` (that is not yet on the DOM). When creating a View, we have three choices:
+
+    1. let the View automatically create an element off the DOM of type `tagname` (we have to append it to the DOM to be visible)
+    2. let the View Constructor search for an element on the screen 
+        
+        ```js
+        var MyView = Backbone.View.extend({
+            el: "#some-ID-on-the-DOM"
+        })
+
+        new MyView().el; //--> should point to DOM element represented by #some-ID-on-the-DOM
+        ```
+
+    3. let the `new` assignment pass in a reference
+
+        ```js
+        new MyView({ el: document.querySelector('.footer') })
+        ```
 
 - Backbone Models
 
@@ -338,6 +403,16 @@
         // fetch: function(){} //--> returns a $.Deferred()
         // save: function(){} //--> returns a $.Deferred()
         // destroy: function(){} //--> returns a $.Deferred()
+        // parse: function(){}
+        // 
+        // validate: function(){} //--> can be run manually, automatically runs when save() is run, or when using {validate: true} with set()
+        // validationError: string
+        // isValid: function(){}
+        // clone: function(){}
+        // 
+        // has: function(){}
+        // unset: function(){}
+        // clear: function(){}
         // 
         // event stuff from Backbone.Event
         // on: function(event, callback, context)
@@ -350,16 +425,34 @@
         // 
         // toJSON: function(){}
         // 
-        // You must use the following when manipulating or accessing (ahem: Shawn) the model's data.
+        // You must use the following when manipulating or accessing the model's data.
         // ---
         // get: function(name){}
-        // set: function(data){}
+        // set: function(data, triggers){} //--> optional trigger for setting information ({validate:true} will validate before setting information)
+        // 
+        // hasChanged: function(){} --> returns a boolean
+        // changedAttributes: function(){} --> returns a copy of the attributes that recently changed
+        // 
+        // previous: function(){}
+        // previousAttributes: function(){}
+        // 
+        // methods from Lodash:
+        // ---
+        // keys
+        // values
+        // pairs
+        // invert
+        // pick
+        // omit
+        // 
         validate: function(attrs, options){},
         initialize: function(options){}
     })
     var t1 = new Task({});
     console.log(t1);
     ```
+
+
 
 - Backbone Collections
 
@@ -371,12 +464,40 @@
     var TaskList = Backbone.Collection.extend({
         url: "", // can also be a function that returns a string
         model: Task, // which model constructor will be used to create models?
+        // models: Array
         // fetch: function(){} --> Promise
+        // add: function(data){}
+        // create: function(data){}
         parse: function(){}
         // save: function(){} --> Promise
         // toJSON: function(){}
-        // ... lots of lodash array and collection methods
-        // add: function(data)
+        // 
+        // ... lots of lodash array and collection methods (26 to be exact)
+        // --- such as
+        // sort: function(){}
+        // pluck: function(){}
+        // where: function(){}
+        // forEach()
+        // map()
+        // reduce()
+        // filter()
+        // sortBy()
+        // groupBy()
+        // contains()
+        // reject()
+        // findWhere: function(){}
+        // add: function(){}
+        // remove: function(){}
+        // reset: function(){}
+        // set: function(){}
+        // get: function(){}
+        // at: function(){}
+        // push: function(){}
+        // pop: function(){}
+        // unshift: function(){}
+        // shift: function(){}
+        // slice: function(){}
+        // length: number
         // 
         // event stuff from Backbone.Event
         // on: function(event, callback, context)
@@ -386,6 +507,8 @@
         // listenTo: function(other object, event, callback)
         // stopListening: function(other object, event, callback)
         // listenToOnce: function(other object, event, callback)
+        // 
+        // comparator: function(){}
     });
     ```
 
