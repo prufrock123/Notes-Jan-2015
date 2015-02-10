@@ -313,7 +313,7 @@ var Pool = _.extend({}, Backbone.Events),
 
 Pool.on("marco", function(){ log("someone yelled marco") })
 Michael.listenTo(Pool, "marco", function(){ log("POLO") })
-Pool.listenTo(Chris, "marco", function(){ this.trigger("marco") })
+Pool.listenToOnce(Chris, "marco", function(){ this.trigger("marco") })
 Chris.trigger("marco");
 // two things logged:
 // ---
