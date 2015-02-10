@@ -129,7 +129,7 @@
     ```js
     (function(){
         var root = this;
-        Backbone.VERSION = '1.0.0';
+        Backbone.VERSION = '1.1.2';
         Backbone.Events = {/*events functions to mixed into any object*/};
         Backbone.Model = function() {/*model constructor*/};
         Backbone.Collection = function() {/*collection constructor*/};
@@ -137,7 +137,6 @@
         Backbone.History = function() {/*history constructor*/};
         Backbone.sync = function() {/*sync function*/};
         Backbone.View = function() {/*view constructor*/};
-
     }).call(this);
     ```
     
@@ -391,7 +390,7 @@ Chris.trigger("marco");
     v1.el //--> DOM Element
     v1.$el //--> jQuery selection of DOM element above
     v1.setElement(/* DOM element */) //--> sets the el and $el of v1
-    v1.attributes //--> returns attributes object {}
+    
     v1.$(".some #css [type='selector']") //--> selects elements inside the v1 container (el/$el) with jQuery
     v1.render() //--> idempotent render function that should redraw v1's html inside the container (el/$el)
     v1.remove() //--> removes v1 and it's container element from the DOM entirely; also unregisters any event listeners in v1
