@@ -20,12 +20,11 @@ Brian Dorton - [brian@theironyard.com](mailto:brian@theironyard.com)
 
 # Office hours and one-on-one instruction
 
-A teacher or TA will be available Monday-Friday from 9 AM to 5 PM at minimum. During lab time, you can schedule one-on-one time with either of us. After hours, we may be available in the classroom or in HipChat, which we use for group communication.
+A teacher or TA will be available Monday-Friday from 9 AM to 5 PM at minimum. During lab time, you can schedule one-on-one time with either of us. After hours, we may be available in the classroom or in Slack, which we use for group communication.
 
 # Holidays
 
 - Martin Luther King, Jr. Day - Monday, Jan 19th.
-- President's Day - Monday, Feb 16th.
 
 # Materials
 
@@ -362,7 +361,7 @@ We already outlined a [TON of REST / Browser APIs and UX Patterns here](./day24.
 
 - How often will lectures happen, and will they be optional?
 
-    They will happen probably two to three times each week; in the mornings. Some lectures will be optional, some will not. I will let you know in Hipchat ahead of time.
+    They will happen probably two to three times each week; in the mornings. Some lectures will be optional, some will not. I will let you know in Slack ahead of time.
 
 - How long will lectures be?
 

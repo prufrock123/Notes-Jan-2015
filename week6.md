@@ -19,6 +19,11 @@
 - Tuesday
     + **Homework**
         * Complete the [Backbone.Events & Views assignment](https://github.com/matthiasak/js-assignments/tree/master/backbone-events-views-1)
+- Wednesday
+    + **Homework**
+        * Do the [Backbone Weather assignment](https://github.com/matthiasak/js-assignments/tree/master/backbone-weather-model)
+        * You will need an API key from https://developer.forecast.io/
+        * And you will need to use http://devdocs.io/dom/geolocation.getcurrentposition
 
 ---
 
@@ -303,24 +308,24 @@
 
 - Example with Backbone.Events
 
-```js
-var Pool = _.extend({}, Backbone.Events),
-    Michael = _.extend({}, Backbone.Events),
-    Chris = _.extend({}, Backbone.Events),
-    log = console.log;
+    ```js
+    var Pool = _.extend({}, Backbone.Events),
+        Michael = _.extend({}, Backbone.Events),
+        Chris = _.extend({}, Backbone.Events),
+        log = console.log;
 
 
-Pool.on("marco", function(){ log("someone yelled marco") })
-Michael.listenTo(Pool, "marco", function(){ log("POLO") })
-Pool.listenToOnce(Chris, "marco", function(){ this.trigger("marco") })
-Chris.trigger("marco");
-// two things logged:
-// ---
-// someone yelled marco
-// POLO
-Chris.trigger("marco");
-// ... nothing logged
-```
+    Pool.on("marco", function(){ log("someone yelled marco") })
+    Michael.listenTo(Pool, "marco", function(){ log("POLO") })
+    Pool.listenToOnce(Chris, "marco", function(){ this.trigger("marco") })
+    Chris.trigger("marco");
+    // two things logged:
+    // ---
+    // someone yelled marco
+    // POLO
+    Chris.trigger("marco");
+    // ... nothing logged
+    ```
 
 - Backbone Router
 
@@ -448,6 +453,71 @@ Chris.trigger("marco");
     var body = new BodyView();
     ```
 
+    "MarcoPolo" examples:
+
+    ```js
+    // Marco Polo - examples
+    // --------------------------
+
+    // Example 1 --------------------------------
+    var Pool = _.extend({}, Backbone.Events),
+        Michael = _.extend({}, Backbone.Events),
+        Chris = _.extend({}, Backbone.Events),
+        log = console.log;
+
+    Pool.on("marco", function() {
+        log("someone yelled marco")
+    })
+    Michael.listenTo(Pool, "marco", function() {
+        log("POLO")
+    })
+    Pool.listenToOnce(Chris, "marco", function() {
+        this.trigger("marco")
+    })
+    Chris.trigger("marco");
+
+    // Example 2 --------------------------------
+    var SideView = Backbone.View.extend({
+        el: ".side",
+        events: {
+            "click": "marco"
+        },
+        marco: function(){ this.trigger("marco") }
+    })
+
+    var b = new Backbone.View({ el: "body" }),
+        m = new Backbone.View({ el: ".home" }),
+        s = new SideView();
+
+    m.listenTo(b, "he said marco", function(){
+        m.el.innerHTML = "POLO!"
+    })
+
+    b.listenTo(s, "marco", function(){
+        this.trigger("he said marco")
+    })
+
+    // Example 3 --------------------------------
+    var SideView = Backbone.View.extend({})
+    var MainView = Backbone.View.extend({
+        initialize: function(options){
+            this.listenTo(options.bodyView, "he said marco", function(){
+                this.el.innerHTML = "POLO!"
+            })
+        }
+    })
+    var BodyView = Backbone.View.extend({
+        el: "body",
+        initialize: function(){
+            this.s = new SideView;
+            this.m = new MainView({ bodyView: this });
+            this.listenTo(s, "marco", function(){ this.trigger("he said marco") })
+        }
+    })
+
+    var b = new BodyView;
+    ```
+
 - Backbone Models
 
     Grokking:
@@ -511,6 +581,87 @@ Chris.trigger("marco");
     })
     var t1 = new Task({});
     console.log(t1);
+    ```
+
+    Password Model example (with Validation):
+
+    ```js
+    var PasswordModel = Backbone.Model.extend({
+        validate: function(attrs){
+            // attrs.password
+            var p = attrs.password,
+                errorMessages = [];
+
+            // 1. atleast 9 characters
+            if(p.length < 9) {
+                errorMessages.push("Password must have 9 or more characters")
+            }
+            // 2. should have atleast one upper and one lowercase
+            if( !(p.match(/[a-z]/) && p.match(/[A-Z]/))  ){
+                errorMessages.push("Password must have atleast one upper and lower-case character")
+            }
+            // 3. should have atleast two non-alphabetical characters
+            var matches = p.match(/[^a-z]/ig);
+            if(!matches || matches.length < 2){
+                errorMessages.push("Password should have atleast two non-alphabetical characters")
+            }
+            // 4. should have atleast two special characters
+            matches = p.match(/[^a-z0-9 ]/ig);
+            if(!matches || matches.length < 2){
+                errorMessages.push("Password should have atleast two special characters")
+            }
+
+            if(errorMessages.length > 0){
+                return errorMessages.join("\n");
+            }
+        },
+        initialize: function(){
+            this.on("invalid", function(model, errorMessage, options){
+                alert(errorMessage)
+            })
+        }
+    })
+
+    exports.instance = new PasswordModel();
+    ```
+
+    Weather Model example (with Validation and `url`):
+
+    ```js
+    var WeatherModel = Backbone.Model.extend({
+        url: function(){
+            return [
+                "https://api.forecast.io/forecast/",
+                this.get('access_token'),
+                "/",
+                this.get("lat")+','+this.get("lng"),
+                "?callback=?"
+            ].join('')
+        },
+        defaults: {
+            forecast: "IT'S GON' RAIN",
+            lat: 5,
+            lng: 5
+        },
+        validate: function(attrs){
+            if(attrs.lat === 0 || attrs.lng === 0){
+                return "Lat or Lng not set."
+            }
+        },
+        initialize: function(){
+            this.on("change", function(model, options){
+                console.log("something changed")
+            })
+            this.on("change:forecast", function(model, value, options){
+                console.log("forecast changed")
+            })
+            this.on("invalid", function(model, errorMessage, options){
+                alert("WHATCHYOU TALKIN BOUT WILLIS")
+            })
+        }
+    })
+
+    exports.instance = new WeatherModel({access_token: "???"});
     ```
 
 - Backbone Collections
