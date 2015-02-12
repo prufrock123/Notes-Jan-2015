@@ -736,7 +736,7 @@
         },
         render: function(){
             var self = this;
-            this.loadTemplate(this.options.view).then(function(fn){
+            this.loadTemplate(this.options.view || this.view).then(function(fn) {
                 self.model && (self.el.innerHTML = fn(self.model.toJSON()));
             })
         }
