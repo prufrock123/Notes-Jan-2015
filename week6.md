@@ -722,7 +722,7 @@
             } else {
                 $.get(url).then((function(d){
                     this.cache[url] = _.template(d);
-                    x.resolve(d);
+                    x.resolve(_.template(d));
                 }).bind(this));
             }
             return x;
