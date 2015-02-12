@@ -41,6 +41,35 @@
 @include gridify(4, 600);
 
 /**
+ * PACE (automatic pre-loader thingy)
+ */
+
+.pace {
+    pointer-events: none;
+    user-select: none;
+    transition: all 1s ease;
+}
+
+.pace-inactive {
+    opacity: 0;
+}
+
+.pace-active {
+    opacity: 1;
+}
+
+.pace .pace-progress {
+    background: #2299dd;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+    transition: all 1s ease;
+}
+
+/**
  * GENERAL
  */
 
