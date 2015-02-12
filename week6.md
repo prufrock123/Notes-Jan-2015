@@ -684,10 +684,7 @@
             return x;
         },
         geofetch: function(){
-            var self = this;
-            return this.geo().then(function(position){
-                return self.fetch()
-            })
+            return this.geo().then(this.fetch.bind(this))
         }
     })
     ```
@@ -750,7 +747,7 @@
 
     ```js
     var m = new GeoWeatherModel({ access_token: "???" })
-    var v = new Backbone.TemplateView({ view: "geolocation", model: m, el: document.querySelector("body") });
+    var v = new Backbone.TemplateView({ view: "geolocation", model: m, el: "body" });
     m.geofetch();
     ```
 
