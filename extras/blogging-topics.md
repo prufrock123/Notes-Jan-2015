@@ -75,3 +75,25 @@
     add(2, 5); // 7
     add(2)(5); // 7
     ```
+
+- Question: Can you explain how `sum()` works?
+
+    ```js
+    function sum(head, rest){
+        if(head instanceof Array){
+            return sum(head[0], head.slice(1));
+        }
+        return (head || 0) + (rest.length ? sum(rest[0], rest.slice(1)) : 0);
+    }
+
+    sum(1) // 1
+    sum([1, 2, 3, 4, 5]) // 15
+    ```
+
+- Question: Can you explain how `factorial()` works?
+
+    ```js
+    function factorial (n) {
+        return n ? n * factorial(n - 1) : 1
+    }
+    ```

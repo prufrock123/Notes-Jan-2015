@@ -2,8 +2,9 @@
 
 # Objectives
 
-1. Building REST APIs and HTTP proxies with node and express
+1. ES6 (http://tagtree.io/courses/expert-es6/)
 - Using Node
 - Using Express
 - Connecting to a DB (mongo? others?)
-- http://tagtree.io/courses/expert-es6/
+- socket.io and WebSockets
+- Using Materialize.css / Bootstrap.io

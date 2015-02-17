@@ -3,24 +3,19 @@
 # Objectives
 
 1. React in 7 Minutes
-- React, Mithril, and other "Virtual DOM" frameworks
-- History of React
-- Intro the Virtual DOM
-- React Components
-- How React Implements Views (kinda)
-- Composing Views (putting one view inside another)
-- React rendering
-- Installing React
-- The Official™ React Build `render()`
-- Stateful React Components
-- Event Handling and Synthetic Events
-- Under the Hood: Autobinding and Event Delegation
-- What Components Should Have State?
-- Nesting Components in React
-- JSX
-- Flux and Reflux
-- Resources
-- Closing thoughts
+2. Grokking React Components
+3. JSnoX (https://github.com/af/JSnoX)
+4. React, Mithril, and other "Virtual DOM" frameworks
+5. History of React
+6. Intro to the Virtual DOM
+7. Creating and Rendering Components
+8. React Components maintain their own state, just like Backbone Views
+9. Event Handling and Synthetic Events
+10. Nesting Components in React
+11. JSX
+12. Flux and Reflux
+13. Resources
+14. Closing thoughts
 
 
 ---
@@ -32,6 +27,75 @@
 - React in 7 Minutes
 
     https://egghead.io/lessons/react-react-in-7-minutes
+
+- Grokking React Components
+
+    ```js
+    var Constructor = React.createClass({
+
+        // properties are provided by the instance 
+        // data passed to the constructor
+        // 
+        // these key-value pairs ensure that properties
+        // are of the type defined here:
+        propTypes: {
+            list: React.PropTypes.array,
+            isReady: React.PropTypes.bool,
+            finish: React.PropTypes.func,
+            size: React.PropTypes.number,
+            data: React.PropTypes.object,
+            description: React.PropTypes.string
+        },
+        mixins : [], // other mixins/classes to include the in the `extend`
+
+        getInitialState: function() {}, // called when a component is initialized (much like Backbone)
+        getDefaultProps: function() {}, // called when creating properties on a component (much like Backbone.Model defaults)
+
+        componentWillMount : function() {}, // called when a component is attached to the DOM
+        componentWillReceiveProps: function() {}, // called when props are updated
+        componentWillUnmount : function() {}, // called when a component is removed from the DOM
+
+        // custom methods added to this component...
+        // given an underscore in the name to denote 'custom'
+        _parseData : function() {}, 
+        _onSelect : function() {},
+
+        // called by React whenever the state changes
+        render : function() {}
+
+    })
+    ```
+
+- JSnoX (https://github.com/af/JSnoX)
+    
+    React is written in JavaScript, thus we declare components with JavaScript. This can feel very unnatural, thus Facebook created a terminal tool that converts a hybrid HTML/JS language called JSX into pure JS.
+
+    > (See the JSX section at the bottom for more info on JSX.)
+
+    Instead of using JSX (HTML written in our JS files), which breaks prettifier/formatting, JSHint, and a host of other tools, I prefer to write my code in pure JavaScript and skip the build-tool process.
+
+    The pure JS API for rendering React components, however, is "chatty", so we're going to use a React plugin called "JSnoX" that simplifies React's API.
+
+    ```js
+    var LoginForm = React.createClass({
+        render: function() {
+            return d('form[method=POST]', { onSubmit: this._submitLogin},
+            [
+                d('h1.form-header', 'Login'),
+                d('input:email[name=email]', {
+                    placeholder: 'Email'
+                }),
+                d('input:password[name=pass]', {
+                    placeholder: 'Password'
+                }),
+                d(SomeOtherNestedComponent, {
+                    myProp: 'foo'
+                }),
+                d('button:submit', 'Login')
+            ])
+        }
+    })
+    ```
 
 - React, Mithril, and other "Virtual DOM" frameworks
 
@@ -65,248 +129,83 @@
     - Flexibility - the React Components are really flexible, composable, and even work nested
     - Testability - React Components can be embedded easily in TDD/BDD suites :D
 
-- Intro the Virtual DOM
+- Intro to the Virtual DOM
 
     Manual DOM manipulation is messy and keeping track of the previous DOM state is hard. A solution to this problem is to write your code as if you were recreating the entire DOM whenever state changes. Of course, if you actually recreated the entire DOM every time your application state changed, your app would be very slow and your input fields would lose focus.
 
     > https://github.com/Matt-Esch/virtual-dom
 
-- React Components
-
-    React Components are defined in JavaScript as objects. Observe the following code. The comments above each block are what will be generated when rendered by React.
+- Creating and Rendering Components
 
     ```js
-    // <a href="http://facebook.github.io/react/">React</a>
-    var anchor = {
-      tag: 'a',
-      attrs: {href: 'http://facebook.github.io/react/'},
-      children: 'React'
-    };
-
-    // <p class="lead">
-    //   <span>A JavaScript library for building user interfaces </span>
-    //   <a href="http://facebook.github.io/react/">React</a>
-    // </p>
-    var paragraph = {
-      tag: 'p',
-      attrs: {className: {'lead': true}},
-      children: [
-        {
-          tag: 'span',
-          children: 'A JavaScript library for building user interfaces '
-        },
-        react
-      ]
-    };
-    ```
-
-- How React Implements Views (kinda)
-
-    React has some intrinsic methods to create "views", which essentially return a state object (like above), with nested components.
-
-    ```js
-    // a simple view, outputs a bolded link
-    function anchorView(state) {
-      return {
-        tag: 'a',
-        attrs: {href: state.url},
-        children: {
-          tag: 'b',
-          children: state.text
+    var Hello = React.createClass({displayName: 'HelloMessage',
+        render: function() {
+            return React.createElement("div", {}, "Hello ", this.props.name);
         }
-      };
-    }
-    ```
-
-- Composing Views (putting one view inside another)
-
-    An interesting property of such views is that they can be composed with any function that outputs JSON, and included inside other views really easily. This means you can use the power of functional programming in the view world:
-
-    ```js
-    // button: object -> VDOM (a view without styling, the output of my library)
-    function button(style) {
-      return {
-        tag: 'button',
-        attrs: {className: style}
-      };
-    }
-
-    // boostrap: string -> object (Bootstrap 3 style)
-    function bootstrap(type) {
-      var style = {btn: true};
-      style['btn-' + type] = true;
-      return style;
-    }
-
-    // boostrap: string -> object (Pure css style)
-    function pure(type) {
-      var style = {'pure-button': true};
-      style['pure-button-' + type] = true;
-      return style;
-    }
-
-    // bootstrapButton: string -> VDOM
-    // bootstrapButton is a function that passes inputs to bootstrap(),
-    // takes the output from boostrap() and passes it to button()
-    var bootstrapButton = compose(button, bootstrap);
-
-    // pureButton: string -> VDOM
-    // so we could have styling for different kinds of buttons, with
-    // minimal extra effort! (yey)
-    var pureButton = compose(button, pure);
-
-    console.log(bootstrapButton('primary'));
-    ```
-
-    prints
-
-    ```js
-    {
-      "tag": "button",
-      "attrs": {
-        "className": {
-          "btn": true,
-          "btn-primary": true
-        }
-      }
-    }
-    ```
-
-    You obtain flexibility without loss of control:
-
-    - you can rely on the expressiveness of JavaScript instead of learning a separate template language
-    - the output of a view is determined by its input
-    - you can customize the output simply applying a JSON transformation
-
-- React rendering
-
-    React has this `render()` method that takes a state object (a view) from above, and creates that associated HTML:
-
-    ```js
-    // puts
-    // <a href="http://facebook.github.io/react/">React</a>
-    // in document.body
-    React.render(anchorView({
-      href: 'http://facebook.github.io/react/',
-      text: 'React'
-    }), document.body);
-    ```
-
-- Installing React
-
-    Do you really have to ask? (troll).
-
-    ```sh
-    bower install react --save
-    ```
-
-    - `--save` stores React as a dependency in `bower.json`.
-    - `npm install ... --save` does the same with `package.json`. Since we added `node_modules` to our `.gitignore`, whenever someone clones our repos (`git clone ...`) they can simply run `npm install`, which reads the `package.json` file and installs all `--save`d packages.
-
-- The Official™ React Build `render()`
-
-    As discussed above, there are ways to create React Components, and then render them to the screen. You are now ready to try the Real React Way™.
-
-    ```js
-    var HelloMessage = React.createClass({displayName: 'HelloMessage',
-      render: function() {
-        // anytime render() is called, React will create a string of HTML and give that to the virtual DOM
-        // render(tagName, elementAttributes, text, properties)
-
-        return React.createElement("div", {}, "Hello ", this.props.name); //<-- this.props is {name: "..."} from line below
-      }
     });
 
-    React.render(React.createElement(HelloMessage, {name: "John"}), document.body);
+    var el = React.createElement(Hello, {name: "John"});
+
+    React.render(el, document.body);
     ```
-
-    This code creates a constructor called HelloMessage. When we want to visually update the DOM, we tell React to `render(components)` and pass one or more components (which can have subcomponents)
-
-- Stateful React Components
-
-    React Components have their own default properties that React code will access (sorta like Backbone Views, Models, etc):
-
-    - displayName: a canonical name for this component,
-    - getInitialState: a method that returns a state object when a component is first created,
-    - componentDidMount: a method that is called when the component is mounted (rendered) to the DOM,
-    - componentWillUnmount: a method that is called when a component is unmounted (removed) from the DOM,
-    - render: a method that returns a Virtual DOM object that represents the HTML of the component/view,
-    - setState: a method on React Components that, when called, tells the Virtual DOM to re-render to the screen.
-
-    The other method on this component (`tick()`) is run in the code by `componentDidMount()`. This is akin to creating your own `init` method on a Backbone.View and calling `init` from `initialize`.
+    
+- React Components maintain their own state, just like Backbone Views
 
     ```js
     var Timer = React.createClass({
-      displayName: 'Timer',
-      getInitialState: function() {
-        return {secondsElapsed: 0};
-      },
-      tick: function() {
-        this.setState({secondsElapsed: this.state.secondsElapsed + 1});
-      },
-      componentDidMount: function() {
-        this.interval = setInterval(this.tick, 1000);
-      },
-      componentWillUnmount: function() {
-        clearInterval(this.interval);
-      },
-      render: function() {
-        return (
-          React.createElement("div", {}, "Seconds Elapsed: ", this.state.secondsElapsed)
-        );
-      }
+        // creates the state object when a component is first created
+        getInitialState: function() { 
+            return { s: 0 } // s starts at 0
+        },
+        
+        // called when a component is attached to the DOM
+        componentDidMount: function() {
+            this.interval = setInterval(this._tick, 1000);
+        },
+        // called when a component is detached from the DOM
+        componentWillUnmount: function() {
+            clearInterval(this.interval);
+        },
+
+        // custom function, adds one second to the counter
+        _tick: function() {
+            // setState() changes the state and re-renders the component, 
+            // works a bit like Backbone.Model's set()
+            this.setState({
+                s: this.state.s + 1
+            });
+        },
+
+        // called whenever the state changes
+        render: function() {
+            return (
+                React.createElement("p", {}, "Seconds Elapsed: ", this.state.s)
+            );
+        }
     });
 
     React.render(React.createElement(Timer, null), document.body);
     ```
 
-    Here's a breakdown of this code in chronological order:
-
-    1. The above code `render()`s a React Component to `document.body`.
-    - Internally, the `Timer` component gets attached to `document.body`.
-    - `getInitialState()` is called, which returns a tiny state object with `{secondsElapsed: 0}`.
-    - When this happens, `componentDidMount()` is called,
-    - ... which creates a `setInterval()`, that calls `tick` every 1000ms.
-    - After `componentDidMount()` is called, React internally tells this Component to `render()`.
-    - Every second after this, `tick()` is called,
-    - ... which calls `this.setState()` with a new state object
-    - ... `setState()` in React internally tells this Component to `render()` automatically, drawing the updated state to the screen.
-
 - Event Handling and Synthetic Events
 
-    With React you simply pass your event handler as a camelCased prop.
+    **Tip 1**
+
+    Turn on touch event support with `React.initializeTouchEvents(true)`;
+
+    **Tip 2**
+
+    Handle events through the `render()`:
+
+    > Using the Timer example above
 
     ```js
-    var Timer = React.createClass({
-      ...,
-      tick: function() {
-        this.setState({secondsElapsed: this.state.secondsElapsed + 1});
-      },
-      ...
-    });
-
-    React.render(React.createElement(Timer, {onClick: this.tick}), document.body);
+    render: function() {
+        return (
+            React.createElement("p", {onClick: this._tick}, "Seconds Elapsed: ", this.state.s)
+        );
+    }
     ```
-
-    React ensures that all events behave identically in IE8+ by implementing a synthetic event system, not unlike Backbone.View.
-
-    If you'd like to use React on a touch device such as a phone or tablet, simply call React.initializeTouchEvents(true); to enable touch event handling.
-
-- Under the Hood: Autobinding and Event Delegation
-
-    Under the hood, React does a few things to keep your code performant and easy to understand.
-
-    1. **Autobinding**: When creating callbacks in JavaScript, you usually need to use `self`. With React, every callback method is automatically bound to `this`, so you don't have to use `self`.
-    2. **Event delegation**: React attaches event handlers to the top-level DOM element of that component - simlarly to Backbone.View's `events`. When a component is mounted or unmounted, the event handlers are simply added or removed from the DOM.
-
-- What Components Should Have State?
-
-    The Timer component above has state. How do we know when to give a component state, or just pass in new props to `render()`?
-
-    - Sometimes you need to respond to user input, a server request or the passage of time. For this you use state.
-    - **Try to keep as many of your components as possible stateless.**
-    - A common pattern is to create several stateless components that just `render()` data, and have a stateful component above them in the hierarchy that passes its state to its children via `props`. The stateful component encapsulates all of the interaction logic, while the stateless components take care of rendering data in a declarative way.
-    - State should contain data that a component's event handlers may change to trigger a UI update. (such as the Timer component's `secondsElapsed`)
 
 - Nesting Components in React
 
@@ -314,133 +213,48 @@
 
     ```js
     var TodoApp = React.createClass({
-      displayName: 'TodoApp',
-      getInitialState: function() {
-        return {items: [], text: ''};
-      },
-      onChange: function(e) {
-        this.setState({text: e.target.value});
-      },
-      handleSubmit: function(e) {
-        e.preventDefault();
-        var nextItems = this.state.items.concat([this.state.text]);
-        var nextText = '';
-        this.setState({items: nextItems, text: nextText});
-      },
-      render: function() {
-        return ...
-      }
+        // setup
+        getInitialState: function() {
+            return { items: [], text: '' }
+        },
+
+        // custom methods
+        _onChange: function(e) {
+            this.setState({ text: e.target.value })
+        },
+        _handleSubmit: function(e) {
+            e.preventDefault()
+            var nextItems = this.state.items.concat([this.state.text])
+            this.setState({ items: nextItems, text: "" })
+        },
+
+        // and rendering (using JSnoX, too)
+        render: function() {
+            return d("div", null, [
+                d("h3", null, "TODO"),
+                d(TodoList, {items: this.state.items}),
+                d("form", {onSubmit: this._handleSubmit}, [
+                    d("input", {onChange: this._onChange, value: this.state.text}),
+                    d("button", null, "Add #"+(this.state.items.length+1))
+                ])
+            ])
+        }
     });
 
-    React.render(React.createElement(TodoApp, null), document.body);
-    ```
-
-    Here's a breakdown of this code in chronological order:
-
-    1. The above code `render()`s a React Component to `document.body`.
-    - Internally, the `TodoApp` component gets attached to `document.body`.
-    - `getInitialState()` is called, which returns a tiny state object with `{items: [], text ''}`.
-    - When this happens, `componentDidMount()` is called, which does nothing here (it is an empty function by default, kinda like Backbone's `initialize()`).
-
-    You'll notice that the `render()` is left empty right now. Let's put together a nested structure of React Components:
-
-    ```js
-    var TodoApp = React.createClass({
-      ...,
-      render: function() {
-        return (
-          // <-- create a div
-          React.createElement("div", null,
-            // <-- embed an h3 with TODO
-            React.createElement("h3", null, "TODO"),
-            // <-- embed a TodoList component, with some JSON items as state
-            React.createElement(TodoList, {items: this.state.items}),
-            // <-- embed a form with a submit event handler
-            React.createElement("form", {onSubmit: this.handleSubmit},
-              // <-- embed an input tag with a change event handler
-              React.createElement("input", {onChange: this.onChange, value: this.state.text}),
-              // <-- embed a button
-              React.createElement("button", null, 'Add #' + (this.state.items.length + 1))
-            )
-          )
-        );
-      }
-    });
-    ```
-
-    > Notes/comments in the code above.
-
-    The `TodoList` component from above is the following. Notes/comments in the code again:
-
-    ```js
     var TodoList = React.createClass({
-      displayName: 'TodoList',
-      render: function() {
-        var createItem = function(itemText) {
-          return React.createElement("li", null, itemText);
-        };
-        // <-- return a ul, with an array of li's inside it
-        // <-- this.props.items is an array
-        // <-- ... array.map creates a new array
-        // <-- ... that new array consists of a bunch of li components returned by createItem()
-        return React.createElement("ul", null, this.props.items.map(createItem));
-      }
+        displayName: 'TodoList',
+        render: function() {
+            return d("ul", null, this.props.items.map(function(t){
+                return d("li", null, t);
+            }));
+        }
     });
+
+    var el = React.createElement(TodoApp, null);
+    React.render(el, document.body);
     ```
 
 - JSX
-
-    React has tools that compile this strange language (JSX) into HTML and JavaScript. React's JSX looks like this (from our Timer example earlier):
-
-    ```
-    var Timer = React.createClass({
-      getInitialState: function() {
-        return {secondsElapsed: 0};
-      },
-      tick: function() {
-        this.setState({secondsElapsed: this.state.secondsElapsed + 1});
-      },
-      componentDidMount: function() {
-        this.interval = setInterval(this.tick, 1000);
-      },
-      componentWillUnmount: function() {
-        clearInterval(this.interval);
-      },
-      render: function() {
-        return (
-          <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
-        );
-      }
-    });
-
-    React.render(<Timer />, mountNode);
-    ```
-
-    and the resulting code compiled by the tool is what we saw earlier in this write-up:
-
-    ```js
-    var Timer = React.createClass({displayName: 'Timer',
-      getInitialState: function() {
-        return {secondsElapsed: 0};
-      },
-      tick: function() {
-        this.setState({secondsElapsed: this.state.secondsElapsed + 1});
-      },
-      componentDidMount: function() {
-        this.interval = setInterval(this.tick, 1000);
-      },
-      componentWillUnmount: function() {
-        clearInterval(this.interval);
-      },
-      render: function() {
-        return (
-          React.createElement("div", null, "Seconds Elapsed: ", this.state.secondsElapsed)
-        );
-      }
-    });
-
-    React.render(React.createElement(Timer, null), mountNode);
-    ```
 
     For more info on the JSX compiler, see:
 
@@ -463,4 +277,6 @@
 - Closing thoughts
 
     React is amazingly useful for building UI views/components. It's fast, flexible, and let's us use the same JS code on the client (browser) or server (Node.js) to create an HTML string (Virtual DOM). In the browser, we can use that to just set `innerHTML`. On the server, we can just send down the HTML string and have the browser render this as a regular ol' HTML file.
+
+    > UPDATE: React is now being used to power Canvas animations and build native apps. Google it!
 
