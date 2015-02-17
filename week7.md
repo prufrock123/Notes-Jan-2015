@@ -20,6 +20,10 @@
     + GH-Pages version: http://tiy-houston-front-end-engineering.github.io/backbone-weather-gps-models-views/
     + Intro'd Backbone Collections today
     + 2pm review: Building a Contacts app in Backbone
+    + **Homework**
+        * review https://github.com/TIY-Houston-Front-End-Engineering/Backbone-Contacts
+        * blog about it
 
-- 
+- Tuesday
+    + 
 ---
