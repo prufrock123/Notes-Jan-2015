@@ -14,7 +14,7 @@
 
 # Discussion Topics and Homework
 
-- Monday
+- Tuesday
     + Reviewed Backbone Events, Models, caching and promises, `Function.prototype.bind`, `Function.prototype.apply`, Routing
     + Reviewed https://github.com/TIY-Houston-Front-End-Engineering/backbone-weather-gps-models-views
     + GH-Pages version: http://tiy-houston-front-end-engineering.github.io/backbone-weather-gps-models-views/
@@ -24,6 +24,4 @@
         * review https://github.com/TIY-Houston-Front-End-Engineering/Backbone-Contacts
         * blog about it
 
-- Tuesday
-    + 
 ---
