@@ -2,8 +2,7 @@
 
 # Objectives
 
-1. Backbone Review
-- Backbone Source Explained (http://backbonejs.org/docs/backbone.html)
+1. Backbone Review and Backbone Source Explained (http://backbonejs.org/docs/backbone.html)
 - Parse
 - Building a "social network" with Parse
 - Cloud modules with Parse
@@ -25,3 +24,5 @@
         * blog about it
 
 ---
+
+- Backbone Review and Source
