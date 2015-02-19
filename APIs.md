@@ -134,6 +134,7 @@ Aside from what `hello.js` provides access to, the following list is a large lis
     - Nest - https://developer.nest.com/documentation/control
     - FlightAware - http://flightaware.com/commercial/flightxml/
     - IMDB / OMDB - http://www.omdbapi.com/
+    - Rotten Tomatoes - http://developer.rottentomatoes.com/docs/read/JSON
     - Hipchat API - https://www.hipchat.com/docs/apiv2
     - Zapier - https://zapier.com/developer/documentation/getting-started/
     - Evernote - https://dev.evernote.com/doc/
