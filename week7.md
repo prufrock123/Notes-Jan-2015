@@ -3,11 +3,9 @@
 # Objectives
 
 1. Backbone Review and Backbone Source Explained (http://backbonejs.org/docs/backbone.html)
-- Parse
-- Building a "social network" with Parse
-- Cloud modules with Parse
 - [REST and Browser APIs](./APIs.md)
-- Building REST APIs and HTTP proxies with node and express
+- Nested Views are **BAD**
+- Parse, Building a "social network" with Parse, Cloud modules with Parse
 
 ---
 
@@ -25,4 +23,15 @@
 
 ---
 
-- Backbone Review and Source
+- Backbone Review
+
+    We are spending a lot of time this week learning how to start and problem-solve with Backbone. Review is provided every morning.
+
+- [REST and Browser APIs](./APIs.md)
+- Nested Views are **BAD**
+
+    ![](./images/nested-views.jpg)
+
+- Parse, Building a "social network" with Parse, Cloud modules with Parse
+
+    
