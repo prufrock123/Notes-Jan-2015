@@ -45,7 +45,7 @@
 
     Parse has a Backbone plugin that overwrites `Backbone.Sync` (the underlying functionality that `save()`, `fetch()`, and `destroy()` use to interact with a REST endpoint.)
 
-    **Using Parse in our apps**
+    #### Using Parse in our apps
 
     Our `package.json` has already been updated to run `bower install parse-js-sdk`, and the default `app.js` now includes a commented-out line to load the Parse SDK.
 
@@ -75,7 +75,7 @@
     })
     ```
 
-    **Creating a Parse app**
+    #### Creating a Parse app
 
     > Or converting a regular Backbone app to a Parse app...
 
@@ -114,7 +114,7 @@
 
     > For more information on converting a Backbone app into a Parse app, see https://parse.com/docs/js_guide#convert
     
-    **Creating a Parse app**
+    #### Initializing a Parse app
 
     Go to https://parse.com/apps, create an account, sign-in, create a new app, go to your settings, and get your "Application ID" and "JavaScript Key". These will be used as your access token in your code.
 
@@ -133,7 +133,7 @@
     })
     ```
 
-    **Other minor changes to our code**
+    #### Other minor changes to our code
 
     - [TemplateView](./extras/setup/TemplateView.js) has been updated to extend either Parse.View or Backbone.View, depending on which one exists when TemplateView is loaded.
     - Whenever we do a `Model.set()`, now just add on a `Model.save()` after that to push those changes up to Parse, too.
@@ -218,7 +218,7 @@
         <li id="<%= task.id %>">
         ```
 
-    **Compare the Backbone and Parse versions of ToDoneskis**
+    #### Compare the Backbone and Parse versions of ToDoneskis
     
     - The Backbone version of ToDoneskis is online here: 
         + https://github.com/TIY-Houston-Front-End-Engineering/ToDoneskis
