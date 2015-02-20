@@ -2,7 +2,10 @@
 
     "use strict";
 
-    Backbone.TemplateView = Backbone.View.extend({
+    var x =  (typeof Parse !== "undefined") && ("Parse") || (typeof Backbone !== "undefined") && ("Backbone");
+    if(!x) return;
+
+    window[x].TemplateView = window[x].View.extend({
         cache: {},
         stream: function(url) {
             var x = $.Deferred();
