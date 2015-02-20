@@ -24,6 +24,9 @@
     + Bacbkbone ToDoList group assignments
 - Thursday
     + Continue ToDoList group assignments
+- Friday
+    + Convert your group ToDoList applications to Parse using the instructions below
+        + Everyone must have their own repo on Github, or you receive a 0.
 
 ---
 
