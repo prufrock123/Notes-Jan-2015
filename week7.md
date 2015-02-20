@@ -21,11 +21,15 @@
         * review https://github.com/TIY-Houston-Front-End-Engineering/Backbone-Contacts
         * blog about it
 - Wednesday
-    + Bacbkbone ToDoList group assignments
+    + **Homework**
+        + Bacbkbone ToDoList group assignments
 - Thursday
-    + Continue ToDoList group assignments
+    + **Homework**
+        + Continue ToDoList group assignments
 - Friday
-    + Convert your group ToDoList applications to Parse using the instructions below
+    + Startup Career Fair!!
+    + **Homework**
+        + Convert your group ToDoList applications to Parse using the instructions below
         + Everyone must have their own repo on Github, or you receive a 0.
 
 ---
