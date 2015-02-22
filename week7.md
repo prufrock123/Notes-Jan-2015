@@ -5,7 +5,8 @@
 1. Backbone Review and Backbone Source Explained (http://backbonejs.org/docs/backbone.html)
 - [REST and Browser APIs](./APIs.md)
 - Nested Views are **BAD**
-- Parse, Building a "social network" with Parse, Cloud modules with Parse
+- Parse
+- Backbone Plugins and Resources that rock
 
 ---
 
@@ -230,3 +231,13 @@
     - The Parse version of ToDoneskis is online here: 
         + https://github.com/TIY-Houston-Front-End-Engineering/Parse-ToDoneskis
         + gh-pages: http://tiy-houston-front-end-engineering.github.io/Parse-ToDoneskis/
+
+- Backbone Plugins and Resources that rock
+
+    - https://github.com/jeromegn/backbone.localstorage
+        > Saves your collections to and from local storage
+    - http://backbonerelational.org/
+        > Lets you emulate one-to-one, one-to-many, and many-to-many relations with Models
+        > 
+        > **NOTE:** this is already built into Parse
+    - http://addyosmani.github.io/backbone-fundamentals/    

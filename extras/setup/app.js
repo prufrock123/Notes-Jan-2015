@@ -19,7 +19,7 @@ function app(){
 
         // when using React (and the plugin JSnoX), uncomment the following two lines
         // {url: "./bower_components/react/react.min.js"},
-        // {url: "./node_modules/jsnox/index.js"},
+        // {url: "./bower_components/jsnox/index.js"},
 
         // other stuff
         {url: "./bower_components/pace/pace.min.js"},
