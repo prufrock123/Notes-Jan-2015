@@ -27,6 +27,7 @@
     + **Homework**
         * Finish [Friday's homework (Week 7)](./week7.md)
         * Add Parse Authentication and Login to your app (Notes also on [Week 7](./week7.md))
+        
 ---
 
 - React in 7 Minutes
