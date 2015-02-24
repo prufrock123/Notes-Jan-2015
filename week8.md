@@ -22,6 +22,11 @@
 
 # Discussion Topics and Homework
 
+- Monday
+    + Parse Authentication and Users, logging in, etc.
+    + **Homework**
+        * Finish [Friday's homework (Week 7)](./week7.md)
+        * Add Parse Authentication and Login to your app (Notes also on [Week 7](./week7.md))
 ---
 
 - React in 7 Minutes
@@ -273,6 +278,7 @@
     - React Docs - http://facebook.github.io/react/docs/getting-started.html
     - https://www.npmjs.org/package/gulp-cjsx
     - React + Google Material UI = http://material-ui.com/#/components/buttons
+    - React Best Tips and Practices - http://aeflash.com/2015-02/react-tips-and-best-practices.html
 
 - Closing thoughts
 

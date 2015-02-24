@@ -35,7 +35,7 @@
 
 ---
 
-- Backbone Review
+1. Backbone Review
 
     We are spending a lot of time this week learning how to start and problem-solve with Backbone. Review is provided every morning.
 
@@ -44,7 +44,7 @@
 
     ![](./images/nested-views.jpg)
 
-- Parse, Building a "social network" with Parse, Cloud modules with Parse
+- Parse Objects/Collections, Using Parse
 
     Parse is a service that, through REST APIs, lets us build "dynamic web apps" without installing and configuring our own databases.
 
@@ -232,6 +232,33 @@
         + https://github.com/TIY-Houston-Front-End-Engineering/Parse-ToDoneskis
         + gh-pages: http://tiy-houston-front-end-engineering.github.io/Parse-ToDoneskis/
 
+- Parse Authentication and Querying
+    
+    - Parse Authentication with `Parse.User` lets us 
+        + check if a user is logged in: `Parse.User.current(); // gets current user, if any`
+        + signUp a new user: `new Parse.User({ .. }).signUp().then(...)`
+        + login an existing user: `Parse.User.logIn(...).then(...)`
+        + logout a logged-in user: `Parse.User.logout()`
+        + and others, such as Access Control Lists `new Parse.ACL(user)` and `Parse.Object.prototype.setACL(ACLobject)`
+    
+    > Docs for `Parse.User`: https://parse.com/docs/js_guide#users
+    
+    - Parse Queries with `Parse.Query` lets us
+        + search for Parse Objects that match our conditions (find all Objects where name is 'steve')
+        + add query constraints (check for equality, less than, greater than, attribute contains, attribute's value exists in array)
+        + count the number of items in a Parse Class (table)
+        + order by descending and ascending values
+        + limit the querySize
+        + paginate (`skip(10)`)
+    
+    > Docs for `Parse.Query`: https://parse.com/docs/js_guide#queries
+    
+    `new Parse.Query()` constuctor and `new Parse.User()` demoed in class with the Parse-ToDoneskis-with-Auth repo:
+
+    - https://github.com/TIY-Houston-Front-End-Engineering/Parse-ToDoneskis-with-Auth
+    - gh-pages: http://tiy-houston-front-end-engineering.github.io/Parse-ToDoneskis-with-Auth/
+
+- Building a "social network" with Parse, Cloud modules with Parse
 - Backbone Plugins and Resources that rock
 
     - https://github.com/jeromegn/backbone.localstorage
