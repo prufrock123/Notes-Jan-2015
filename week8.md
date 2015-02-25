@@ -217,6 +217,84 @@
     React.render(React.createElement(Timer, null), document.body);
     ```
 
+    JSnoX version from class:
+
+    ```
+    // in Timer.js
+    ;(function(exports){
+
+        "use strict";
+
+        var Timer = React.createClass({
+            displayName: 'TIMER',
+            // setup
+            getInitialState: function() {
+                return { time: new Date() }
+            },
+
+            componentDidMount: function(){
+                this.setState({
+                    interval: setInterval(this._tick, 16)
+                })
+            },
+
+            componentWillUnmount: function(){
+                // clearInterval(this.state.interval);
+            },
+
+            _tick: function(){
+                this.setState({ time: new Date() })
+            },
+
+            // and rendering (using JSnoX, too)
+            render: function() {
+                var t = this.state.time;
+                var s = [
+                    t.getHours(),
+                    t.getMinutes(),
+                    t.getSeconds(),
+                    t.getMilliseconds()
+                ].join(":")
+                return d("div", s)
+            }
+        })
+
+        var Wrapper = React.createClass({
+            _alert: function(e){
+                console.log(e);
+                alert(this.refs.yey.getDOMNode().innerText);
+            },
+            _handleForm: function(e){
+                e.preventDefault();
+                var email = this.refs.email.getDOMNode().value;
+                console.log(email)
+            },
+            render: function(){
+                return d("div", [
+                    d("span@yey", "weeeeeeeeeee, milliseconds are awesome."),
+                    d("input:submit", { onClick: this._alert }, "PUSH ME. NOW."),
+                    d("div.grid.grid-2-400", [
+                        d("span", {key: "COFFEE"}, "TIME: ~~~>"),
+                        d(Timer)
+                    ]),
+                    d("form", {onSubmit: this._handleForm}, [
+                        d("input:email@email"),
+                        d("button:submit", "GO")
+                    ])
+                ])
+            }
+        })
+
+        exports.Timer = Timer;
+        exports.Wrapper = Wrapper;
+
+    })(typeof module === "object" ? module.exports : window);
+
+    // in app.js
+    var wrapper = d(Wrapper, {});
+    React.render(wrapper, document.body);
+    ```
+
 - Event Handling and Synthetic Events
 
     **Tip 1**
