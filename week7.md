@@ -258,7 +258,6 @@
     - https://github.com/TIY-Houston-Front-End-Engineering/Parse-ToDoneskis-with-Auth
     - gh-pages: http://tiy-houston-front-end-engineering.github.io/Parse-ToDoneskis-with-Auth/
 
-- Building a "social network" with Parse, Cloud modules with Parse
 - Backbone Plugins and Resources that rock
 
     - https://github.com/jeromegn/backbone.localstorage

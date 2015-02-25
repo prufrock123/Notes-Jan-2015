@@ -44,6 +44,10 @@
     + **Homework**
         * Finish Monday's Parse authentication and login to your todolist app
         * Watch "React in 7 Minutes" (https://egghead.io/lessons/react-react-in-7-minutes)
+- Wednesday
+    + Making Parse-todolist-auth-react (https://github.com/TIY-Houston-Front-End-Engineering/todolist-parse-react)
+    + gh-pages: http://tiy-houston-front-end-engineering.github.io/todolist-parse-react/
+
 ---
 
 - React in 7 Minutes
