@@ -298,7 +298,7 @@
 
 - Resources
 
-    - [This slidedeck about React (PDF)](./examples/day41/hackreactor.pdf)
+    <!-- - [This slidedeck about React (PDF)](./examples/day41/hackreactor.pdf) -->
     - The official React site - http://facebook.github.io/react/
     - React Docs - http://facebook.github.io/react/docs/getting-started.html
     - https://www.npmjs.org/package/gulp-cjsx
