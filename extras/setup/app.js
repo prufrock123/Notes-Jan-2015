@@ -4,6 +4,10 @@ window.onload = app;
 function app(){
     "use strict";
 
+    // uncomment the following line to cache CSS/JS files loaded by loader in localStorage
+    // NOTE: you may need to turn this off while developing
+    // loader.textInjection = true;
+
     // load some scripts (uses promises :D)
     loader.load(
         //css
@@ -25,6 +29,11 @@ function app(){
         {url: "./bower_components/pace/pace.min.js"},
         {url: "./js/TemplateView.js"}
     ).then(function(){
+        // if turning on JSnoX, uncommment the following line
+        // window.d = jsnox(React);
+        // if turning on React, uncomment the following line
+        // React.initializeTouchEvents(true);
+
         document.querySelector("html").style.opacity = 1;
         // start app?
     })

@@ -27,7 +27,23 @@
     + **Homework**
         * Finish [Friday's homework (Week 7)](./week7.md)
         * Add Parse Authentication and Login to your app (Notes also on [Week 7](./week7.md))
-        
+- Tuesday
+    + Reviewed Parse Features
+        * Objects / Collections
+        * Queries
+        * Files
+        * Config
+        * Users
+        * Facebook Users
+        * Access Control Lists
+        * GeoPoints
+        * Cloud Functions/Code/Modules (define, run, and import functions that run on Parse's servers)
+        * Push Notifications
+        * Security, class creation, configuration
+    + Reviewed REST and Device APIs from [APIs.md](./APIs.md)
+    + **Homework**
+        * Finish Monday's Parse authentication and login to your todolist app
+        * Watch "React in 7 Minutes" (https://egghead.io/lessons/react-react-in-7-minutes)
 ---
 
 - React in 7 Minutes
@@ -60,6 +76,10 @@
         componentWillMount : function() {}, // called when a component is attached to the DOM
         componentWillReceiveProps: function() {}, // called when props are updated
         componentWillUnmount : function() {}, // called when a component is removed from the DOM
+
+        componentDidMount : function() {}, // called after a component is attached to the DOM
+        componentDidReceiveProps: function() {}, // called after props are updated
+        componentDidUnmount : function() {}, // called after a component is removed from the DOM
 
         // custom methods added to this component...
         // given an underscore in the name to denote 'custom'

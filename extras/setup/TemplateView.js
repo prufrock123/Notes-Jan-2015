@@ -23,7 +23,7 @@
             return this.stream('./templates/' + name + '.html');
         },
         initialize: function(options) {
-            this.options = options;
+            this.options = options || {};
 
             this.model && this.model.on("change", this.render.bind(this));
             this.collection && this.collection.on("add reset remove", this.render.bind(this));
