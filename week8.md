@@ -47,6 +47,11 @@
 - Wednesday
     + Making Parse-todolist-auth-react (https://github.com/TIY-Houston-Front-End-Engineering/todolist-parse-react)
     + gh-pages: http://tiy-houston-front-end-engineering.github.io/todolist-parse-react/
+- Thursday
+    + Integrating with Rails/Node/etc REST APIs (class demonstration)
+    + dual-instructor lecture
+    + **Homework**
+        * React Soundcloud: https://github.com/matthiasak/js-assignments/blob/master/react-soundcloud/README.md
 
 ---
 
