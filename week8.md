@@ -52,6 +52,7 @@
     + dual-instructor lecture
     + **Homework**
         * React Soundcloud: https://github.com/matthiasak/js-assignments/blob/master/react-soundcloud/README.md
+        * **extra credit**: explain in a blog post how the fading in/out of the following link works: http://tiy-houston-q1-rails.github.io/777-front-end/
 
 ---
 
