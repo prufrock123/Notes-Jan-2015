@@ -24,10 +24,12 @@
         "deploy:prod": "git push heroku master",
         "deploy:stage": "git push origin --all",
 
-        "postinstall": "[ ! -d scss ] && mkdir scss && mkdir dist && mkdir js && mkdir templates && mkdir js/test; [ ! -f js/app.js ] && npm run prereqs && npm run finish-commits; echo 'doneskis';",
+        "postinstall": "[ ! -d scss ] && mkdir scss && mkdir dist && mkdir js && mkdir templates && mkdir js/test; [ ! -f js/app.js ] && npm run finish-commits; npm run prereqs && echo 'doneskis';",
         "finish-commits": "if [ ! -e '.git' ]; then git init; fi; git add --all . && git commit -am 'initial commit, project setup complete'; git branch gh-pages; echo 'commits finished';",
-        "prereqs": "bower install normalize-scss pace typeplate-starter-kit jquery lodash pathjs Loader backbone react parse-js-sdk materialize bootstrap-sass --save; cp -rf ./node_modules/jsnox/ ./bower_components/jsnox; cp ./bower_components/typeplate-starter-kit/css/typeplate.css ./bower_components/typeplate-starter-kit/css/_typeplate.scss; npm run heroku:server && npm run heroku:loader && npm run heroku:procfile && npm run ignores; npm run prereqs:appjs; npm run prereqs:index; npm run prereqs:scss; npm run prereqs:mainjs; npm run prereqs:personjs; npm run prereqs:templateviewjs",
+        "prereqs": "npm run bower; npm run copy_files; npm run heroku:server && npm run heroku:loader && npm run heroku:procfile && npm run ignores; npm run prereqs:appjs; npm run prereqs:index; npm run prereqs:scss; npm run prereqs:mainjs; npm run prereqs:personjs; npm run prereqs:templateviewjs; npm run post-commit;",
 
+        "bower": "bower install normalize-scss pace typeplate-starter-kit jquery lodash pathjs Loader backbone react parse-js-sdk materialize bootstrap-sass --save;",
+        "copy_files": "cp -rf ./node_modules/jsnox/ ./bower_components/jsnox; cp ./bower_components/typeplate-starter-kit/css/typeplate.css ./bower_components/typeplate-starter-kit/css/_typeplate.scss;",
         "prereqs:appjs": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/master/extras/setup/app.js --retry 5 > ./js/app.js",
         "prereqs:mainjs": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/master/extras/setup/main.js --retry 5 > ./js/test/main.js",
         "prereqs:personjs": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/master/extras/setup/Person.js --retry 5 > ./js/Person.js",
@@ -52,7 +54,6 @@
         "js"
     ],
     "devDependencies": {
-        "jshint": "latest",
         "browserify": "latest",
         "mocha": "latest",
         "chai": "latest",
@@ -62,11 +63,21 @@
         "parallelshell": "latest"
     },
     "dependencies": {
-        "express": "^4.10.7",
-        "lodash": "latest",
-        "request": "latest",
-        "watch": "^0.13.0",
-        "jsnox": "0.9.x"
+        "autoprefixer": "^5.1.0",
+        "browserify": "^9.0.3",
+        "chai": "^2.1.0",
+        "cssmin": "^0.4.3",
+        "express": "^4.12.0",
+        "jshint": "^2.6.3",
+        "jsnox": "^0.9.2",
+        "lodash": "^3.3.1",
+        "mocha": "^2.1.0",
+        "node-sass": "^2.0.1",
+        "parallelshell": "^1.0.4",
+        "react": "^0.12.2",
+        "react-tap-event-plugin": "^0.1.4",
+        "request": "^2.53.0",
+        "watch": "^0.13.0"
     },
     "author": "The Iron Yard Front End studentz",
     "license": "MIT"
