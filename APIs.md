@@ -1,15 +1,15 @@
 
 # Happy API days!
 
-We are going to do a project on working with 2 or more real APIs. If you recall, APIs provide 3 primary methods for us front-end devs to access them:
+APIs provide 3 primary methods for us front-end devs to access them:
 
 1. CORS - JSON (not all are CORS)
 2. non-CORS - JSONP (not all are JSONP)
 3. server-side proxy (our local server makes the JSON request for us, and returns it to the browser)
 
-Method 3 is a little harder for us to implement, but we'll get there soon. :-)
+Method 3 is a little harder for us to implement, because it involves a "man in the middle".
 
-Now, we've been doing `$.get()` enough to get information from Etsy, for example, but we haven't used `$.post()` to push any information up to a live service.
+Now, we've been doing `$.get()` enough to get information from Etsy and Github, for example, but we haven't used `$.post()` to push any information up to a live service.
 
 By **authenticating** with a service, we can actually push information up to services. One particular library that can help us do that is `hello.js` (http://adodson.com/hello.js/#install).
 
@@ -260,6 +260,7 @@ Aside from what `hello.js` provides access to, the following list is a large lis
     - http://tympanus.net/Tutorials/SlidingHeaderLayout/index.html
     - http://tympanus.net/Development/DialogEffects/don.html
     - http://tympanus.net/Development/TextInputEffects/
+    - http://tympanus.net/Development/ButtonStylesInspiration/
 
     **and other stuff:**
 
@@ -279,3 +280,49 @@ Aside from what `hello.js` provides access to, the following list is a large lis
     - http://www.materialpalette.com/light-blue/lime
     - http://goodui.org/
     - http://colourco.de/
+
+# Front End Cheatsheets and References
+
+- [Mozilla Developer Network](https://developer.mozilla.org/)
+- [StackOverflow](http://stackoverflow.com)
+- [Can I Use](http://caniuse.com/)
+- [JS Garden](http://bonsaiden.github.io/JavaScript-Garden/)
+- [devdocs.io](http://devdocs.io/)
+- [Design for Programmers (check out the games at the bottom)](http://method.ac/)
+- [Vanilla JS Cheatsheet](http://overapi.com/javascript/)
+- [jQuery Cheatsheet](http://oscarotero.com/jquery/)
+- [Cheatsheets](http://overapi.com/)
+- [For a Rainy Day - John Resig slides on learning JS](http://ejohn.org/apps/learn/#1)
+- [For a Rainy Day - Rich Hicke's Simple Made Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
+- [What the heck is the event loop anyways?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+- [BetterExplainedMath](http://betterexplained.com/cheatsheet/bex.cheatsheet.pdf)
+- [Linear algebra examples](http://betterexplained.com/articles/linear-algebra-guide/)
+- Chris Coyier's [Snippets](http://css-tricks.com/snippets/)
+- Chris Coyier's [Almanac](http://css-tricks.com/almanac/)
+- http://youmightnotneedjquery.com/
+- [Modernizr and Polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills)
+- Micro-libs on [microjs.com](http://microjs.com)
+
+---
+
+## Other Resources
+
+**Typography, Fonts, Icons, A-to-Z-css podcast**
+
+- http://necolas.github.io/normalize.css/
+- http://typeplate.com/
+- http://kennethormandy.com/journal/normalize-opentype-css
+- http://hellohappy.org/beautiful-web-type/
+- http://www.atozcss.com/media-queries/ and the entire AtoZcss podcast lineup: http://www.atozcss.com/
+- http://fortawesome.github.io/Font-Awesome/get-started/
+- http://thenounproject.com/
+- https://icomoon.io/
+- http://iconmelon.com/
+
+**Design Inspiration**
+
+- http://a.singlediv.com/
+- http://codepen.io/patterns/
+- http://onepagelove.com/
+
+
