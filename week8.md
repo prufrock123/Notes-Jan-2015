@@ -63,8 +63,8 @@
 - Grokking React Components
 
     ```js
-    var Constructor = React.createClass({
-
+    var ConstructorName = React.createClass({
+        displayName: "SomeName",
         // properties are provided by the instance 
         // data passed to the constructor
         // 
@@ -174,7 +174,8 @@
 - Creating and Rendering Components
 
     ```js
-    var Hello = React.createClass({displayName: 'HelloMessage',
+    var Hello = React.createClass({
+        displayName: 'HelloMessage',
         render: function() {
             return React.createElement("div", {}, "Hello ", this.props.name);
         }
@@ -189,6 +190,8 @@
 
     ```js
     var Timer = React.createClass({
+        displayName: "Timer",
+
         // creates the state object when a component is first created
         getInitialState: function() { 
             return { s: 0 } // s starts at 0
@@ -327,6 +330,8 @@
 
     ```js
     var TodoApp = React.createClass({
+        displayName: "Todo",
+
         // setup
         getInitialState: function() {
             return { items: [], text: '' }
@@ -385,13 +390,10 @@
     <!-- - [This slidedeck about React (PDF)](./examples/day41/hackreactor.pdf) -->
     - The official React site - http://facebook.github.io/react/
     - React Docs - http://facebook.github.io/react/docs/getting-started.html
-    - https://www.npmjs.org/package/gulp-cjsx
-    - React + Google Material UI = http://material-ui.com/#/components/buttons
     - React Best Tips and Practices - http://aeflash.com/2015-02/react-tips-and-best-practices.html
 
 - Closing thoughts
 
-    React is amazingly useful for building UI views/components. It's fast, flexible, and let's us use the same JS code on the client (browser) or server (Node.js) to create an HTML string (Virtual DOM). In the browser, we can use that to just set `innerHTML`. On the server, we can just send down the HTML string and have the browser render this as a regular ol' HTML file.
-
-    > UPDATE: React is now being used to power Canvas animations and build native apps. Google it!
+    React is terse, short, and simple (once you get past the initial hurdle of learning its API) for composing User Interfaces. It's fast, flexible, and let's us use the same JS code on the client (browser) or server (Node.js) to create an HTML string (Virtual DOM).
+    
 
