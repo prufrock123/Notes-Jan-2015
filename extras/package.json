@@ -41,7 +41,7 @@
         "heroku:server": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/master/extras/setup/server.js --retry 5 > ./server.js",
         "heroku:loader": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Sept-2014/Notes/master/examples/extras/heroku-server.js --retry 5 > ./heroku-server.js",
 
-        "ignores": "echo 'node_modules' > .gitignore; echo '.DS_Store' >> .gitignore;",
+        "ignores": "echo 'node_modules' > .gitignore; echo '.DS_Store' >> .gitignore; echo '.elasticbeanstalk/' >> .gitignore;",
         "post-commit": "curl https://raw.githubusercontent.com/TIY-Houston-Front-End-Engineering/Notes-Jan-2015/master/extras/setup/git-hook-post-commit.sh --retry 5 > .git/hooks/post-commit; chmod a+x .git/hooks/post-commit;"
     },
     "repository": {
