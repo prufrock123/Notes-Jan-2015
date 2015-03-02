@@ -50,7 +50,7 @@ See [The Prework document](./prework.md).
 
 ## Final Projects
 
-See [The Final Project document](./final-projects.md).
+See [The Final Project document](./final-project.md).
 
 ## After class ends
 
