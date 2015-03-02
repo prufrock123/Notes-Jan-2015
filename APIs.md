@@ -7,20 +7,13 @@ APIs provide 3 primary methods for us front-end devs to access them:
 2. non-CORS - JSONP (not all are JSONP)
 3. server-side proxy (our local server makes the JSON request for us, and returns it to the browser)
 
-Method 3 is a little harder for us to implement, because it involves a "man in the middle".
+Methods 1 and 2 let JS developers make direct requests from the Browser.
 
-Now, we've been doing `$.get()` enough to get information from Etsy and Github, for example, but we haven't used `$.post()` to push any information up to a live service.
+Method 3 is a little harder for us to implement in the browser. Instead, use either a Node.js proxy (like the heroku-server.js file provided with the package.json), or try https://jsonp.nodejitsu.com/.
 
-By **authenticating** with a service, we can actually push information up to services. One particular library that can help us do that is `hello.js` (http://adodson.com/hello.js/#install).
+1. Social APIs
 
-Aside from what `hello.js` provides access to, the following list is a large list of APIs that provide a mix of CORS/JSONP/proxy-able services:
-
-1. API Search Engine:
-
-    - http://apis.io/
-
-- Social APIs
-
+    - connect to social APIs with http://adodson.com/hello.js/#install
     - meetup - http://www.meetup.com/meetup_api/
     - klout - https://klout.com/s/developers/v2
     - twitter - https://dev.twitter.com/
@@ -306,6 +299,10 @@ Aside from what `hello.js` provides access to, the following list is a large lis
 ---
 
 ## Other Resources
+
+**Maps**
+
+- https://snazzymaps.com/
 
 **Typography, Fonts, Icons, A-to-Z-css podcast**
 

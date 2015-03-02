@@ -8,6 +8,9 @@
 - https://www.facebook.com/groups/437880809643302/ (Houston Freelancers)
 - https://www.facebook.com/groups/houstonprogrammers/ (Houston Programmers)
 
+# Specifically freelancing
+- https://www.freelancersunion.org/contract-creator/
+
 # Startup oriented
 - https://news.ycombinator.com/jobs
 - https://angel.co/jobs
