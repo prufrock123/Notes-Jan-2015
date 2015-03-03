@@ -33,6 +33,8 @@ function app(){
         // window.d = jsnox(React);
         // if turning on React, uncomment the following line
         // React.initializeTouchEvents(true);
+        // if using TemplateView, uncomment the following line
+        TemplateView(window.Parse || window.Backbone, _, $)
 
         document.querySelector("html").style.opacity = 1;
         // start app?
